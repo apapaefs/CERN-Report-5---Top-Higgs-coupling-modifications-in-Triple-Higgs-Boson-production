@@ -70,8 +70,11 @@
 \usepackage{authblk}%for automatic linebreak in author list
 \usepackage[section]{placeins}
 %images in equations
-\newcommand{\imineq}[2]{\vcenter{\hbox{\includegraphics[height=#2ex]{#1}}}}
-\newcommand{\imineqw}[2]{\vcenter{\hbox{\includegraphics[width=#2ex]{#1}}}}
+\newcommand{\imineq}[2]{\vcenter{\hbox{\figureplaceholder}}}
+\newcommand{\imineqw}[2]{\vcenter{\hbox{\figureplaceholder}}}
+\newcommand{\figureplaceholder}{%
+  \fbox{\rule{0pt}{1.8cm}\rule{0.18\textwidth}{0pt}}%
+}
 %%%end of commands added by BONETTI
 
 
@@ -118,12 +121,94 @@
 %\pgfdeclarelayer{edgelayer}
 %\pgfsetlayers{main,edgelayer,nodelayer}
 %\tikzstyle{none}=[]
-%\input{figures/figs_240704653/all.tikzstyles}
-\newcommand*{\fig}[1]{\raisebox{0.5ex}{\scalebox{0.75}{\input{#1.tikz}}}}
-\newcommand*{\sfig}[1]{\raisebox{0.5ex}{\scalebox{0.3}{\input{#1.tikz}}}}
 \newcommand{\pysecdec}{py{\textsc{SecDec}}}
 
-\input{usefulcommands.tex}
+
+% Begin inlined from usefulcommands.tex
+% =====================================================================
+%   	useful extra commands for the note
+% =====================================================================
+% some extra parameter
+\newcommand{\lbd}{\mathswitch {\lambda}\xspace}
+\newcommand{\lbdSM}{\mathswitch {\lambda_\mathrm{SM}}\xspace}
+\newcommand{\kt}{\ensuremath{\kappa_{\mathrm{t}}}\xspace}
+\newcommand{\kF}{\ensuremath{\kappa_{\mathrm{F}}}\xspace}
+\newcommand{\kV}{\ensuremath{\kappa_{\mathrm{V}}}\xspace}
+\newcommand{\kb}{\ensuremath{\kappa_{\mathrm{b}}}\xspace}
+\newcommand{\ktau}{\ensuremath{\kappa_{\Ptau}}\xspace}
+\newcommand{\kmu}{\ensuremath{\kappa_{\Pmu}}\xspace}
+\newcommand{\kW}{\ensuremath{\kappa_{\mathrm{W}}}\xspace}
+\newcommand{\kZ}{\ensuremath{\kappa_{\mathrm{Z}}}\xspace}
+\newcommand{\kl}{\ensuremath{\kappa_{\lambda}}\xspace}
+\newcommand{\kg}{\ensuremath{\kappa_{\gamma}}\xspace}
+\newcommand{\kglu}{\ensuremath{\kappa_{\Pg}}\xspace}
+\newcommand{\Cone}{\ensuremath{C_1}\xspace}
+
+
+% some extra quantity
+\newcommand{\mH}{\mathswitch {m_{\PH}}}
+\newcommand{\mjj}{\mathswitch {m_\mathrm{jj}}\xspace}
+\newcommand{\mll}{\mathswitch {m_\mathrm{\Pl\Pl}}\xspace}
+\newcommand{\pt}{\pT\xspace}
+\newcommand{\ptH}{\ensuremath{\pt^{\PH}}\xspace}
+\newcommand{\ptV}{\ensuremath{\pt^{\mathrm{V}}}\xspace}
+ 
+% Higgs production processes
+\newcommand{\HH}{\ensuremath{\mathrm{HH}}\xspace}
+\newcommand{\bbH}{\ensuremath{\bbbar\mathrm{H}}\xspace}
+\newcommand{\ttH}{\ensuremath{\ttbar\mathrm{H}}\xspace}
+\newcommand{\tHq}{\ensuremath{\mathrm{tHq}}\xspace}
+\newcommand{\tHW}{\ensuremath{\Pt\PH\PW}\xspace}
+\newcommand{\ttHH}{\ensuremath{\ttbar\PH\PH}\xspace}
+\newcommand{\VHH}{\ensuremath{\mathrm{VHH}}\xspace}
+\newcommand{\ggH}{\ensuremath{\mathrm{ggH}}\xspace}
+\newcommand{\VH}{\ensuremath{\mathrm{VH}}\xspace}
+\newcommand{\ZH}{\ensuremath{\mathrm{\PZ\PH}}\xspace}
+\newcommand{\ZHlep}{\ensuremath{\mathrm{\PZ(\Pl\Pl)\PH}}\xspace}
+\newcommand{\WH}{\ensuremath{\mathrm{\PW\PH}}\xspace}
+\newcommand{\WHlep}{\ensuremath{\mathrm{\PW(\Pl\PGn)\PH}}\xspace}
+\newcommand{\VHhad}{\ensuremath{\mathrm{V(\Pq\Pq)\PH}}\xspace}
+\newcommand{\Hjj}{\ensuremath{\PH\mathrm{jj}}\xspace}
+\newcommand{\VBFH}{\ensuremath{\mathrm{\Pq\Pq\PH}}\xspace}
+\newcommand{\VBFHH}{\ensuremath{\mathrm{\Pq\Pq\PH\PH}}\xspace}
+\newcommand{\ggHH}{\ensuremath{\mathrm{ggHH}}\xspace}
+
+% Higgs decay processes
+\newcommand{\Hgg}{\ensuremath{\PH \mathrm{\rightarrow}\PGg\PGg}\xspace}
+\newcommand{\Hff}{\ensuremath{\PH \mathrm{\rightarrow} \ffbar}\xspace}
+\newcommand{\Hbb}{\ensuremath{\PH \mathrm{\rightarrow} \bbbar}\xspace}
+\newcommand{\Hcc}{\ensuremath{\PH \mathrm{\rightarrow} \ccbar}\xspace}
+\newcommand{\HZZ}{\ensuremath{\PH \mathrm{\rightarrow} \PZ\PZ}\xspace}
+\newcommand{\HZZllll}{\ensuremath{\PH \mathrm{\rightarrow} \PZ\PZ(4\Pl)}\xspace}
+\newcommand{\HVV}{\ensuremath{\PH \mathrm{\rightarrow} \PV\PV}\xspace}
+\newcommand{\HWW}{\ensuremath{\PH \mathrm{\rightarrow} \PWp\PWm}\xspace}
+\newcommand{\Htt}{\ensuremath{\PH \mathrm{\rightarrow} \Ptaup\Ptaum}\xspace}
+\newcommand{\Hmumu}{\ensuremath{\PH \mathrm{\rightarrow} \Pmup\Pmum}\xspace}
+\newcommand{\HZg}{\ensuremath{\PH \mathrm{\rightarrow} \PZ\PGg}\xspace}
+
+% command for N3LO and N3LL section
+\newcommand\ResNOne{{\rm N}_1}
+\newcommand\ResNTwo{{\rm N}_2}
+\newcommand\ResNbOne{\overline{{\rm N}}_1}
+\newcommand\ResNbTwo{\overline{{\rm N}}_2}
+\newcommand\NkLONkLLtimesNLOmt{{\rm (N}^{k}{\rm LO+N}^k{\rm LL)\otimes NLO}_{m_t}}
+\newcommand\NkLOtimesNLOmt{{\rm N}^{k}{\rm LO \otimes NLO}_{m_t}}
+\newcommand\NkLONkLL{{\rm N}^{k}{\rm LO+N}^k{\rm LL}}
+\newcommand\NkLO{{\rm N}^{k}{\rm LO}}
+\newcommand\NLOmt{{\rm NLO}_{m_t}}
+\newcommand\NNLOtimesNLOmt{{\rm NNLO\otimes NLO}_{m_t}}
+\newcommand\NNLONNLLtimesNLOmt{{\rm (NNLO+NNLL)\otimes NLO}_{m_t}}
+\newcommand\NtLOtimesNLOmt{{\rm N}^{3}{\rm LO \otimes NLO}_{m_t}}
+\newcommand\NtLONtLLtimesNLOmt{{\rm (N}^{3}{\rm LO+N}^3{\rm LL)\otimes NLO}_{m_t}}
+
+%codes and abbreviation for FTApprox section
+\newcommand{\ftapprox}{FT$_{\mathrm{approx}}$\xspace}
+\newcommand{\geneva}{\textsc{Geneva}\xspace}
+\newcommand{\hhgrid}{\textsc{HHgrid}\xspace}
+\newcommand{\openloops}{\textsc{OpenLoops}}
+\newcommand{\pythiaEight}{\texttt{Pythia 8}\xspace}
+% End inlined from usefulcommands.tex
+
 
 \newcommand{\preprintnumbers}{%
   \begin{flushright}
@@ -163,7 +248,7 @@
 \preprintnumbers
 
 \begin{center}{\Large \textbf{\color{scipostdeepblue}{
- Higgs Boson Pair Production via Gluon Fusion: Higher-Order Corrections and Theoretical Uncertainties\\
+ CERN Report 5: Top-Higgs Coupling Modifications in Triple-Higgs Boson Production\\
 }}}\end{center}
 
 
@@ -378,35 +463,2239 @@ In this contribution, the higher-order QCD and electroweak corrections to Standa
 
 
 
-\input{Introduction/Intro}
+
+% Begin inlined from Introduction/Intro.tex
+\section{Introduction}
+%        ============
+The discovery of a scalar resonance at the LHC \cite{Aad:2012tfa,Chatrchyan:2012xdj} with a mass of 125 GeV, which is compatible with the
+Standard Model (SM) Higgs boson \cite{Higgs:1964ia, Higgs:1964pj,
+Englert:1964et, Guralnik:1964eu, Higgs:1966ev, Kibble:1967sv}, completed
+the SM of strong and electroweak interactions. However, determining the coupling strengths of the boson's self-interactions and interactions with the other SM particles is essential to establish its identity as the SM Higgs boson. Specifically, Higgs boson production and decay processes at the LHC \cite{Khachatryan:2016vau,ATLAS:2019nkf,CMS:2020xwi} are suitable channels to extract these couplings and will be pursued in future runs. The separation of the basic Lagrangian
+parameters from the physical observables is plagued by experimental and
+theoretical uncertainties, which require detailed analyses. Focusing on the theoretical uncertainties, the usual procedure is to study the factorization and renormalization scale dependencies. These originate from the involvement of parton densities and the strong coupling in most production processes and are relevant for the QCD uncertainties. In some processes, the renormalization scale dependence of the Yukawa coupling is included too,
+e.g.~in $h\to q\bar q$ ($q=b,c$). Moreover, the uncertainties due to unknown higher-order electroweak corrections need to be considered to
+obtain a complete estimate of the theoretical uncertainties.
+
+Higgs boson pair production via gluon fusion is mediated by triangle and box
+diagrams involving closed top quark (and to a lesser extent bottom quark) loops at leading order (LO) \cite{Glover:1987nx,
+Plehn:1996wb}, see Fig.~\ref{fg:hhdia}.
+%Both contributions develop a relevant top-mass dependence so that the related uncertadiainties have to be included in the total theoretical uncertainty.
+% comment GH: this is discussed later, here it interrupts the logic flow.
+%
+\begin{figure}[t]
+\vspace*{0.3cm}
+\begin{center}
+\figureplaceholder
+\caption{Typical diagrams contributing to Higgs boson pair
+production via gluon fusion. The contribution of the trilinear Higgs boson
+self-coupling is marked in red.}
+\label{fg:hhdia}
+\end{center}
+\end{figure}
+%Higgs boson pairs are mainly produced via the gluon-fusion mechanism $gg\to hh$ which is primarily mediated by top-quark loops and receives only a small
+The contribution
+from bottom-quark loops is at the sub-percent level. The box diagrams (left) and the triangle diagrams (right) interfere destructively; the latter is the one sensitive to the trilinear Higgs boson self-coupling $\lambda_{hhh}$. The dependence of the cross section on the size
+of the trilinear Higgs boson self-coupling can be roughly estimated as
+$\Delta\sigma/\sigma \sim -\Delta\lambda_{hhh}/\lambda_{hhh}$ in the vicinity of the
+SM value of $\lambda_{hhh}$. Therefore, determining the trilinear Higgs boson self-coupling
+from Higgs boson pair production requires a reduction of the theoretical uncertainty on the corresponding cross section;
+notably, the inclusion of
+higher-order corrections becomes indispensable.
+
+The QCD corrections were first obtained at next-to-leading order (NLO) in the heavy-top limit (HTL) \cite{Dawson:1998py}, later including the full top quark mass dependence
+up to NLO \cite{Borowka:2016ehy,Borowka:2016ypz, Baglio:2018lrj,Baglio:2020ini,Baglio:2020wgt} and at next-to-next-to-leading order (NNLO) in the HTL \cite{deFlorian:2013uza,
+deFlorian:2013jea, Grigo:2014jma}. Meanwhile, the next-to-next-to-next-to-leading order (N$^3$LO) QCD
+corrections have been computed in the HTL,
+resulting in a small further increase of the cross section
+\cite{Banerjee:2018lfq, Chen:2019lzz, Chen:2019fhs, Chen:2026zmi}, as well as the N$^3$LO+N$^3$LL corrections~\cite{Ajjath:2022kpv}, where the residual scale uncertainties are at the percent level. Consequently, other theory uncertainties now play a dominant role.
+
+The QCD corrections
+increase the total LO cross section by about a factor of two. The full NLO results have been matched to parton showers \cite{Heinrich:2017kxx, Jones:2017giv,Bagnaschi:2023rbx} and the full NNLO results in the
+HTL have been merged with the NLO mass effects and
+supplemented by additional top quark mass effects in the double-real
+corrections \cite{Grazzini:2018bsd}.
+%However, a reliable estimate of the theoretical uncertainties is necessary, i.e.~considering the usual
+%renormalization and factorization scale dependences but in addition also the uncertainties induced by the top-mass scheme and scale dependence.
+Apart from the renormalization and factorization scale uncertainties, the following uncertainties are assessed in this report: uncertainties induced by the top quark mass scheme and scale dependence, uncertainties due to missing finite top quark mass effects and the impact of NLO electroweak corrections.
+
+
+\subsection{General considerations}
+
+The amplitude for $g(p_1) g(p_2) \to h(p_3) h(p_4)$ can be decomposed as~\cite{Glover:1987nx}\footnote{In Ref.~\cite{Bi:2023bnq}, the existence of an additional $\Delta_5$ tensor structure, containing a single Levi-Civita symbol and related to electroweak corrections, is considered. This new tensor structure plays no role at NLO since it vanishes upon contraction with the Born amplitude.}
+\begin{align}
+    \begin{aligned}
+        \mathcal{M}_{ab}&=\delta_{ab}\,\epsilon^\mu (p_1,n_1)\epsilon^\nu (p_2,n_2)\,\mathcal{M}_{\mu\nu}   \,,\\
+        \mathcal{M}^{\mu\nu}&=\frac{\alpha_s}{8\pi v^2}\left[
+        F_1(\hat{s},\hat{t},m_h^2,m_t^2,D)\,T_1 ^{\mu\nu} +
+        F_2(\hat{s},\hat{t},m_h^2,m_t^2,D)\,T_2 ^{\mu\nu}
+        \right],
+    \end{aligned}
+    \label{eq:FFdeco}
+\end{align}
+where $m_h$ and $m_t$ are the Higgs boson and top quark masses, respectively, $D$ is the number of spacetime dimensions, $a$ and $b$ are colour indices, and the tensor structures $T_{1,2}^{\mu\nu}$ read
+\begin{align}
+    \begin{aligned}
+        T_1^{\mu\nu} &= g^{\mu\nu} - \frac{1}{p_{12}}
+        p_2^\mu p_1^\nu
+        \,,\\
+        T_2^{\mu\nu} &= g^{\mu\nu} + \frac{1}{p_{12} p_T^2}
+    \left(
+        m_h^2 p_2^\mu p_1^\nu - 2 p_{23} p_3^\mu p_1^\nu - 2 p_{13} p_2^\mu p_3^\nu + 2 p_{12} p_3^\mu p_3^\nu
+    \right)
+    \end{aligned}
+\end{align}
+with
+\begin{align}
+    p_T^2 = \frac{2 p_{13} p_{23}}{p_{12}} - m_h^2\quad\mbox{and}\quad p_{ij}=p_i\cdot p_j
+    \,.
+\end{align}
+The form factors $F_{1,2}$ are related to helicity amplitudes by
+\begin{align}
+    \begin{aligned}
+        \mathcal{M}^{++}    = \mathcal{M}^{--} &= -\frac{\alpha_s}{8\pi v^2} \,F_1(\hat{s},\hat{t},m_h^2,m_t^2,D) \,,\\
+        \mathcal{M}^{+-}    = \mathcal{M}^{-+} &= -\frac{\alpha_s}{8\pi v^2} \,F_2(\hat{s},\hat{t},m_h^2,m_t^2,D)
+        \,,
+    \end{aligned}
+\end{align}
+and can be extracted by applying the projectors $P_{1,2}^{\mu\nu}$ to $\mathcal{M}^{\mu\nu}$ as
+\begin{align}
+    \label{eq:in:ffe}
+    \begin{aligned}
+        P_1^{\mu\nu} \mathcal{M}_{\mu\nu}   &= \frac{\alpha_s}{8\pi v^2}\,F_1(\hat{s},\hat{t},m_h^2,m_t^2,D)
+        \,, \\
+        P_2^{\mu\nu} \mathcal{M}_{\mu\nu}   &= \frac{\alpha_s}{8\pi v^2}\,F_2(\hat{s},\hat{t},m_h^2,m_t^2,D)\,,
+    \end{aligned}
+\end{align}
+with
+\begin{align}
+    \begin{aligned}
+        P_1^{\mu\nu}    &=
+        \frac{1}{4}\frac{D-2}{D-3} T_1^{\mu\nu} - \frac{1}{4}\frac{D-4}{D-3} T_2^{\mu\nu}
+        \,,\\
+        P_2^{\mu\nu}    &=
+        \frac{1}{4}\frac{D-2}{D-3} T_2^{\mu\nu} - \frac{1}{4}\frac{D-4}{D-3} T_1^{\mu\nu}
+        \,.
+    \end{aligned}
+\end{align}
+Higher-order corrections require the determination of both virtual and real contributions. In the latter case, extra partons have to be considered, producing new tensor structures. For QCD corrections, all possible non-zero combinations of coloured partons must be considered, while NLO EW corrections do not produce real corrections, thanks to Furry's theorem.
+
+This report is organized as follows. Section~\ref{sec:nlo-qcd} reviews the
+NLO QCD corrections with full top quark mass effects, including the matching
+to parton showers and the treatment of finite top quark mass effects in the relevant
+amplitudes. Section~\ref{sec:nnlo-qcd} discusses the approximate NNLO QCD
+predictions, while Section~\ref{sec:n3lo-qcd} summarizes the N$^3$LO QCD
+corrections and the impact of soft-gluon resummation.
+Section~\ref{sec:scheme-scale-uncertainties} is devoted to the top quark mass
+scheme and scale uncertainties, and Section~\ref{sec:ew-sm} reviews the
+electroweak corrections in the Standard Model. The purpose of these sections
+is to describe the methods and intermediate results, in some cases obtained
+with choices of parameters and PDF sets that differ from those used in the
+final recommendations; the definitive numbers are the recommendations collected
+at the end of the report. The final cross section recommendations are presented
+in Section~\ref{sec:recs}. In particular, Table~\ref{tab:final_xs_reco_125}
+shows the combined final recommendation, including the dominant uncertainty
+stemming from the top quark mass scheme dependence, and
+Table~\ref{tab:final_xs_reco_125_mh} shows the variation of the recommended
+cross section with the Higgs-boson mass. Section~\ref{subsec:mhh_distribution}
+presents the recommended differential distributions for the Higgs boson pair invariant mass, $m_{hh}$.
+% End inlined from Introduction/Intro.tex
 
 
 
-\input{NLO_QCD_SM/NLO_QCD_main}
+
+
+% Begin inlined from NLO_QCD_SM/NLO_QCD_main.tex
+\section{NLO QCD corrections with full top quark mass effects}
+\label{sec:nlo-qcd}
+
+
+% Begin inlined from NLO_QCD_SM/NLOmtPS/fullNLOandPS.tex
+\subsection{Full NLO QCD corrections and matching to parton showers}
+\label{sec:fullPS}
+
+%\textit{Authors:} S. Borowka, N. Greiner, G. Heinrich, S.P. Jones, M. Kerner, J. Schlenk, U. Schubert, T. Zirke (1604.06447+1608.04798)
+
+\textbf{Sophia Borowka, Nicolas Greiner, Gudrun Heinrich, Stephen P. Jones, Matthias Kerner, Johannes Schlenk, Ulrich Schubert, Tom Zirke}~\cite{Borowka:2016ehy,Borowka:2016ypz,Heinrich:2017kxx,Jones:2017giv,Heinrich:2019bkc}.
+
+\noindent In this section we briefly describe the calculation of the NLO QCD corrections to $gg\to hh$ including the full top quark mass dependence via a numerical method based on sector decomposition~\cite{Binoth:2000ps,Borowka:2015mxa}, explained in detail in Refs.~\cite{Borowka:2016ehy,Borowka:2016ypz}, and the matching of these fixed-order results to parton showers~\cite{Heinrich:2017kxx,Jones:2017giv,Heinrich:2019bkc}.
+
+\subsubsection{Method}
+\label{intro_ampli}
+
+%%As already mentioned in section~\ref{sec:hhew},
+%The amplitude can be decomposed into form factors as
+%\begin{align}
+%&{\cal M}_{ab}=\delta_{ab}\,\epsilon^\mu (p_1,n_1)\epsilon^\nu (p_2,n_2)\,{\cal
+%  M}_{\mu\nu}\label{eq:FFdeco}\\
+%&{\cal M}^{\mu\nu}=\frac{\alpha_s}{8\pi v^2}\left(F_1(\hat{s},\hat{t},m_h^2,m_t^2,D)\;T_1 ^{\mu\nu}+F_2(\hat{s},\hat{t},m_h^2,m_t^2,D)\;T_2 ^{\mu\nu}\right)\;,\nonumber
+%\end{align}
+%where $D$ denotes the space-time dimension.
+%The form factors are related to helicity amplitudes by
+% \begin{align}
+%{\cal M}^{++}&={\cal M}^{--}=-\frac{\alpha_s}{8\pi v^2} \,F_1\nonumber\\
+%{\cal M}^{+-}&={\cal M}^{-+}=-\frac{\alpha_s}{8\pi v^2} \,F_2\;.
+%\end{align}
+%We performed a projection onto form factors via appropriate projectors $P_{1,2}^{\mu\nu}$
+%\begin{eqnarray*}
+%P_1^{\mu\nu} {\cal M}_{\mu\nu}&=&\frac{\alpha_s}{8\pi v^2}\,F_1(\hat{s},\hat{t},m_h^2,m_t^2,D)\;, \\
+%P_2^{\mu\nu} {\cal M}_{\mu\nu}&=&\frac{\alpha_s}{8\pi v^2}\,F_2(\hat{s},\hat{t},m_h^2,m_t^2,D)\;.
+%\end{eqnarray*}
+The virtual two-loop amplitude has been generated with an extension of the program \texttt{GoSam}~\cite{GoSam:2014yla,Braun:2025afl}, and the form factors extracted according to Eq.~\eqref{eq:in:ffe}.
+The reduction of the integrals occurring in the amplitude to master integrals has been performed using \texttt{Reduze}~\cite{vonManteuffel:2012np}.
+ A complete reduction had been achieved only for the planar sectors, while a partial reduction of the
+non-planar sectors was sufficient for the numerical evaluation. This led to 145 planar master
+integrals plus 70 non-planar integrals, and a further 112 integrals that differ by a crossing.
+As these integrals contain four independent mass scales,
+$\hat{s},\hat{t},m_t^2, m_h^2$, their analytical calculation is a hard task.
+We calculated all integrals numerically using the program \texttt{SecDec}-3.0~\cite{Borowka:2015mxa}, which has since evolved into \texttt{pySecDec}~\cite{Borowka:2017idc,Heinrich:2023til}, using $\sim$16 dual \texttt{Nvidia Tesla K20X} GPU nodes.
+%For the integration we used a quasi-Monte Carlo method based on a rank-one lattice rule~\cite{Li:2015foa,QMCActaNumerica,nuyens2006fast}.
+
+The amplitudes for the real radiation have been generated with \texttt{GoSam}~\cite{GoSam:2014yla,Braun:2025afl}.
+As the process is loop-induced, the NLO real corrections involve one-loop $2\to 3$ amplitudes where single-unresolved radiation can occur.
+We used the Catani-Seymour dipole formalism~\cite{Catani:1996vz} to isolate the corresponding infrared poles.
+
+The dependence on the trilinear Higgs boson self-coupling modifier
+$\kappa_\lambda \equiv \lambda_{hhh}/\lambda_{hhh}^{\rm SM}$
+was also assessed in Ref.~\cite{Borowka:2016ypz}, for the first time
+at full NLO.
+In the HTL at leading order, the $\kappa_\lambda$-dependence is
+given by
+\begin{align}
+|{\cal M}|^2&\sim  \frac{2}{9} -  \frac{4}{3}\,m_h^2\,\frac{\kappa_\lambda}{\hat{s}-m_h^2} +
+  2\,m_h^4\,\frac{\kappa_\lambda^2}{(\hat{s}-m_h^2)^2}\;.\label{eq:loheft}
+\end{align}
+For $\kappa_\lambda=1$, this expression vanishes at the Higgs boson pair production threshold
+$\hat{s} \sim 4 m_h^2$. For larger values of $\kappa_\lambda$, the minimum is
+shifted; the expression above has a double zero at
+$\hat{s}=m_h^2(1+3\kappa_\lambda)$ due to the destructive interference between box- and
+triangle-type contributions.
+In the full theory, the amplitude does not vanish completely at these points,
+but nonetheless also gets small.
+
+\subsubsection{Results}
+The total cross section at full NLO, at $\sqrt{s}=14$\,TeV, was found to be smaller than the Born-rescaled NLO cross section in the HTL by about 15\%, and smaller than the $\mathrm{NLO}_{\mathrm{FTapprox}}$ result by about 4\%.
+
+Differential results for the Higgs boson pair invariant mass distribution $m_{hh}$ and the transverse momentum distribution of a Higgs boson, $p_{T,h}$, are shown in Fig.~\ref{fig:mhh}.
+Comparing the full NLO result with the HTL prediction (called HEFT in Fig.~\ref{fig:mhh}), one can clearly see that the high-energy region is not well described by this approximation, even if it is rescaled with the full Born (called ``Born-improved HEFT'', blue curve). Without rescaling by the full Born (called ``basic HEFT''), the prediction fails to describe the distribution except in the very low-$m_{hh}$ bins, as this approximation is only valid below the production threshold of a virtual top quark pair. The dark green curve denotes the so-called $\mathrm{NLO}_{\mathrm{FTapprox}}$ (``approximate Full Theory'')~\cite{Maltoni:2014eza}, where the real radiation part is calculated with full $m_t$ dependence, while the virtual corrections are calculated in the HTL. This approximation has been lifted to NNLO accuracy in Ref.~\cite{Grazzini:2018bsd}, described in Section~\ref{sec:NNLO_FTapprox}.
+
+
+\begin{figure}
+\centering
+\begin{subfigure}{0.49\textwidth}
+\figureplaceholder
+\caption{Higgs boson pair invariant mass distribution.\label{subfig:mhh}}
+\end{subfigure}
+\begin{subfigure}{0.49\textwidth}
+\figureplaceholder
+\caption{$p_{T,h}$ distribution.\label{subfig:pth14}}
+\end{subfigure}
+\caption{(a) Higgs boson pair invariant mass distribution $m_{hh}$, (b) transverse momentum distribution of (any) Higgs boson, $p_{T,h}$, both at
+  $\sqrt{s}=14$\,TeV. In this figure, HEFT denotes the HTL, and ``basic'' means not rescaled by the full-$m_t$ Born amplitude. Figures from Ref.~\cite{Borowka:2016ypz}.\label{fig:mhh}}
+\end{figure}
+
+\subsubsection{Matching to parton showers}
+
+The NLO result calculated in
+Refs.~\cite{Borowka:2016ehy,Borowka:2016ypz} has been matched to the {\tt Powheg-Box-V2}~\cite{Alioli:2010xd} and {\tt MG5\_aMC@NLO}~\cite{Alwall:2014hca} in Ref.~\cite{Heinrich:2017kxx} and to {\tt Sherpa}~\cite{Gleisberg:2008ta} in Ref.~\cite{Jones:2017giv}, where the {\tt Powheg-Box-V2} implementation, i.e. the public code {\tt ggHH}, was later extended to include variations of the trilinear Higgs boson self-coupling~\cite{Heinrich:2019bkc} and the leading five anomalous couplings within non-linear Higgs Effective Field Theory (HEFT)~\cite{Buchalla:2018yce,Heinrich:2020ckp}.
+In Refs.~\cite{Heinrich:2017kxx,Heinrich:2020ckp} it has been demonstrated that the differences between different parton showers and matching schemes can be quite large for radiation-sensitive observables such as the net transverse momentum of the Higgs boson pair, while they are very moderate for the invariant mass of the Higgs boson pair, see Fig.~\ref{fig:gghh_nlo_shower}.
+It also has been shown that the NLO results in the HTL can differ more from the full NLO result than some prominent EFT benchmark points, underlining again the importance of the NLO corrections with full top quark mass dependence.
+
+The code {\tt ggHH\_SMEFT} contains NLO QCD results combined with leading and subleading operators in SMEFT~\cite{Heinrich:2022idm,Heinrich:2023rsd}, as well as running Wilson coefficients~\cite{Heinrich:2024rtg}, see also Ref.~\cite{Alasfar:2023xpc} for Effective Field Theory descriptions of Higgs boson pair production. This code can be interfaced to parton showers within the {\tt Powheg-Box-V2} in the same way as the {\tt ggHH} code.
+
+\begin{figure}
+\centering
+\begin{subfigure}{0.49\textwidth}
+\figureplaceholder
+\caption{Figure from Ref.~\cite{Heinrich:2017kxx}.\label{subfig:pthh_pythia_shower}}
+\end{subfigure}
+\begin{subfigure}{0.49\textwidth}
+\figureplaceholder
+\caption{Figure from Ref.~\cite{Heinrich:2019bkc}.\label{subfig:pthh_herwig_shower}}
+\end{subfigure}
+\caption{Higgs boson pair transverse momentum spectrum, comparing fixed-order NLO with different parton showers. All results are based on the {\tt ggHH} ({\tt Powheg-Box-V2}) code. (a) Comparison of fixed-order NLO with its matching to Pythia6 (PY6) and \texttt{Pythia 8} (PY8)~\cite{Sjostrand:2014zea}; (b) comparison of \texttt{Pythia 8} (PY8) with the \texttt{Herwig 7}~\cite{Bellm:2017bvx,Bellm:2025pcw} $\tilde{q}$ and dipole showers, respectively.\label{fig:gghh_nlo_shower}}
+\end{figure}
+% End inlined from NLO_QCD_SM/NLOmtPS/fullNLOandPS.tex
 
 
 
-\input{NNLO_QCD_SM/NNLO_QCD_main}
+% Begin inlined from NLO_QCD_SM/NLOmtmh/mtmhgeneral.tex
+\subsection[Full NLO calculation with free MH and mt]{Full NLO calculation with free \boldmath $m_h$ and $m_t$}
+\label{sec:nlo2}
+
+%\textit{Authors:} J. Baglio, F. Campanario, S. Glaus, M. M. M\"uhlleitner, J. Ronca, M. Spira, J. Streicher (2003.03227 + 1811.05692) \\[0.3cm]
+
+\textbf{Julien Baglio, Francisco Campanario, Seraina Glaus, Milada Margarete Mühl\-leitner, Jonathan Ronca, Michael Spira, Juraj Streicher~\cite{Baglio:2018lrj,Baglio:2020ini}.}
+
+\begin{figure}[!hbtp]
+\vspace*{-0cm}
+\begin{center}
+\figureplaceholder
+\vspace*{-0cm}
+\caption{Invariant-mass distributions for Higgs boson pair production via gluon fusion at the 14 TeV LHC as a function of $m_{hh}$. LO results (in black), HTL results (in blue), HTL results including the full real corrections (in yellow), HTL results including the full virtual corrections (in green, including the numerical error), and the full NLO QCD results (in red, including the numerical error). Results shown are from Refs.~\cite{Baglio:2018lrj,Baglio:2020ini}.}
+\label{fg:dist_mhh}
+\end{center}
+\end{figure}
+\noindent A second independent numerical calculation of the NLO QCD corrections, including the full top quark mass dependence, has been performed in Refs.~\cite{Baglio:2018lrj,Baglio:2020ini,Baglio:2020wgt}. In these works, the projection onto the two contributing form factors has been utilized in $D$ dimensions, with Feynman parametrization applied diagram by diagram, with no tensor reduction. This leads to compact expressions such that the free choice of Higgs boson and top quark masses could be retained. Since the bottom loops contribute at the percent level only, they have been neglected. The singularities were isolated by suitable end-point subtractions and dedicated infrared subtraction terms that built on the explicit structure of the Feynman-parameter integrals. The virtual $t\bar t$ thresholds were handled by using a complex virtual top quark mass $m_t^2 \to m_t^2 (1-i\bar\epsilon)$ and approaching the narrow-width limit $\bar\epsilon\to 0$ by decreasing the value of $\bar\epsilon$ to a minimal value of about 0.025 (or smaller) and performing a Richardson extrapolation \cite{Richardson} to obtain reliable numerical results for $\bar\epsilon\to 0$ as described in detail in Refs.~\cite{Baglio:2018lrj,Baglio:2020ini}. The real corrections have been obtained by computing the corresponding matrix elements with {\tt FeynArts} \cite{Hahn:2000kx} and {\tt FormCalc} \cite{Hahn:1998yk} while using {\tt Collier~1.2} \cite{Denner:2016kdg} for the scalar one-loop integrals. Choosing a Higgs boson mass of $m_h=125$ GeV and a top quark mass of $m_t=172.5$ GeV, we obtained a reduction of the total cross section from the top quark mass effects beyond the Born-improved HTL by about 15\% in agreement with \cite{Borowka:2016ypz,Borowka:2016ehy}. The small residual differences between the results of both calculations could be traced back to the different choices of the top quark mass, i.e.~172.5 GeV in \cite{Baglio:2018lrj,Baglio:2020ini} compared to 173 GeV in \cite{Borowka:2016ypz,Borowka:2016ehy}. The results for the distribution in the invariant Higgs boson pair mass $m_{hh}$ are shown in Fig.~\ref{fg:dist_mhh}. Whilst the top quark mass effects beyond the Born-improved HTL of the finite part of the real corrections amount to about $-10\%$, the top quark mass effects of the virtual corrections are greater for large values of the invariant Higgs boson pair mass. In this context, the explicit structure of the virtual $t\bar t$ threshold at $m_{hh} = 345$ GeV should be emphasized, which is in agreement with the ${\cal P}$-wave structure at LO in accordance with the single Higgs boson case \cite{Graudenz:1992pv,Spira:1995rr}. Results at NLO QCD with variable values of $\kappa_\lambda \equiv \lambda_{hhh}/\lambda_{hhh}^{\rm SM}$ are also available \cite{Baglio:2020ini,Baglio:2020wgt}.
+
+Different scheme and scale choices of the virtual top quark mass can be considered for this calculation as a result of the freedom of choice of the top quark mass as an input parameter. This constitutes a (re)discovered additional source of theoretical uncertainties\footnote{The same treatment of these uncertainties has been applied to single-Higgs production, where these uncertainties turned out to be small due to the small scale defined by the Higgs mass \cite{Anastasiou:2016cez}.}. The explicit discussion of these uncertainties can be found in Section~\ref{sec:NLO-uncertainties}.
+% End inlined from NLO_QCD_SM/NLOmtmh/mtmhgeneral.tex
 
 
 
-\input{N3LO_QCD_SM/N3LO_QCD_main}
+% Begin inlined from NLO_QCD_SM/NLOexp/NLOexpansions.tex
+%\subsection{Expansion methods}
+\subsection{Amplitude expansion around small transverse momentum and mass}
+\label{sec:expGPL}
+
+%\textit{Authors:} Roberto Bonciani, Giuseppe Degrassi, Pier Paolo Giardino, Ramona Gröber (1806.11564) + Emanuele Bagnaschi (2309.1052)
+
+\textbf{Emanuele Bagnaschi, Roberto Bonciani, Giuseppe Degrassi, Pier Paolo Giardino, Ramona Gröber~\cite{Bonciani:2018omm,Bagnaschi:2023rbx}.}
+
+%        =================
+\noindent An alternative approach to the fully numerical evaluation of the virtual corrections is provided by expansions. In particular, an expansion in small $p_T$ as originally proposed in \cite{Bonciani:2018omm} can cover more than 95\% of the relevant phase space for SM Higgs boson pair production. This expansion assumes that $p_T^2$ and $m_h^2$ are much smaller than $4 m_t^2$, allowing one to Taylor expand in these quantities while keeping the partonic centre-of-mass energy $\hat{s}$ arbitrary. Concretely, this means expanding in the forward region, $p_3\sim - p_1$ where $p_3$ is the incoming Higgs momentum and $p_1$ the momentum of a gluon. This expansion reduces the number of scales in the two-loop integrals to one, which allows for the analytical determination. In Ref.~\cite{Bonciani:2018omm} all the two-loop integrals were expressed analytically in terms of generalized harmonic polylogarithms, apart from two elliptic integrals that were determined in terms of series expansions around singular points \cite{Bonciani:2018uvv} following the approach of \cite{Pozzorini:2005ff, Aglietti:2007as}.
+
+In the high-energy limit, the described expansion is no longer valid, as large $p_T$ values can be achieved. It must therefore be combined with a complementary expansion as provided in Ref.~\cite{Davies:2018qvx}. This reference expands the amplitudes in the high-energy limit, namely for $\hat{s}, \hat{t}, \hat{u} \gg m_t^2$. The expansion allows all integrals to be expressed analytically in terms of harmonic polylogarithms \cite{Davies:2018ood}.
+
+The two expansions have been combined by means of Pad\'e approximations in Ref.~\cite{Bellafronte:2022jmo}, showing that a very reliable result, with a $< 1\%$ difference from the numerical grid of Ref.~\cite{Davies:2019dfy}, is obtained.
+
+This approach has been used for the POWHEG implementation of Higgs boson pair production at NLO QCD presented in Ref.~\cite{Bagnaschi:2023rbx}, for which the real corrections have been computed with \texttt{MadLoop} \cite{Hirschi:2011pa}. Due to the flexibility of the analytic approach, the top quark mass renormalization scheme uncertainty can be computed fully differentially, showing that, depending on the kinematic variable considered, it can be even larger in certain parts of the phase space than for the inclusive cross section. The code so far allows one to vary the top quark Yukawa coupling and the trilinear Higgs boson self-coupling, and further extensions to BSM scenarios can be achieved easily due to the flexibility of the approach.
+
+A similar approach has been followed for the public code \texttt{ggxy} \cite{Davies:2025qjr} relying on a deeper expansion in small Mandelstam $\hat{t}$ combined with a high-energy expansion \cite{Davies:2023vmj}, see next section.
+
+%. The two-loop integrals have been obtained semi-analytically in terms of series expansions in one variable \cite{Fael:2021kyg}. In this approach, also first partial results for the virtual corrections at NNLO QCD have been obtained in \cite{Davies:2023obx, Davies:2024znp, Davies:2025ghl}
+
+Other approaches, for instance, include a combination of large mass expansion with a threshold expansion combined via Pad\'e approximants \cite{Grober:2017uho}, or an expansion in the Higgs mass $m_h$ with numerical evaluation of the two-loop integrals \cite{Xu:2018eos}.
+%, see the next section.
+
+Finally, we want to emphasize that if one were to associate an uncertainty to the analytic approach with respect to the numeric one, it would be below 1\% and hence currently completely negligible with respect to other theory uncertainties.
+% End inlined from NLO_QCD_SM/NLOexp/NLOexpansions.tex
 
 
 
-\input{mt_UN/mt_main}
+% Begin inlined from NLO_QCD_SM/NLOggxy/NLO_exp_ggxy.tex
+\subsection{Full NLO QCD corrections with \textbf{\texttt{ggxy}}}
+
+%\textit{Authors:} Joshua Davies, Kay Sch\"onwald, Matthias Steinhauser, Daniel Stremmer
+
+\textbf{Joshua Davies, Kay Schönwald, Matthias Steinhauser, Daniel Stremmer~\cite{Davies:2018qvx,Davies:2023vmj,Davies:2025qjr}.}
+
+\noindent An alternative to the numerical approaches described in Sections~\ref{sec:fullPS} and~\ref{sec:nlo2} is to consider series
+expansions of the two-loop virtual amplitude in complementary kinematic regions; here we consider in particular both the high-energy and forward-scattering regions.
+
+The
+``high-energy'' expansion has been considered in Ref.~\cite{Davies:2018qvx}, which assumes the
+scale hierarchy $s,|t| > m_t^2 > m_h^2$ to produce a Taylor series in $m_h$ and a deep
+asymptotic expansion in $m_t$. Pad\'e approximants are used to greatly increase
+the region of validity of the expansion, ultimately producing a good description
+of the amplitude for $p_T$ values above around 150 GeV. The high-energy expansion
+also provides the input required by the resummation of \cite{Jaskiewicz:2024xkd}
+(see Section~\ref{sec:scet}).
+%
+The small-$t$ expansion of \cite{Davies:2023vmj} also performs a Taylor expansion
+in $m_h$, followed by an expansion in the forward limit, around $t=0$. This
+produces a description for smaller $p_T$ values, below around 150 GeV, similar in
+spirit to the small-$p_T$ expansion of \cite{Bonciani:2018omm}.
+
+The combination of both regions
+covers the whole phase space~\cite{Davies:2023vmj} and can
+thus be used to compute the two-loop
+virtual amplitude. The numerical evaluation
+is
+extremely fast and yet retains full dependence on the input parameters,
+in particular the masses of the Higgs boson and top quark, and the ability to change
+the top quark renormalization scheme and scale without expensive numerical integration.
+The two-loop virtual amplitudes based on this approach are publicly available in the \texttt{C++}
+library \texttt{ggxy}~\cite{Davies:2025qjr}, which is able to produce total cross sections and differential distributions in about 30 minutes on a laptop.
+
+An example is shown in Table~\ref{tab::ggxy_kappa}, where we present the total cross sections at NLO QCD accuracy for various
+values of $\kappa_\lambda \equiv \lambda_{hhh}/\lambda_{hhh}^{\rm SM}$. We show results for $\sqrt{s}=13$, $13.6$ and $14$~TeV,
+and use both the on-shell and $\overline{\rm MS}$ top quark masses. Each value in Table~\ref{tab::ggxy_kappa} is obtained by averaging four seeds, each with a runtime of about $30$ minutes, yielding a total runtime of $72$ hours on a single core for the complete table.\footnote{Using the fact that the dependence on $\kappa_\lambda$ is quadratic would of course cut the runtime by half.}
+\begin{table}[t!]
+    \centering
+    \renewcommand{\arraystretch}{1.2}
+    \begin{tabular}{cc@{\hskip 7mm}lll}
+%        \hline
+        \toprule
+         \multirow{2}{*}{$\kappa_\lambda$}&\multirow{2}{*}{Top quark mass scheme}
+         & \multicolumn{3}{c}{$\sigma^{\rm NLO}_{\rm \tt ggxy}$ [fb]} \\
+         \cmidrule(lr){3-5}
+         & & $\sqrt{s}=13$~TeV & $\sqrt{s}=13.6$~TeV & $\sqrt{s}=14$~TeV\\
+%        \hline\hline
+        \midrule
+        \multirow{2}{*}{$-5.0$} & on-shell & $ 511.7(4)^{+17.2\%}_{-14.4\%} $ & $ 564.0(4)^{+17.1\%}_{-14.3\%} $ & $ 599.3(5)^{+16.9\%}_{-14.1\%} $ \\
+               & $\overline{\rm MS},\,\mu_t=m_{hh}/2$ & $ 521.8(4)^{+16.9\%}_{-14.2\%} $ & $ 574.3(4)^{+16.8\%}_{-14.0\%} $ & $ 609.8(5)^{+16.7\%}_{-13.9\%} $   \\ %\hline
+        \midrule
+        \multirow{2}{*}{$-0.6$} & on-shell & $ 90.80(7)^{+15.8\%}_{-13.8\%} $ & $ 100.27(7)^{+15.7\%}_{-13.6\%} $ & $ 106.88(8)^{+15.6\%}_{-13.5\%} $ \\
+               & $\overline{\rm MS},\,\mu_t=m_{hh}/2$ & $ 89.51(7)^{+16.2\%}_{-13.9\%} $ & $ 98.85(7)^{+16.0\%}_{-13.7\%} $ & $ 105.15(8)^{+15.9\%}_{-13.6\%} $ \\ %\hline
+        \midrule
+        \multirow{2}{*}{$0.0$} & on-shell & $ 61.54(5)^{+15.3\%}_{-13.5\%} $ & $ 68.14(5)^{+15.2\%}_{-13.4\%} $ & $ 72.60(6)^{+15.0\%}_{-13.3\%} $  \\
+              & $\overline{\rm MS},\,\mu_t=m_{hh}/2$ & $ 59.84(5)^{+15.9\%}_{-13.8\%} $ & $ 66.01(5)^{+15.8\%}_{-13.6\%} $ & $ 70.34(6)^{+15.7\%}_{-13.5\%} $ \\ %\hline
+        \midrule
+        \multirow{2}{*}{$1.0$} & on-shell & $ 27.80(3)^{+13.9\%}_{-12.9\%} $ & $ 30.85(3)^{+13.7\%}_{-12.7\%} $ & $ 32.93(3)^{+13.6\%}_{-12.6\%} $  \\
+              & $\overline{\rm MS},\,\mu_t=m_{hh}/2$ & $ 25.91(2)^{+15.4\%}_{-13.6\%} $ & $ 28.65(3)^{+15.2\%}_{-13.5\%} $ & $ 30.59(3)^{+15.2\%}_{-13.4\%} $ \\ %\hline
+        \midrule
+        \multirow{2}{*}{$2.4$} & on-shell & $ 12.053(9)^{+14.8\%}_{-13.3\%} $ & $ 13.381(9)^{+14.7\%}_{-13.2\%} $ & $ 14.26(1)^{+14.6\%}_{-13.1\%} $  \\
+              & $\overline{\rm MS},\,\mu_t=m_{hh}/2$ & $ 11.056(8)^{+17.6\%}_{-14.7\%} $ & $ 12.240(9)^{+17.4\%}_{-14.6\%} $ & $ 13.069(9)^{+17.3\%}_{-14.5\%} $  \\ %\hline
+        \midrule
+        \multirow{2}{*}{$5.0$} & on-shell & $ 80.38(6)^{+19.5\%}_{-15.4\%} $ & $ 88.14(6)^{+19.3\%}_{-15.3\%} $ & $ 93.60(7)^{+19.2\%}_{-15.2\%} $ \\
+              & $\overline{\rm MS},\,\mu_t=m_{hh}/2$ & $ 84.67(6)^{+18.7\%}_{-15.0\%} $ & $ 92.93(7)^{+18.5\%}_{-14.9\%} $ & $ 98.69(7)^{+18.5\%}_{-14.8\%} $ \\
+%        \noalign{\smallskip}\hline\noalign{\smallskip}
+        \bottomrule
+    \end{tabular}
+    \caption{Total cross sections for $\sqrt{s}=13, 13.6, 14~\textup{TeV}$ in the on-shell and $\overline{\rm MS}$ top quark mass schemes. Results are obtained with $m_t=172.5$~GeV, $m_h=125~\textup{GeV}$ and $\mu_R=\mu_F=m_{hh}/2$ with the NLO NNPDF3.1 \cite{NNPDF:2017mvq} PDF set.}   \label{tab::ggxy_kappa}
+\end{table}
+
+\texttt{ggxy} has been linked to \texttt{Powheg}~\cite{Alioli:2010xd} (\texttt{ggxy\_ggHH}) to enable the matching to parton showers. Runtime tests have shown that
+it is faster by a factor of $4$--$5$ than the previous implementation ({\tt ggHH}),
+mainly due to the fast numerical evaluation of the one-loop $2\to 3$ processes for the real corrections with {\tt Recola}~\cite{Actis:2012qn,Actis:2016mpe}. Both \texttt{Powheg} implementations yield identical results for the fixed values of $m_t$ and $m_h$ in {\tt ggHH} as demonstrated in Fig.~\ref{fig::ggxy_nlo}, where we present the Higgs boson pair invariant mass distribution and the average Higgs boson transverse momentum distribution calculated with both tools without parton-shower effects. The lower panels display the $\sigma$ deviations with respect to the statistical uncertainties coming from the MC integration.
+
+\begin{figure}[t]
+  \begin{center}
+  \begin{tabular}{cc}
+     \figureplaceholder
+     \figureplaceholder
+  \end{tabular}
+  \end{center}
+  \caption{\label{fig::ggxy_nlo} Comparison of
+   NLO predictions generated with
+   \texttt{ggxy\_ggHH} and \texttt{ggHH}
+   for $m_{hh}$ and $p_{T,h_{\rm avg}}$ distributions for $\sqrt{s}=14~\textup{TeV}$. The lower panels display the $\sigma$ deviations with respect to the MC uncertainties. Results shown are from Ref.~\cite{Davies:2025qjr}.}
+\end{figure}
+
+These results will make future studies requiring NLO differential distributions much
+more efficient, particularly when studying top quark mass scheme uncertainties and
+the high-$p_T$ phase space region.
+The results obtained with \texttt{ggxy} agree with those obtained in the SM in
+the OS scheme
+with the codes presented in Sections~\ref{sec:fullPS} and~\ref{sec:nlo2}.
+Furthermore, in the $\overline{\rm MS}$ scheme the output
+of \texttt{ggxy} has been compared against the approach of
+Section~\ref{sec:expGPL}.
+Therefore \texttt{ggxy} constitutes a fast, flexible, and reliable tool to compute NLO QCD
+corrections to Higgs boson pair production.
+% End inlined from NLO_QCD_SM/NLOggxy/NLO_exp_ggxy.tex
+% End inlined from NLO_QCD_SM/NLO_QCD_main.tex
 
 
 
-\input{NLO_EW_SM/EW_main}
+
+
+% Begin inlined from NNLO_QCD_SM/NNLO_QCD_main.tex
+\section{Approximate NNLO QCD corrections} %NNLO\texorpdfstring{$_{\mbox{FTapprox}}$}{FTapprox}}
+\label{sec:nnlo-qcd}
+
+
+% Begin inlined from NNLO_QCD_SM/NNLOft/ft.tex
+\subsection[The \boldmath NNLO FTapprox combination]{The \boldmath $\textup{NNLO}_{\textup{FTapprox}}$ combination}
+%\subsection{The NNLO\texorpdfstring{$_{\mbox{FTapprox}}$}{FTapprox} combination}
+\label{sec:NNLO_FTapprox}
+
+%\textit{Authors:} Massimiliano Grazzini, Gudrun Heinrich, Stephen Jones, Stefan Kallweit, Matthias Kerner, Jonas M. Lindert, Javier Mazzitelli (1803.02463)\\
+
+\textbf{Massimiliano Grazzini, Gudrun Heinrich, Stephen Jones, Stefan Kallweit, Mat\-thias Kerner, Jonas M. Lindert, Javier Mazzitelli~\cite{Grazzini:2018bsd}.}
 
 
 
-\input{Recommendations/rec}
+%summarize the approach and related uncertainties of Ref.~\cite{Grazzini:2018bsd}. (GH, MG, ToDo)
+
+
+\newcommand{\nnloBP}{NNLO$_{\mathrm{B-proj}}$}
+\newcommand{\nnloNI}{NNLO$_{\mathrm{NLO-i}}$}
+\newcommand{\nnloFT}{NNLO$_{\mathrm{FTapprox}}$}
+\newcommand{\nloFT}{$\mathrm{NLO}_{\mathrm{FTapprox}}$}
+
+\noindent QCD corrections to $HH$ production beyond NLO have so far only been computed in approximate form since the relevant two- and three-loop amplitudes for a full NNLO calculation are not yet available. In Ref.~\cite{Grazzini:2018bsd} an approximate NNLO result, dubbed \nnloFT, was presented. In this approach, the exact NLO contribution of Ref.~\cite{Borowka:2016ehy} is incorporated. The approximation of the NNLO correction was constructed starting from the observation that the double-real emission contribution to the NNLO cross section requires only one-loop amplitudes, and can thus be computed exactly with full top quark mass dependence, for example, by using OpenLoops \cite{Cascioli:2011va,Buccioni:2019sur}. However, the approximation of the higher-loop amplitudes entering the NNLO corrections must be done with care, in order not to jeopardize the cancellation of IR singularities.
+
+The approximation is defined as follows. Working in the HTL for each $n$-loop squared amplitude that needs to be computed for a given partonic subprocess, ${\cal A}^{(n)}_{\rm HTL}$, the reweighting factor ${\cal A}_{\rm Full}^{\rm Born}/{\cal A}_{\rm HTL}^{\rm (0)}$ is applied. Here ${\cal A}_{\rm Full}^{\rm Born}$ stands for the exact lowest order (loop-induced) squared amplitude for the corresponding subprocess. The NNLO corrections computed in this way are expected to provide a better estimate of the full result compared to estimates based on a naive reweighting procedure. The impact of NNLO QCD corrections computed in this way ranges from $+11\%$ to $+7\%$ as the collider energy ranges from $13$ to $100$\,TeV \cite{Grazzini:2018bsd}.
+
+Once the employed approximation is defined, the important next question is the size of the remaining uncertainty due to finite top quark mass effects that are still missing compared to an NNLO (3-loop) calculation with full top quark mass dependence.
+
+As a first step to define an uncertainty, we can check the quality of the analogous \nloFT\ approximation, where one can compare to an exact result. At $14$\,TeV the difference between \nloFT\ and the exact NLO cross section is about $4\%$, or, considering only the higher-order corrections, the relative difference between the \nloFT\ corrections and their exact calculation is about $11\%$, which can be translated into a lower bound on the uncertainty of the NNLO cross section. Considering the smaller impact of NNLO with respect to NLO corrections, this translates into a $1.2\%$ effect at NNLO. To be conservative, one can multiply this estimate by a factor of two, thereby obtaining an uncertainty that ranges from $\pm 2.3\%$ at $\sqrt{s}=13$\,TeV to $\pm 3.1\%$ at $\sqrt{s}=100$\,TeV.
+However, the study of Ref.~\cite{Grazzini:2018bsd} shows that the difference between the ``best'' prediction, \nnloFT, and the prediction obtained through a simple reweighting of the $HH$ invariant-mass distribution, ${\rm NNLO}_{\rm NLO-I}$ \cite{Borowka:2016ypz}, increases with the energy. Therefore, the uncertainty of the \nnloFT\ prediction is finally defined by taking the half difference of the reference \nnloFT\ result with the ${\rm NNLO}_{\rm NLO-I}$ result. This leads to a final uncertainty due to missing finite top quark mass effects that ranges from $\pm 2.6\%$ at $\sqrt{s}=13$ TeV to $\pm 4.6\%$ at $\sqrt{s}=100$ TeV, and it is therefore slightly more conservative, especially at very high centre-of-mass energies.
+
+Due to the inclusion of the maximal amount of top quark mass dependence in all ingredients, i.e.\ except for those virtual diagrams which are not yet available, the \nnloFT\ prediction had been the recommendation of the LHC Higgs Working Group up to 2026.
+% End inlined from NNLO_QCD_SM/NNLOft/ft.tex
 
 
 
-\input{conclusions}
+% Begin inlined from NNLO_QCD_SM/NNLOgeneva/geneva.tex
+\subsection{Matching to parton showers with GENEVA}
+%\subsection{Matching to parton showers with {\normalfont\scshape GENEVA}} 
+
+%\textit{Authors:} Simone Alioli, Giulia Marinelli, Davide Napoletano (2507.08558)\\
+
+\textbf{Simone Alioli, Giulia Marinelli, Davide Napoletano~\cite{Alioli:2025xcu}.}
+
+\noindent Given the absence of exact results for the three-loop NNLO massive contributions,
+to achieve NNLO accuracy we can employ several approximations.
+In particular, we can exploit the similarity to the production of a single Higgs boson
+in gluon fusion, and apply a reweighting procedure to the unknown virtual matrix
+elements using the massive Born ones.
+One such approximation is dubbed \ftapprox discussed in the previous section~\cite{Frederix:2014hta,Maltoni:2014eza,Grazzini:2018bsd}, where both the real-virtual and double-virtual contributions
+are reweighted to the Born matrix elements.
+In the case of real-virtual corrections, this implies that
+\begin{equation}
+  V_{1}\left(\Phi_1\right) = V_{1}\left(\Phi_1,m_t\to\infty\right)
+  \frac{B_1\left(\Phi_1,m_t\right)}
+  {B_1\left(\Phi_1,m_t\to\infty\right)}\,,
+\end{equation}
+where $\Phi_1$ represents the double Higgs boson plus one parton phase space, $V_1,\, B_1$
+are the relative virtual and Born contributions, respectively.
+
+The case of the double-virtual contribution is instead slightly more subtle.
+In the \geneva framework, we include this contribution through the matching
+to the resummation of the slicing variable employed to perform the fixed-order
+calculation,
+which in turn is used to evaluate the contribution to the cross section
+below the resolution variable cut~\cite{Alioli:2012fc}.
+For this purpose, we employ the zero-jettiness~\cite{Stewart:2010tn} ($\mathcal{T}_0$) as a resolution variable.
+When $\mathcal{T}_0 \muchless Q$ (with $Q$ the hard scale,
+chosen here as the Higgs boson pair invariant mass $m_{hh}$), the cross section
+factorizes according to Soft Collinear Effective Theory (SCET).
+In this regime,
+large logarithms of $\mathcal{T}_0/Q$ are resummed systematically up to
+next-to-next-to-leading logarithmic primed (NNLL$^\prime$) accuracy.
+At leading power in $\mathcal{T}_0^{\mathrm{cut}} / m_{hh}$, we can write the differential cross section
+as
+\begin{equation}\label{eq:convolutionmess}
+  \frac{\mathrm{d} \sigma^{\rm SCET}}{\mathrm{d} \Phi_0 \, \mathrm{d} \mathcal{T}_0} =
+  H_{{\scriptscriptstyle gg \to HH }}(Q^2,\mu) \int B_g(t_a,x_a,\mu) \,
+  B_g(t_b,x_b,\mu) \, S_{gg}\left( \mathcal{T}_0 - \frac{t_a+t_b}{Q}, \mu \right) \,
+  \mathrm{d} t_a \, \mathrm{d} t_b \,,
+\end{equation}
+where $H$ stands for the hard function, while $S$ and $B$ stand for the soft and beam functions, respectively.
+The resummed formula is then matched to the appropriate fixed-order calculation,
+yielding predictions that are valid across the entire phase space.
+
+In this approach, double-virtual contributions are recovered as they are included in the
+two-loop hard function coefficients $H^{(2)}$.
+However, in order to ensure the cancellation of the slicing variable dependence, we also need
+to reweight the $H^{(1)}$ term which, for $\mathcal{T}_0>\mathcal{T}_0^{\mathrm{cut}}$,
+needs to match the real-virtual contribution.
+Accordingly, the finite hard coefficients $H^{(2)}_{\mathrm{fin}}$ and
+$H^{(1)}_{\mathrm{fin}}$ are rescaled as
+\begin{equation}
+  \label{eq:twoloophard}
+  H^{(i)}_{\mathrm{fin}}(\Phi_0) = H^{(i)}_{\mathrm{fin}}\left(\Phi_0,m_t\to\infty\right)
+  \frac{B_0\left(\Phi_0,m_t\right)}
+  {B_0\left(\Phi_0,m_t\to\infty\right)}\,, \quad i=1,2\,.
+\end{equation}
+We evaluate all the remaining contributions with exact top quark mass dependence
+either through \openloops~\cite{Cascioli:2011va,Buccioni:2017yxi,Buccioni:2019sur}, where available, or \hhgrid~\cite{Borowka:2016ehy,Borowka:2016ypz,Heinrich:2017kxx,Davies:2019dfy}.
+However, as noted in~\cite{Grazzini:2018bsd}, the stability of the one-loop double-real
+matrix elements $gg \to HH gg$ near the double infrared limit is not sufficient
+to ensure their cancellation against the subtraction matrix elements.
+To preserve the cancellation with the subtraction terms, and to enhance
+the stability of these matrix elements in the deep infrared region, we employ
+an approximation constructed as
+\begin{equation}
+  {\mathrm{d}\sigma_{gg\to hh
+      gg}\left(\Phi_2\right)\Biggr|}_{\min(\alpha_{ij})<\alpha_{\mathrm{cut}}}
+  = {\mathrm{d}\sigma_{gg\to hh g}\left(\widetilde{\Phi}_1\right)}
+  \frac{\mathrm{d}\sigma_{gg\to hhgg}^{m_t\to\infty}\left(\Phi_2\right)}
+  {\mathrm{d}\sigma_{gg\to hh g}^{m_t\to\infty}\left(\widetilde{\Phi}_1\right)} \,,
+\end{equation}
+where $\widetilde{\Phi}_1$ is obtained by applying the
+FKS projection mapping~\cite{Frixione:1995ms} to the original
+two-parton phase space point $\Phi_2$.
+Similarly to Ref.~\cite{Grazzini:2018bsd}, we adopt $\alpha_{\mathrm{cut}} = 10^{-4}$ as our technical cutoff.
+The rationale behind this reweighting choice is that, in
+the soft-collinear limit, the ratio 
+\begin{equation}
+\de\sigma_{gg\to hhgg}^{m_t\to\infty}\left(\Phi_2\right)
+/{\de\sigma_{gg\to hh g}^{m_t\to\infty}\left(\widetilde{\Phi}_1\right)}
+\end{equation} 
+tends towards
+the splitting function used in the subtraction, thus reproducing the structure of
+the subtraction term.
+This ensures that the cancellation between the reweighted $gg\to HHgg$ matrix element and its
+counterterms, which are always evaluated with the exact top quark mass dependence, is local and
+finite in each singular limit when $\alpha_{\mathrm{cut}} \to 0$.
+
+Finally, the \geneva results are matched to the \pythiaEight~\cite{Sjostrand:2014zea} shower
+following the procedure described in Ref.~\cite{Alioli:2022dkj}.
+We present our results for the LHC at 14~TeV centre-of-mass energy in Fig.~\ref{fig:genevaplots}.
+We evaluate both factorization and renormalization scales at $\mu=m_{hh}$ and vary them about
+their central value by a factor of two simultaneously.
+We employ the PDF4LHC21 NNLO~\cite{PDF4LHCWorkingGroup:2022cjn} parton distribution function set, evaluated through
+our internal \texttt{LHAPDF6}~\cite{Buckley:2014ana} interface.
+
+
+We compare our \ftapprox results with other approximations in the literature,
+namely the $m_t\to\infty$ limit, corresponding to our previous results of~\cite{Alioli:2022dkj},
+and the B-proj approximation described in~\cite{Grazzini:2018bsd}.
+The latter corresponds to reweighting all squared matrix elements
+-- including those entering the hard function perturbative coefficients -- using
+Born-projected matrix elements. Specifically, the reweighting factor is given by
+\begin{equation}
+  \label{eq:bprojkfact}
+  K(\Phi_n) = \frac{B_{gg\to hh}\left(\tilde{\Phi}_0(\Phi_n),m_t\right)}
+  {B_{gg\to hh}\left(\tilde{\Phi}_0(\Phi_n),m_t\to\infty\right)}\,.
+\end{equation}
+This procedure provides the exact top quark mass dependence only at LO.
+Starting from NLO and in the presence of additional emissions,
+the reweighting factor is evaluated on the projected kinematics $\tilde{\Phi}_0(\Phi_n)$,
+defined in Eqs.~(2.2) and~(2.3) of Ref.~\cite{Grazzini:2018bsd} and in Ref.~\cite{Catani:2015vma}.
+
+
+
+The structure of the plots in Fig.~\ref{fig:genevaplots} is as follows.
+The main panel displays
+predictions after the full shower procedure, including hadronization
+and multi-parton interaction (MPI) effects, but excluding hadron decays.
+The first ratio panel shows the relative difference of each approximation with respect to the
+\ftapprox result.
+The second ratio panel highlights the impact of the parton shower at parton level (i.e.\ without
+hadronization and MPI effects), by displaying the relative difference with respect to the
+partonic results before the shower.
+The third ratio panel illustrates the impact of hadronization and MPI effects,
+shown relative to the parton shower results without these effects.
+
+\begin{figure}[H]
+\begin{center}
+  \figureplaceholder \hfill
+  \figureplaceholder
+  \caption{\label{fig:genevaplots}Comparison of showered predictions obtained with the three top quark mass approximations: $m_t \to \infty$
+  (blue), B-proj (light green) and \ftapprox (dark orange), shown for various differential distributions.
+  These include the invariant mass of the Higgs boson pair ($m_{hh}$)
+  and the transverse momentum of the pair system ($p_T^{hh}$).
+  Results are obtained at $\sqrt{s} = 14$ TeV, with central scale $\mu = m_{hh}$,
+  using the \texttt{PDF4LHC21\_nnlo} PDF set and 3-point scale variations.
+  Results shown are from Ref.~\cite{Alioli:2025xcu}.
+}
+\end{center}
+\end{figure}
+
+
+The inclusion of finite top quark mass effects leads to a significant impact,
+much larger than that of the parton shower itself.
+For the Higgs boson pair invariant mass this is a consequence of the shower unitarity
+with respect to fully inclusive observables and thus follows by construction.
+For the transverse momentum of the pair of Higgs bosons, the shower
+induces a small effect in the first few bins, of approximately $5\%$ relative to the
+partonic predictions.
+Finally, by comparing the last two ratio panels, we can observe that the hadronization and MPI
+effects are marginal and affect all mass approximations in the same way.
+% End inlined from NNLO_QCD_SM/NNLOgeneva/geneva.tex
+
+
+
+% Begin inlined from NNLO_QCD_SM/NNLOmt/mt.tex
+\subsection{Towards NNLO with full top quark mass dependence}
+
+%\textit{Authors:} Joshua Davies, Kay Sch\"onwald, Matthias Steinhauser, Marco Vitti
+
+\textbf{Joshua Davies, Kay Schönwald, Matthias Steinhauser, Marco Vitti~\cite{Davies:2023obx,Davies:2024znp,Davies:2025ghl}.}
+
+\noindent In order to increase the precision for the theoretical prediction of double Higgs boson production and tackle the large uncertainties due to the top quark mass renormalization scheme, one needs information about higher-order corrections to the process.
+This can be achieved either by resummation of large logarithms in certain kinematic regions, see Section~\ref{sec:scet}, or by calculating the higher-order corrections directly.
+There is an ongoing effort to compute the virtual NNLO corrections to double Higgs boson production retaining top quark mass effects beyond the large mass expansion.
+
+
+The computation of the NNLO amplitude can be split into several building blocks of differing complexity, shown in Fig.~\ref{fig::gghh_FDs}.
+The one-particle reducible contributions, see Fig.~\ref{fig::gghh_FDs}(a), which are only of one-loop times two-loop complexity, have been calculated in Ref.~\cite{Davies:2024znp} for general kinematics.
+The calculation of the genuine three-loop contributions faces technical challenges due to the large number of loops and scales.
+They are addressed using an expansion in $p_T$ or, equivalently, $m_h$ and $t$.
+The first expansion terms have been obtained for the contributions including a closed light quark loop, see Fig.~\ref{fig::gghh_FDs}(b), and, in the large-$N_c$ limit, for the diagrams involving one closed top quark loop, see Fig.~\ref{fig::gghh_FDs}(c); here $N_c$ stands for the number of colours in QCD.
+In these works, amplitude processing, expansion and IBP reduction were performed with {\tt FORM} \cite{Ruijl:2017dtg,Davies:2026cci}, {\tt Feynson} \cite{Maheria:2022dsq}, {\tt Kira} \cite{Lange:2025ofh} and {\tt FIRE} \cite{Smirnov:2025prc}.
+The class of diagrams represented in Fig.~\ref{fig::gghh_FDs}(d), which involves two top quark loops, faces the additional challenge of massless cuts in the $t$-channel or isolating an external Higgs boson and therefore requires a more involved asymptotic expansion.
+They are not yet known, but remain work in progress.
+
+At LO and NLO the first expansion term in the forward limit provides an approximation with an accuracy at the 20\% level for $p_T < 300 \,$GeV (see, e.g., Ref.~\cite{Davies:2025ghl}).
+Therefore, one can use these results to study the dependence on the top quark mass renormalization scheme at NNLO.
+In Fig.~\ref{fig::G1_ratio} we show the quantity
+$|G_{\rm box1}|^2$, where $G_{\rm box1}$ is the box contribution of the properly normalized form factor $F_1$
+(see Ref.~\cite{Davies:2025ghl} for details)
+normalized to the three-loop result in the on-shell scheme as a function
+of partonic $\sqrt{s}$. The bands for the $\overline{\rm MS}$ results arise from the variation of the renormalization scale
+associated with the top quark mass. The two panels correspond to two different choices of $\mu_s$, the renormalization scale of $\alpha_s$.
+One observes a good convergence of the perturbative expansion
+in both renormalization schemes.
+One also observes smaller perturbative corrections when using the $\overline{\mathrm{MS}}$ scheme for the top quark mass and a shrinking of the scale uncertainty bands. Furthermore, the
+NNLO predictions are closer together than the corresponding curves at lower orders. All of these are very encouraging features.
+
+A full NNLO analysis also needs the top quark mass dependence of the real radiation amplitudes.
+While the one-loop amplitudes with two additional real emissions can be obtained with automated tools, the two-loop amplitudes with one additional real emission are not known yet and constitute another computational challenge.
+
+\begin{figure}[t]
+    \begin{center}
+    \figureplaceholder
+    \figureplaceholder
+    \figureplaceholder
+    \figureplaceholder
+    (a)
+    \hspace{0.2\textwidth}
+    (b)
+    \hspace{0.2\textwidth}
+    (c)
+    \hspace{0.2\textwidth}
+    (d)
+    \end{center}
+  \caption{\label{fig::gghh_FDs}Sample Feynman diagrams of contributions to the virtual NNLO corrections.
+  The contributions shown represent: (a) reducible contributions,
+  (b) contributions with one closed light quark loop,
+  (c) contributions with one closed top quark loop,
+  (d) contributions with two closed top quark loops.
+  Curly (red) lines correspond to gluons,
+  single (black) lines to the top quark,
+  double (blue) lines to a massless quark
+  and dashed (blue) lines to the Higgs boson.
+  The diagram classes follow Refs.~\cite{Davies:2023obx,Davies:2024znp,Davies:2025ghl}.
+  }
+\end{figure}
+
+\begin{figure}[H]
+\begin{center}
+  \begin{tabular}{cc}
+    \figureplaceholder
+    &
+    \figureplaceholder
+  \end{tabular}
+\end{center}
+  \caption{\label{fig::G1_ratio} $G_{\rm box1}$
+  computed with the $\overline{\rm MS}$ and on-shell
+  definition of the top quark mass for
+    $\mu_s^2=s/4$ (left) and $\mu_s^2=s$ (right). $\mu_t^2$ is chosen between $s$ and $s/16$. All curves are normalized to the three-loop on-shell result. Results shown are from Ref.~\cite{Davies:2025ghl}.}
+\end{figure}
+% End inlined from NNLO_QCD_SM/NNLOmt/mt.tex
+% End inlined from NNLO_QCD_SM/NNLO_QCD_main.tex
+
+
+
+
+
+% Begin inlined from N3LO_QCD_SM/N3LO_QCD_main.tex
+\section[\texorpdfstring{$\textup{N}^3\textup{LO}$ QCD corrections and resummation}{N3LO QCD corrections and resummation}]{\texorpdfstring{\boldmath$\textup{N}^3\textup{LO}$ QCD corrections and resummation}{N3LO QCD corrections and resummation}}
+\label{sec:n3lo-qcd}
+
+This section combines results from several publications. In the HTL, the N$^3$LO QCD corrections to the inclusive total cross section and the Higgs boson pair invariant-mass ($m_{hh}$) distribution were first reported in Refs.~\cite{Chen:2019lzz, Chen:2019fhs}. The N$^3$LL soft-gluon threshold resummation for the same observables was presented in Ref.~\cite{Ajjath:2022kpv}. More recently, fully differential N$^3$LO QCD calculations were presented in Ref.~\cite{Chen:2026zmi}.
+
+In the HTL, the effective Lagrangian for the
+coupling of the Higgs field to two gluon field strength tensors
+can be written as
+\begin{align}\label{eq:effL}
+ \mathcal{L}_{\rm eff}= -\frac{1}{4}  G_{\mu\nu}^a G^{a~\mu\nu}
+ \left(
+  C_{h} \frac{h}{v} - C_{hh} \frac{h^2}{2v^2}
+ \right)\,,
+\end{align}
+where $v$ is the Higgs vacuum expectation value and
+$C_h$, $C_{hh}$ are the Wilson coefficients obtained by matching the full Standard Model (SM) onto the effective theory, in which the top quark degree of freedom has been integrated out.
+The Wilson coefficients start at $\mathcal{O}(\alpha_s)$ and are known up to $\mathcal{O}(\alpha_s^4)$~\cite{Inami:1982xt, Chetyrkin:1997iv, Chetyrkin:1997un, Schroder:2005hy, Chetyrkin:2005ia, Kniehl:2006bg,Baikov:2016tgj,Spira:2016zna,Gerlach:2018hen}.
+
+In this section, we present our theoretical predictions using the following setup~\cite{Chen:2019lzz,Chen:2019fhs,Ajjath:2022kpv,Chen:2026zmi}. We take the Higgs-boson mass $m_h=125$ GeV, the top quark pole mass $m_t=173$ GeV, and the Higgs vacuum expectation value $v=246.2$ GeV. We employ either the \texttt{PDF4LHC15\ttus nnlo\ttus 30}~\cite{Butterworth:2015oua,Dulat:2015mca,Harland-Lang:2014zoa,NNPDF:2014otw} or the \texttt{PDF4LHC21\ttus 40}~\cite{PDF4LHCWorkingGroup:2022cjn}
+(\texttt{NNPDF40\ttus an3lo\ttus as\ttus 01180}~\cite{NNPDF:2024nan}) parton distribution function (PDF) sets for observables without and with fiducial cuts, respectively, together with the corresponding $\alpha_s$ running provided by {\tt LHAPDF6}~\cite{Buckley:2014ana}.\footnote{We note here that the N$^3$LO $k$-factors in the final recommendations of Section~\ref{sec:recs} were produced using the \texttt{PDF4LHC21\ttus 40} set.}
+The central renormalization and factorization scales are chosen as $\mu_0 = m_{hh}/2$. Scale uncertainties, which estimate missing higher-order corrections, are obtained from the envelope of the $7$-point variations of
+$\mu_F$ and $\mu_R$, defined as $\mu_{R/F} = \xi_{R/F} \mu_0$ with $\xi_{R/F}\in \left\{0.5,1,2\right\}$, excluding the two extreme combinations $(\xi_R, \xi_F)=(0.5, 2)$ and $(2, 0.5)$. We quote only the scale uncertainty, since other parametric uncertainties are largely independent of the perturbative order.
+For the fully differential results, we impose the following fiducial cuts~\cite{Chen:2026zmi}:
+\begin{equation}
+\label{eq:fiducialcuts}
+p_{T, h_{1}}>30~\mathrm{GeV}\,, \quad p_{T, h_{2}}>20~\mathrm{GeV}\,, \quad |y_{h}|<2.4\,,
+\end{equation}
+where $h_1$ and $h_2$ denote the leading and subleading Higgs bosons, ordered by their transverse momenta $p_{T,h_i}$.
+
+
+% Begin inlined from N3LO_QCD_SM/N3LO_htl/htl.tex
+\subsection[\texorpdfstring{$\textup{N}^3\textup{LO}$ in the HTL}{N3LO in the HTL}]{\texorpdfstring{\boldmath$\textup{N}^3\textup{LO}$ in the HTL}{N3LO in the HTL}}
+
+%\textit{Authors:} Long-Bin Chen, Hai Tao Li, Hua-Sheng Shao, Jian Wang (1909.06808)
+
+\textbf{Long-Bin Chen, Xuan Chen, Yuesheng Dai, Hai Tao Li, Shi-Yuan Li, Hua-Sheng Shao, Jian Wang~\cite{Chen:2019lzz,Chen:2026zmi}.}
+
+
+
+\begin{figure}[!hbtp]
+    \centering
+    \figureplaceholder
+    \caption{Representative Born-level cut diagrams for Higgs boson pair production via gluon-gluon fusion. Bullets denote the effective vertices described by the Lagrangian in Eq.~\eqref{eq:effL}, while the crossed circle represents the trilinear Higgs boson self-coupling. Figure adapted from Ref.~\cite{Chen:2019lzz}.}
+    \label{fig:FeynDia}
+\end{figure}
+
+\noindent The fixed-order computation of the gluon-gluon fusion (ggF) Higgs boson pair cross section in the HTL can be organized according to the number of the effective-vertex insertions in the squared amplitude. Three representative Born-level cut diagrams are shown in Fig.~\ref{fig:FeynDia}: from left to right, they involve two, three, and four effective vertices, and are denoted as class-$a$, class-$b$, and class-$c$ contributions, respectively. Accordingly, the phase-space-integrated or differential cross section can be decomposed as
+\begin{align}
+    d\sigma_{hh} = d\sigma^{a}_{hh} + d\sigma^{b}_{hh} + d\sigma^{c}_{hh} .
+\end{align}
+Their contributions at different powers of $\alpha_s$ are summarized in Table~\ref{tab:my_label}. To achieve N$^3$LO accuracy in $\alpha_s$, the required inputs are the class-$a$ contribution at $\mathrm{N^3LO}_a$, the class-$b$ contribution at $\mathrm{NNLO}_b$, and the class-$c$ contribution at $\mathrm{NLO}_c$, where the subscripts indicate the perturbative order within the corresponding topology class.
+
+\begin{table}[hbt!]
+    \centering
+%    \begin{tabular}{c|c|c|c|c}
+%    \begin{tabular}{ccccc}
+%%    \hline \hline
+%    \toprule
+%        &  LO  & NLO  & NNLO  & $\textup{N}^3\textup{LO}$  \\
+%%    \hline
+%    \midrule
+%    Class  &  $\mathcal{O}(\alpha_s^2)$  &   $\mathcal{O}(\alpha_s^3)$ &   $\mathcal{O}(\alpha_s^4)$  & $\mathcal{O}(\alpha_s^5)$
+%     \\
+%%    \hline
+%    \midrule
+%    \multirow{2}{*}{$a$}
+%     &  $\textup{LO}_a$  &   $\textup{NLO}_a$ &   $\textup{NNLO}_a$  & $\textup{N}^3\textup{LO}_a$
+%     \\
+%      &  $\mathcal{O}(\alpha_s^2)$  &   $\mathcal{O}(\alpha_s^3)$ &   $\mathcal{O}(\alpha_s^4)$  & $\mathcal{O}(\alpha_s^5)$
+%     \\
+%%    \hline
+%    \midrule
+%     \multirow{2}{*}{$b$}
+%     &  --- &   $\textup{LO}_b$ &   $\textup{NLO}_b$  &  $\textup{NNLO}_b$
+%     \\
+%     &  0 &   $\mathcal{O}(\alpha_s^3)$ &   $\mathcal{O}(\alpha_s^4)$  & $\mathcal{O}(\alpha_s^5)$
+%     \\
+%%    \hline
+%    \midrule
+%    \multirow{2}{*}{$c$}
+%      & --- &  --- &   $\textup{LO}_c$  & $\textup{NLO}_c$
+%     \\
+%       & 0 &  0 &   $\mathcal{O}(\alpha_s^4)$  & $\mathcal{O}(\alpha_s^5)$
+%     \\
+%%     \hline \hline
+%    \bottomrule
+%    \end{tabular}
+\begin{tabular}{ccccc}
+    \toprule
+        \multirow{2}{*}{Class}    &  LO  & NLO  & NNLO  & $\textup{N}^3\textup{LO}$  \\
+      &  $\mathcal{O}(\alpha_s^2)$  &   $\mathcal{O}(\alpha_s^3)$ &   $\mathcal{O}(\alpha_s^4)$  & $\mathcal{O}(\alpha_s^5)$
+     \\
+    \midrule
+    $a$ &  $\textup{LO}_a$  &   $\textup{NLO}_a$ &   $\textup{NNLO}_a$  & $\textup{N}^3\textup{LO}_a$
+     \\
+     $b$ &  --- &   $\textup{LO}_b$ &   $\textup{NLO}_b$  &  $\textup{NNLO}_b$
+     \\
+    $c$ & --- &  --- &   $\textup{LO}_c$  & $\textup{NLO}_c$
+     \\
+    \bottomrule
+    \end{tabular}
+            \caption{Perturbative orders in $\alpha_s$ for three topology classes.
+    The first and second rows indicate the perturbative expansion orders of the total cross section for Higgs boson pair production,
+    while each individual class has its own expansion order, specified by the subscript.}
+    \label{tab:my_label}
+\end{table}
+
+The class-$a$ contribution can be obtained from the single-Higgs production cross section in the HTL up to N$^3$LO.
+For inclusive results, this component is computed using the public program \texttt{iHixs2}~\cite{Dulat:2018rbf}, while the class-$a$ contribution for fully differential results is computed with \texttt{NNLOJet}~\cite{NNLOJET:2025rno} using the $q_T$ phase-space slicing ($q_T$-slicing) method~\cite{Catani:2007vq,Cieri:2018oms}.
+The class-$b$ contribution is calculated up to NNLO in $\alpha_s$ using the $q_T$-slicing method~\cite{Catani:2007vq} by combining the \texttt{MadGraph5\_aMC@NLO}~\cite{Alwall:2014hca,Frederix:2018nkq} framework with a private code. The corresponding two-loop amplitude with two effective-vertex insertions was computed in Ref.~\cite{Banerjee:2018lfq}. The double-real and real-virtual contributions in class-$b$, as well as all contributions in class-$c$, are calculated using \texttt{MadGraph5\_aMC@NLO}.
+
+\begin{table}[h]
+\begin{center}
+
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+{\renewcommand{\arraystretch}{1.5}
+%\begin{tabular}{|P{2.7cm}|P{2.7cm}|P{2.7cm}|P{2.7cm}|}
+\begin{tabular}{P{2.7cm}P{2.7cm}P{2.7cm}P{2.7cm}}
+\toprule
+    & $\sigma_{{\rm NLO}}$ $[\textup{fb}]$
+    & $\sigma_{{\rm NNLO}}$ $[\textup{fb}]$
+    & $\sigma_{{\rm N}^3{\rm LO}}$ $[\textup{fb}]$
+    \\
+  \midrule
+  Inclusive &
+  $31.89^{+18\%}_{-15\%}$ &
+  $37.55^{+5.2\%}_{-7.6\%}$ &
+ $38.65^{+0.5\%}_{-2.7\%}$
+ \\
+ \midrule
+   Fiducial &
+  $27.87_{-15 \%}^{+18 \%}$ &
+  $32.74_{-7.3 \%}^{+5.2 \%}$ &
+ $34.00(4)_{-2.9 \%}^{+1.4 \%}$
+ \\
+ \bottomrule
+\end{tabular}}
+\caption{Fixed-order cross sections in the HTL at $\sqrt{s}=14\,\textup{TeV}$. The second line corresponds to the inclusive case, while the third line corresponds to the fiducial case with cuts defined in Eq.~\eqref{eq:fiducialcuts}. The quoted uncertainties are obtained from $7$-point scale variations.}
+\label{tab:FON3LOinclusivexs}
+%\end{small}
+\end{center}
+\end{table}
+
+\begin{figure*}[t]
+\centering
+\figureplaceholder
+\figureplaceholder
+\caption{Inclusive (left) and fiducial (right) invariant-mass distributions for Higgs boson pair production at $\sqrt{s}=14$ TeV in the HTL, from NLO to N$^3$LO. The error bands correspond to $7$-point scale variations. Here $\mu^C$ denotes the central value of the renormalization and factorization scales. Results shown are from Refs.~\cite{Chen:2019lzz,Chen:2019fhs,Chen:2026zmi}.}
+\label{fig:xs_vs_mhh_FO_N3LO}
+\end{figure*}
+
+
+\begin{figure*}[ht]
+\centering
+\figureplaceholder
+\figureplaceholder
+\caption{Inclusive (left) and fiducial (right) leading-Higgs $p_{T}$ distributions for Higgs boson pair production at $\sqrt{s}=14$ TeV in the HTL, from NLO to N$^3$LO. The error bands correspond to $7$-point scale variations. Here $\mu^C$ denotes the central value of the renormalization and factorization scales. Results shown are from Ref.~\cite{Chen:2026zmi}.}
+\label{fig:fid_pth1_FO_N3LO}
+\end{figure*}
+
+
+\begin{figure*}[ht]
+\centering
+\figureplaceholder
+\figureplaceholder
+\caption{Inclusive (left) and fiducial (right) subleading-Higgs $p_{T}$ distributions for Higgs boson pair production at $\sqrt{s}=14$ TeV in the HTL, from NLO to N$^3$LO. The error bands correspond to $7$-point scale variations. Here $\mu^C$ denotes the central value of the renormalization and factorization scales. Results shown are from Ref.~\cite{Chen:2026zmi}.
+}
+\label{fig:fid_pth2_FO_N3LO}
+\end{figure*}
+
+
+The phase-space-integrated cross sections from NLO to N$^3$LO in the HTL at $\sqrt{s}=14$ TeV for proton-proton ($pp$) collisions are listed in Table~\ref{tab:FON3LOinclusivexs}. For the inclusive (fiducial) results, the N$^3$LO QCD corrections increase the NNLO cross section by $3\%$ ($4\%$) and reduce the fractional scale uncertainty by a factor of four (three).
+The Higgs boson pair invariant-mass distributions at fixed orders in $\alpha_s$ are shown in Fig.~\ref{fig:xs_vs_mhh_FO_N3LO} for the inclusive (left panel) and fiducial (right panel) cases. In both cases, the higher-order QCD corrections do not shift the peak positions of the distributions. There is, however, a small difference between the two setups. In the inclusive case, the $K$-factor for N$^3$LO over NNLO is nearly flat across a wide range of $m_{hh}$, and the N$^3$LO prediction, with its small scale uncertainty, lies entirely within the NNLO uncertainty band. In contrast, with the fiducial cuts defined in Eq.~\eqref{eq:fiducialcuts}, the N$^3$LO correction in the first bin ($m_{hh}<300$ GeV) amounts to 8$\%$, which is almost a factor of two larger than the corrections in the other bins. Additionally, the scale uncertainty is significantly larger in this bin. The difference in the threshold region mainly stems from linear power corrections in the presence of fiducial cuts. The leading- and subleading-$p_T$ distributions of the two Higgs bosons are shown in Figs.~\ref{fig:fid_pth1_FO_N3LO} and~\ref{fig:fid_pth2_FO_N3LO}. The N$^3$LO QCD corrections modify their shapes, with the largest effects occurring in the small-$p_T$ region, where the scale uncertainties are also most significant. In this region, the fixed-order predictions are not stable, and a resummation calculation is necessary to stabilize the theoretical predictions. Moreover, the fiducial cuts also have a clear impact in this region. The scale uncertainty at N$^3$LO of $p_{T,h_1}$ ($p_{T,h_2}$) in the 20--100 GeV (30--100 GeV) bin changes from 38$\%$ (15$\%$) to 46$\%$ (21$\%$) after imposing the fiducial cuts.
+In the intermediate- and large-$p_T$ regions, the fixed-order predictions remain reliable.
+% End inlined from N3LO_QCD_SM/N3LO_htl/htl.tex
+
+
+
+% Begin inlined from N3LO_QCD_SM/N3LO_N3LL/n3lon3ll.tex
+\subsection[\texorpdfstring{$\textup{N}^3\textup{LO} + \textup{N}^3\textup{LL}$ in the HTL}{N3LO + N3LL in the HTL}]{\texorpdfstring{\boldmath$\textup{N}^3\textup{LO} + \textup{N}^3\textup{LL}$ in the HTL}{N3LO + N3LL in the HTL}}
+
+%\textit{Authors:} Ajjath A H, Hua-Sheng Shao (2209.03914)
+
+\textbf{Ajjath A H, Hua-Sheng Shao~\cite{Ajjath:2022kpv}.}
+
+\noindent Theoretical predictions for the Higgs boson pair production cross section can be further improved by resumming threshold logarithms from soft-gluon emissions. In this subsection, these logarithms are resummed to N$^3$LL accuracy~\cite{Ajjath:2022kpv}, following the formalism outlined briefly below.
+
+Within the QCD-improved parton model, the differential cross section in the invariant mass squared $m_{hh}^2$
+of the Higgs boson pair, for hadronic collisions at the centre-of-mass energy $\sqrt{s}$, can be written as a convolution of the partonic flux $\phi_{ab}$ and the perturbative coefficient function $\Delta_{ab\to hh}$
+\begin{equation}\label{eq:partonmodel}
+    m_{hh}^2 \dfrac{d}{d m_{hh}^2}\sigma_{pp\rightarrow hh}(s,m_{hh}^2) = \tau \sum_{a,b=q,\bar q,g} \int_\tau^1 \frac{dz}{z} \phi_{ab}\left(\frac{\tau}{z},\mu_F^2\right)~ \Delta_{ab\rightarrow hh}  \left(z,m_{hh}^2,\mu_F^2\right)\,,
+\end{equation}
+where $\tau\equiv m_{hh}^2/s$, $z\equiv m_{hh}^2/\hat{s}$, with $\sqrt{\hat{s}}$
+the partonic centre-of-mass energy.
+
+ In the threshold limit, $z\rightarrow1$, the dominant (leading-power, LP) terms arise from both virtual loop corrections and soft, unresolved real-gluon emissions. These contributions take the form of Dirac delta functions, $\delta(1-z)$,  and plus-distributions, such as $ {\cal D}_k(z) \equiv  \left(\frac{\ln^k{(1-z)}}{1-z}\right)_+$, reflecting the incomplete cancellation between virtual and real radiation associated with soft-gluon emissions. These singular threshold contributions can be systematically factorized as
+\begin{align}\label{eq:partonicxsec}
+    \Delta^{\text{LP}}_{gg\rightarrow hh}(z,m_{hh}^2,\mu_F^2) =& H_{gg\rightarrow hh}(m_{hh}^2,\mu_R^2) ~\delta(1-z)\otimes S_{\Gamma,gg}(z,m_{hh}^2,\mu_F^2,\mu_R^2)\,,
+\end{align}
+where $H_{gg\rightarrow hh}$ encodes the process-dependent hard virtual corrections after infrared-divergence subtraction, and
+ $S_{\Gamma,gg}$
+  is the soft-collinear function describing gluon emissions that are soft, collinear, or both with respect to the parent partons. Singular terms are retained in this factorization, while power-suppressed corrections in $(1-z)$ are neglected. The threshold-enhanced logarithms resummed in this approach are universal and can largely be expressed in terms of process-independent anomalous dimensions and splitting functions. Detailed structures of these functions are given in Refs.~\cite{Ravindran:2005vv,Ahmed:2020nci,Ajjath:2022kpv}.
+
+The universal nature of the soft and collinear terms allows the resummation of large logarithms to all orders in $\alpha_s$ using renormalization group methods. This resummation is efficiently performed in Mellin $N$-moment space, where the threshold limit $z\rightarrow 1$ corresponds to $N\rightarrow \infty$:
+\begin{align}
+    \Delta_{gg\rightarrow hh}^{\rm res}(N,m_{hh}^2,\mu_F^2) =&  \int_0^1 dz ~z^{N-1}\Delta^{\text{LP}}_{gg\rightarrow hh}\left(z,m_{hh}^2,\mu_F^2\right)
+    \nonumber \\
+    =  g_{0,gg\to hh}(m_{hh}^2,\mu_F^2,\mu_R^2)
+    & 
+    ~\exp \left(\tilde{C}_{0,gg} (a_s(\mu_R^2)) + g_{1,gg} (\omega)\ln N + \sum_{k=2}{a_s^{k-2}(\mu_R^2)~g_{k,gg} (\omega)}\right)\,,
+    \label{DeltaN}
+\end{align}
+where $a_s\equiv \alpha_s/4\pi$ and $\omega \equiv 2 \beta_0 a_s(\mu_R^2) \ln N$. The factor $g_{0,gg\to hh}$, outside the exponent, arises from the $N$-independent hard function and the Altarelli-Parisi splitting kernels, while the functions $g_{k,gg}$, $k\ge 1$, encode the resummation of logarithmic contributions up to the specified logarithmic accuracy (LL, NLL, NNLL, N$^3$LL, etc.).
+Furthermore, the exponent contains an additional $N$-independent coefficient, $\tilde{C}_{0,gg}$, arising from the ${\cal O}(1)$ terms of ${\cal D}_k(z)$ after the Mellin transform; it depends on the Riemann zeta functions $\zeta_n$ and the Euler-Mascheroni constant $\gamma_E$. 
+
+The structure above ensures that the resummation captures all LP threshold logarithms at each order, resulting in a perturbative series with greatly improved convergence and reduced dependence on the renormalization and factorization scales. Matching to fixed-order calculations guarantees the exact reproduction of known results and prevents double counting of terms already included at a given order. At the $\NkLONkLL$ accuracy, the double counting corresponds to $\Delta^{\text{LP}}_{gg\to hh}$ expanded up to N$^k$LO in $\alpha_s$. However, at a given logarithmic accuracy, the right-hand side of the resummation formalism in Eq.~\eqref{DeltaN} is not uniquely defined. The assignment of $N$-independent terms inside or outside the exponent introduces a degree of arbitrariness, referred to as the resummation scheme dependence~\cite{Ajjath:2022kpv}. Four different resummation schemes, denoted ${\rm N_1}$, $\rm{\overline N}_1$, ${\rm N_2}$, and $\rm{\overline N}_2$, are considered in Ref.~\cite{Ajjath:2022kpv} (see their definitions in Section 2.4 of that reference).
+
+A comparison of inclusive Higgs boson pair cross sections at $\sqrt{s}=14$ TeV in the HTL, at several perturbative orders and in different resummation schemes, is shown in Fig.~\ref{fig:Verical_prescription}. Both the fixed-order N$^k$LO and resummation-improved N$^k$LO+N$^k$LL predictions are presented, with error bars indicating scale uncertainties. We stress a few key points:
+\begin{itemize}
+    \item Although a significant resummation scheme dependence is observed at NLO+NLL, this dependence decreases as higher orders are included and becomes moderate at N$^3$LO+N$^3$LL.
+    \item The results in the $\ResNTwo$ and $\ResNbTwo$ schemes show faster perturbative convergence than those in the other two schemes.
+    \item The inclusion of threshold resummation further reduces scale uncertainties. For instance, in the $\ResNbTwo$ scheme, the N$^3$LO+N$^3$LL scale-uncertainty band is reduced by a factor of two compared to the N$^3$LO result, and nearly by a factor of four compared to the NNLO+NNLL result in the same scheme.
+    \item The resummation scheme uncertainty at N$^3$LO+N$^3$LL is subdominant compared to the residual scale uncertainty. At $14$ TeV, for example, we have \begin{equation*}\sigma_{\rm N^3LO+N^3LL}=38.70\left(^{+0.85\%}_{-0.87\%}\right)_{\rm scale}\left(^{+0.08\%}_{-0.39\%}\right)_{\rm scheme}~\mathrm{fb}.
+    \end{equation*}
+\end{itemize}
+Therefore, in the following, we consider the $\ResNbTwo$ scheme only. Table~\ref{tab:ResumN3LON3LLinclusivexs} summarizes inclusive cross sections, from NLO+NLL to N$^3$LO+N$^3$LL, in the HTL at $\sqrt{s}=14$ TeV. Inclusion of N$^3$LL resummation corrections increases the N$^3$LO cross section by around $1\%$ and reduces the scale uncertainty by about a factor of two.
+
+
+\begin{figure*}[ht]
+\centering
+\figureplaceholder
+\caption{Inclusive Higgs boson pair cross sections at $\sqrt{s}=14~\textup{TeV}$ in the HTL at several perturbative orders and in different resummation schemes. The error bars indicate scale uncertainties. Results shown are from Ref.~\cite{Ajjath:2022kpv}.}
+\label{fig:Verical_prescription}
+\end{figure*}
+
+\begin{table}[htbp] 
+\begin{center}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+{\renewcommand{\arraystretch}{1.5}
+%\begin{tabular}{|P{2.5cm}|P{2.5cm}|P{2.5cm}|}
+\begin{tabular}{P{2.6cm}P{2.6cm}P{2.6cm}}
+%\hline
+    \toprule
+    $\sigma_{\textup{NLO}+\textup{NLL}}$ $[\textup{fb}]$
+    & $\sigma_{\textup{NNLO}+\textup{NNLL}}$ $[\textup{fb}]$
+    & $\sigma_{\textup{N}^3\textup{LO}+\textup{N}^3\textup{LL}}$ $[\textup{fb}]$
+    \\
+%  \hline
+    \midrule
+  $36.19^{+12.5\%}_{-8.8\%}$ &
+  $38.52^{+3.0\%}_{-3.4\%}$ &
+ $38.70_{-0.85\%}^{+0.87\%}$
+ \\
+% \hline
+    \bottomrule
+\end{tabular}}
+%\end{small}
+\caption{Soft-gluon resummation–improved inclusive cross sections in the HTL at $\sqrt{s}=14~\textup{TeV}$. The quoted uncertainties correspond to $7$-point scale variations. Only results in the $\ResNbTwo$ scheme are shown.}
+\label{tab:ResumN3LON3LLinclusivexs}
+\end{center}
+\end{table}
+
+\begin{figure*}[!htbp]
+\centering
+\figureplaceholder
+\\
+\caption{Inclusive invariant-mass distributions for Higgs boson pair production at $\sqrt{s}=14$ TeV in the HTL, from NLO+NLL to N$^3$LO+N$^3$LL. The error bands correspond to $7$-point scale variations. Results shown are from Ref.~\cite{Ajjath:2022kpv}.}
+\label{fig:xs_vs_mhh_Res_N3LON3LL}
+\end{figure*}
+
+The differential prediction for the Higgs boson pair invariant mass $m_{hh}$ in Fig.~\ref{fig:xs_vs_mhh_Res_N3LON3LL} further demonstrates the perturbative convergence of the strong-coupling expansion. Soft-gluon resummation induces only a modest shift in the spectrum and further reduces the fractional scale errors.
+% End inlined from N3LO_QCD_SM/N3LO_N3LL/n3lon3ll.tex
+
+
+
+% Begin inlined from N3LO_QCD_SM/N3LO_mt/mt.tex
+\subsection{Including partial top quark mass effects}
+
+%\textit{Authors:} Ajjath A H, Long-Bin Chen, Hai Tao Li, Hua-Sheng Shao, Jian Wang (1912.13001, 2209.03914)
+
+\textbf{Ajjath A H, Long-Bin Chen, Xuan Chen, Yuesheng Dai, Hai Tao Li, Shi-Yuan Li, Hua-Sheng Shao, Jian Wang~\cite{Chen:2019fhs,Ajjath:2022kpv,Chen:2026zmi}.}
+
+\noindent Since finite top quark mass effects cannot be neglected and are exactly known only at NLO~\cite{Borowka:2016ehy,Borowka:2016ypz,Baglio:2018lrj,Davies:2019dfy}, we improve the NLO QCD computation with full top quark mass dependence~\cite{Heinrich:2017kxx,Heinrich:2019bkc,Davies:2025qjr} (denoted as ``$\NLOmt$") by multiplying it with the higher-order (differential) $K$-factors calculated in the HTL in this subsection. The reweighting is carried out consistently using the on-shell top quark mass scheme in $\NLOmt$ and the on-shell mass in the HTL predictions. The resulting combinations are denoted as $\NkLOtimesNLOmt$ and $\NkLONkLLtimesNLOmt$, where $k$ is a positive integer. Specifically,
+\begin{eqnarray}\label{NkLO-fullmt}
+d\sigma_{\NkLOtimesNLOmt}&\equiv& d\sigma_{\NLOmt}\frac{d\sigma_{\NkLO}}{d\sigma_{\rm NLO}}\,,\nonumber\\
+d\sigma_{\NkLONkLLtimesNLOmt}&\equiv&d\sigma_{\NLOmt}\frac{d\sigma_{\NkLONkLL}}{d\sigma_{\rm NLO}}\,.
+\end{eqnarray}
+This treatment is justified under certain working assumptions; alternative approaches to incorporating top quark mass effects can be found in Section~3 of Ref.~\cite{Chen:2019fhs}.
+
+
+
+
+\begin{sloppypar}
+The inclusive phase-space-integrated cross sections are listed in Table~\ref{Tab:fullMt_inc} for LHC $pp$ collisions at $\sqrt{s}=14$ TeV and for five perturbative orders: $\NLOmt$, $\NNLOtimesNLOmt$, $\NNLONNLLtimesNLOmt$, $\NtLOtimesNLOmt$, and $\NtLONtLLtimesNLOmt$. The N$^3$LO QCD corrections enhance the $\NLOmt$ cross section by $21\%$. The N$^3$LL threshold resummation only marginally modifies the $\NtLOtimesNLOmt$ cross section. The scale uncertainty is significantly reduced when higher-order QCD corrections are included: the width of the uncertainty band from the envelope of the $7$-point scale variation in $\NtLOtimesNLOmt$ is only about one quarter of that in the previous fixed-order $\NNLOtimesNLOmt$ result. Inclusion of N$^3$LL threshold resummation further reduces the scale uncertainty to below one percent. A similar pattern is observed in the differential invariant-mass distribution of the Higgs boson pair, as shown in the left panel of Fig.~\ref{fig:xs_vs_mhh_large_mt1}.
+\end{sloppypar}
+
+With the fiducial cuts defined in Eq.~\eqref{eq:fiducialcuts}, only fixed-order predictions are given in Table~\ref{Tab:fullMt_inc}, as fully differential soft-gluon resummation predictions are not available. The N$^3$LO QCD corrections enhance the $\NLOmt$ cross section by $18\%$, which is close to the inclusive case. The $m_{hh}$ distribution with fiducial cuts, shown in the right panel of Fig.~\ref{fig:xs_vs_mhh_large_mt1}, highlights the necessity of including finite top quark mass effects. A similar behaviour is seen in the $p_T$ distributions of the leading and subleading Higgs bosons in Figs.~\ref{fig:fid_pth1_mt} and~\ref{fig:fid_pth2_mt}. For more detailed discussions, we refer the interested reader to Ref.~\cite{Chen:2026zmi}.
+
+
+
+\begin{table}%[ht] 
+\begin{center}
+
+% \begin{small}
+\newcolumntype{P}[1]{>{\centering\arraybackslash}m{#1}}
+{\renewcommand{\arraystretch}{1.5}
+%\begin{tabular}{|P{4cm}|P{3cm}|}
+\resizebox{0.98\textwidth}{!}{%
+\begin{tabular}{P{5cm}P{5cm}P{5cm}}
+%\hline
+    \toprule
+        Contributions   &Inclusive cross section [$\textup{fb}$]  &Fiducial cross section [$\textup{fb}$] \\
+    \midrule
+%    $\sigma_{\NLOmt}$ & $32.64_{-12.5\%}^{+13.5\%}~\textup{fb}$\\
+    $\NLOmt$ & $32.64_{-12.5\%}^{+13.5\%}$  &  $28.44_{-12 \%}^{+14 \%}$ \\
+%     \hline
+%    $\sigma_{\NNLOtimesNLOmt}$ & $38.42_{-7.6\%}^{+5.2\%}~\textup{fb}$\\
+    $\NNLOtimesNLOmt$ & $38.42_{-7.6\%}^{+5.2\%}$ & $33.40_{-7.3 \%}^{+5.2 \%}$ \\
+%    \hline
+%   $\sigma_{\NNLONNLLtimesNLOmt}$ & $39.42_{-3.4\%}^{+3.0\%}~\textup{fb}$    \\
+   $\NNLONNLLtimesNLOmt$ & $39.42_{-3.4\%}^{+3.0\%}$  & -  \\
+%    \hline
+%    $\sigma_{\NtLOtimesNLOmt}$ & $39.56_{-2.7\%}^{+0.50\%}~\textup{fb}$ \\  
+    $\NtLOtimesNLOmt$ & $39.56_{-2.7\%}^{+0.50\%}$ & $34.68(4)^{+1.4\%}_{-2.9\%}$ \\  
+%    \hline
+%    $\sigma_{\NtLONtLLtimesNLOmt}$ &  $39.60_{-0.87\%}^{+0.85\%}~\textup{fb}$ \\
+    $\NtLONtLLtimesNLOmt$ &  $39.60_{-0.87\%}^{+0.85\%}$ & - \\
+% \hline
+%  \hline
+    \bottomrule
+\end{tabular}}}
+\caption{Inclusive and fiducial phase-space-integrated cross sections for Higgs boson pair production via gluon fusion at $\sqrt{s}=14\,\textup{TeV}$ in $pp$ collisions, including top quark mass effects. The quoted relative uncertainties correspond to $7$-point scale variations.}
+\label{Tab:fullMt_inc}
+\end{center}
+\end{table}
+
+\begin{figure*}[!htbp]
+\centering
+\vspace{-1.5cm}
+\figureplaceholder
+\figureplaceholder
+\\
+\caption{Inclusive (left) and fiducial (right) invariant-mass distributions for Higgs boson pair production at $\sqrt{s}=14$ TeV, including top quark mass effects. The error bands stem from $7$-point scale variations. Here $\mu^C$ denotes the central value of the renormalization and factorization scales. Results shown are from Refs.~\cite{Chen:2019fhs,Ajjath:2022kpv,Chen:2026zmi}.}
+\label{fig:xs_vs_mhh_large_mt1}
+\end{figure*}
+
+
+
+\begin{figure*}[h]
+\centering
+\vspace{-2cm}
+\figureplaceholder
+\figureplaceholder
+\caption{Inclusive (left) and fiducial (right) leading-Higgs $p_{T}$ distributions for Higgs boson pair production at $\sqrt{s}=14$ TeV, including top quark mass effects. The error bands stem from $7$-point scale variations. Here $\mu^C$ denotes the central value of the renormalization and factorization scales. Results shown are from Ref.~\cite{Chen:2026zmi}.}
+\label{fig:fid_pth1_mt}
+\end{figure*}
+
+
+\begin{figure*}[h]
+\centering
+\figureplaceholder
+\figureplaceholder
+\caption{Inclusive (left) and fiducial (right) subleading-Higgs $p_{T}$ distributions for Higgs boson pair production at $\sqrt{s}=14$ TeV, including top quark mass effects. The error bands stem from $7$-point scale variations. Here $\mu^C$ denotes the central value of the renormalization and factorization scales. Results shown are from Ref.~\cite{Chen:2026zmi}.}
+\label{fig:fid_pth2_mt}
+\end{figure*}
+% End inlined from N3LO_QCD_SM/N3LO_mt/mt.tex
+% End inlined from N3LO_QCD_SM/N3LO_QCD_main.tex
+
+
+
+
+
+% Begin inlined from mt_UN/mt_main.tex
+\section{Top quark mass scheme and scale uncertainties}
+\label{sec:scheme-scale-uncertainties}
+
+
+% Begin inlined from mt_UN/mt_uncertainties/uncertainties.tex
+%\section{Top quark mass scheme and scale uncertainties at NLO}
+%\subsection{Top-quark mass effects}
+\subsection{Top quark mass scheme and scale uncertainties at NLO}
+\label{sec:NLO-uncertainties}
+
+%\textit{Authors:} J. Baglio, F. Campanario, S. Glaus, M. M. Muhlleitner, J. Ronca, M. Spira, J. Streicher (2003.03227 + 1811.05692 + 2008.11626) \\[0.3cm]
+
+\textbf{Julien Baglio, Francisco Campanario, Seraina Glaus, Milada Margarete Mühl\-leitner, Jonathan Ronca, Michael Spira, Juraj Streicher~\cite{Baglio:2018lrj,Baglio:2020ini,Baglio:2020wgt}.}
+
+
+%\APtodo{Please decide if you would like to describe the NLO calculation in a preceding section (see~\ref{sec:nlo2})}
+%        ==============================================
+\noindent The analysis of the top quark mass scheme and scale uncertainties was first performed in Refs.~\cite{Baglio:2018lrj,Baglio:2020wgt,Baglio:2020ini}, including the full NLO QCD calculation (see Section~\ref{sec:nlo2}). The top quark mass scheme and
+scale uncertainties drop by roughly a factor of two from LO to NLO. At
+LO, we obtain the uncertainties ($Q$ denotes the invariant Higgs boson pair mass $m_{hh}$)
+\begin{eqnarray}
+\frac{d\sigma(gg\to hh)}{dQ}\Big|_{Q=300~{\rm GeV}} & = &
+0.01656^{+62\%}_{-2.4\%}\, \mathrm{fb/GeV},\nonumber\\
+\frac{d\sigma(gg\to hh)}{dQ}\Big|_{Q=400~{\rm GeV}} & = &
+0.09391^{+0\%}_{-20\%}\, \mathrm{fb/GeV},\nonumber\\
+\frac{d\sigma(gg\to hh)}{dQ}\Big|_{Q=600~{\rm GeV}} & = &
+0.02132^{+0\%}_{-48\%}\, \mathrm{fb/GeV},\nonumber\\
+\frac{d\sigma(gg\to hh)}{dQ}\Big|_{Q=1200~{\rm GeV}} & = &
+0.0003223^{+0\%}_{-56\%}\, \mathrm{fb/GeV}
+\end{eqnarray}
+where the full spread of the cross sections is taken over predictions obtained with the top quark pole mass
+(central values) and with the $\overline{\rm MS}$ mass. In the latter case, the scale
+$\mu_t$ of $\overline{m}_t(\mu_t)$ is either set to $\overline{m}_t$ or
+varied in the range between $Q/4$ and $Q$, as
+in the single (off-shell) Higgs case considered earlier. The final NLO
+results read \cite{Baglio:2018lrj,Baglio:2020wgt,Baglio:2020ini}
+\begin{eqnarray}
+\frac{d\sigma(gg\to hh)}{dQ}\Big|_{Q=300~{\rm GeV}} & = &
+0.02978(7)^{+6\%}_{-34\%}\, \mathrm{fb/GeV},\nonumber\\
+\frac{d\sigma(gg\to hh)}{dQ}\Big|_{Q=400~{\rm GeV}} & = &
+0.1609(7)^{+0\%}_{-13\%}\, \mathrm{fb/GeV},\nonumber\\
+\frac{d\sigma(gg\to hh)}{dQ}\Big|_{Q=600~{\rm GeV}} & = &
+0.03204(9)^{+0\%}_{-30\%}\, \mathrm{fb/GeV},\nonumber\\
+\frac{d\sigma(gg\to hh)}{dQ}\Big|_{Q=1200~{\rm GeV}} & = &
+0.000435(6)^{+0\%}_{-35\%}\, \mathrm{fb/GeV}
+\end{eqnarray}
+Since these uncertainties are similar in size to the renormalization
+and factorization scale dependencies at NLO, they constitute an important
+contribution to the total theoretical uncertainties.
+
+The amplitude may be written as the sum of
+two form factors, $F_1$ and $F_2$, describing the scattering of incoming gluons with the
+same helicity and opposite helicities, respectively. The contribution of the box
+diagrams to the two form factors dominates at high energy.
+Expanding the LO and NLO results of Ref.~\cite{Davies:2018qvx} around
+large invariant Higgs boson pair mass, $s$, we have, in the on-shell scheme and
+in the notation of Ref.~\cite{Davies:2018qvx},
+\begin{eqnarray}
+F_\mathrm{box,i} & = & F_\mathrm{box,i}^{(0)} +
+\frac{\alpha_s(\mu_R)}{\pi} F_\mathrm{box,i}^{(1)} \qquad (i=1,2) \nonumber \\
+F_\mathrm{box,i}^{(0)} & = & \frac{m_t^2}{s} c_{0,i} +
+\mathcal{O}\left(\frac{1}{s^2}\right)  \nonumber \\
+F_\mathrm{box,i}^{(1)} & = & 2 F_\mathrm{box,i}^{(0)} \log\frac{m_t^2}{s}
++ \frac{m_t^2}{s}  c_{1,i} +
+\mathcal{O}\left(\frac{1}{s^2}\right)
+\label{eq:hhexp}
+\end{eqnarray}
+where the coefficients $c_{0,i}$ and $c_{1,i}$ do not depend on the
+top quark mass. The overall factor of $m_t^2$ for the box contribution
+originates entirely from the Yukawa couplings, and examining $F_\mathrm{box,i}^{(0)}$,
+we find that the form factors are independent of the propagator top quark mass in the high-energy limit.
+Therefore, for a fixed Yukawa coupling, we expect the results in different schemes to asymptote.
+Transforming the top quark pole mass $m_t$ into the $\overline{\rm MS}$ mass
+$\overline{m}_t(\mu_t)$, the explicit expressions above are modified to
+\cite{Baglio:2020ini}
+\begin{eqnarray}
+F_\mathrm{box,i}^{(0)} & = & \frac{\overline{m}_t^2(\mu_t)}{s} c_{0,i}
++ \mathcal{O}\left(\frac{1}{s^2}\right) \qquad (i=1,2) \nonumber \\
+F_\mathrm{box,i}^{(1)} & = & 2 F_\mathrm{box,i}^{(0)}
+\left[\log\frac{\mu_t^2}{s} + \frac{4}{3}\right] +
+\frac{\overline{m}_t^2(\mu_t)}{s} c_{1,i} +
+\mathcal{O}\left(\frac{1}{s^2}\right)
+\label{eq:NLO-MSbar}
+\end{eqnarray}
+This emphasizes that, in order to absorb the large logarithmic terms $\log\frac{m_t^2}{s}$,
+the choice $\mu_t=\kappa\sqrt{s}$ is preferred\footnote{A similar dynamical scale choice, e.g.~the transverse mass $\mu_t = \kappa M_T$ with $M_T = tu/s$ in the high-energy limit, would be equally favoured.} when the coefficient $\kappa$ is not too far from unity. However, the central recommended values of the total and differential cross sections use the top quark pole mass, so that this defines the reference prediction for the estimate of the uncertainties.
+
+%\section{Expansion methods}
+
+%\textit{Authors:} Roberto Bonciani, Giuseppe Degrassi, Pier Paolo Giardino, Ramona Gröber (1806.11564) + Emanuele Bagnaschi (2309.1052) + Davies et. al (1801.09696, 2302.01356 + 2506.04323)
+%\APtodo{Decide what to do with the combination of the high-energy expansion with the NLO}
+%        =================
+%%An alternative approach to the fully numerical evaluation of the virtual corrections are expansions. In particular an expansion in small $p_T$ as originally proposed in \cite{Bonciani:2018omm} can cover more than 95\% of the relevant phase space for SM Higgs boson pair production. This expansion assumes that $p_T^2$ and $m_h^2$ are much smaller than $4 m_t^2$ allowing to Taylor expand in these quantities, while keeping the partonic centre-of-mass energy $\hat{s}$ arbitrary. This reduces the number of scales in the two-loop integrals to one which allows for the analytical determination. In Ref.~\cite{Bonciani:2018omm} all the two-loop integrals analytically in terms of generalised harmonic polylogarithms, but for two elliptic integrals that were determined in terms of series expansions around singular points \cite{Bonciani:2018uvv} following the approach of \cite{Pozzorini:2005ff, Aglietti:2007as}.
+
+%In the high-energy limit the described expansion is no longer valid as large $p_T$ values can be achieved. For this very reason, this has to be combined with a complementary expansion as provided in \cite{Davies:2018qvx}. This reference expands the amplitudes in the high energy limit namely for $\hat{s}, \hat{t}, \hat{u} \gg m_t^2$. The expansion allows to express the integrals all analytically in terms of harmonic polylogarithms \cite{Davies:2018ood}.
+
+%The two expansion have been combined by means of Pad\'e approximations in \cite{Bellafronte:2022jmo} showing that a very reliable result on the level of $< 1\%$ difference with the numerical grid of \cite{Davies:2019dfy} are obtained.
+
+%This approach has been used for the POWHEG implementation of Higgs boson pair production at NLO QCD presented in \cite{Bagnaschi:2023rbx}. Due to the flexibility of the analytic approach the top mass renormalisation scheme uncertainty can be computed fully differentially, showing that in dependence of the kinematic variable considered it can be even larger in certain part of the phase space as for the inclusive cross section. The code so far allows to vary the top Yukawa coupling and the trilinear Higgs boson self-coupling but further extensions to beyond the SM scenarios can be easily achieved due to the flexibility of the approach.
+
+%A similar approach has been followed for the public code \texttt{ggxy} \cite{Davies:2025qjr} relying on a deeper expansion in small Mandelstam $\hat{t}$ combined with a high energy expansion \cite{Davies:2023vmj}. The two-loop integrals have been obtained semi-analytically in terms of series expansions in one variable \cite{Fael:2021kyg}. In this approach, also first partial results for the virtual corrections at NNLO QCD have been obtained in \cite{Davies:2023obx, Davies:2024znp, Davies:2025ghl}
+
+%Other approaches for instance include a combination of large mass expansion with a threshold expansion combined via Pad\'e approximants \cite{Grober:2017uho}, or an expansion in the Higgs mass $m_h$ with numerical evaluation of the two-loop integrals \cite{Xu:2018eos}.
+
+%Finally, we want to emphasise that if one were to associate an uncertainty to the analytic approach with respect to the numeric one, it would be below 1\% and hence currently completely negligible with respect to other theory uncertainties.
+% End inlined from mt_UN/mt_uncertainties/uncertainties.tex
+
+
+
+% Begin inlined from mt_UN/mt_LP_LL/LP_LL.tex
+%\section{Resummation of top quark mass-dependent logarithms at very high-energy via SCET}
+\subsection{Resummation of top quark mass-dependent logarithms at high energy}
+\label{sec:scet}
+
+%\textit{Authors:} Sebastian Jaskiewicz, Stephen Jones, Robert Szafron, Yannick Ulrich (2501.00587)
+
+\textbf{Sebastian Jaskiewicz, Stephen Jones, Robert Szafron, Yannick Ulrich~\cite{Jaskiewicz:2024xkd}.}
+
+
+\noindent First steps in tackling the large top quark
+mass scheme dependence that arises in this process,
+as discussed at NLO in Section~\ref{sec:NLO-uncertainties}, were undertaken in~\cite{Jaskiewicz:2024xkd}. 
+This study focused on investigating the 
+high-energy behaviour of the $gg\to hh$ amplitude, namely the limit $s, |t|, |u| \gg m_t^2 \gg m_h^2$.
+In this case, contributions due to the triangle
+type diagrams in Fig.~\ref{fg:hhdia}
+are power suppressed, and the dominant 
+contribution arises from the box type diagrams.
+
+The starting point of~\cite{Jaskiewicz:2024xkd} is
+the observation that in the high-energy limit the
+result for one- and two-loop box contributions in
+the $\mathrm{OS}$ scheme has the structure
+given in \eqref{eq:hhexp}.
+Interestingly, the leading term proportional to the $C_F$ colour factor at two loops can be understood as originating from the mass renormalization counterterm. Indeed,
+converting the top quark mass to the $\overline{{\rm{MS}}}$ scheme yields a logarithm of $\mu_t^2/s$~\cite{Baglio:2020ini},
+as can explicitly be seen in~\eqref{eq:NLO-MSbar}.
+Since the leading mass-dependent logarithm originates only from the mass renormalization counterterm, the leading behaviour of $F_\mathrm{box,i}^{(1)}$ in the small mass limit can be predicted solely from the leading order $F_\mathrm{box,i}^{(0)}$ result and the mass renormalization counterterm.
+The immediate questions arising from this discussion
+that were answered in~\cite{Jaskiewicz:2024xkd} are
+\begin{enumerate}
+    \item Why does the box amplitude have such a simple structure?
+    \item Does this simple structure persist at higher orders, or can super-leading/power-enhanced terms enter in the integrals at higher loop orders to spoil this picture?
+\end{enumerate}
+The analysis carried out in~\cite{Jaskiewicz:2024xkd}
+consists of two main parts.
+First, a detailed fixed-order study is performed using
+the Method of Regions (MoR) approach
+\cite{Beneke:1997zp, Smirnov:1990rz, Smirnov:1994tg, Smirnov:2002pj}
+investigating the modes and regions that contribute to the relevant
+scalar integrals and to the amplitude. Second, an effective
+field theory is constructed which formalizes the findings
+from the MoR analysis to all orders in perturbation theory.
+The relevant framework for the description of the
+high-energy structure of the amplitude can be obtained using
+Soft-Collinear Effective Field Theory (SCET) \cite{Bauer:2000yr, Bauer:2001yt,Bauer:2002nz, Beneke:2002ph, Beneke:2002ni},
+which is suitable for processes with multiple collinear directions.
+The upshot of this analysis is that it identifies, for $gg\to hh$ amplitudes at
+high energies, the origin of the large logarithms
+in $m_t^2/s$, which cause the discrepancy in the description of the
+amplitude in the OS and $\overline{{\rm{MS}}}$ schemes.
+Resummation of these large logarithms at leading-power
+leading-logarithmic level is then shown to reduce
+the mass scheme dependence of the amplitude at high energy.
+
+The result of the investigations in Ref.~\cite{Jaskiewicz:2024xkd}
+is that the all-order structure of the small top quark mass
+power-expanded $y_t^2$ box contribution to the $gg \rightarrow hh$
+amplitude can be written as follows in the $\overline{\mathrm{MS}}$ scheme
+\begin{align}\label{eq:schem-lo}
+& \mathrm{LO}: & &\alpha_s y_t^2 ( \textcolor{blue}{\boldsymbol{c_0}} + m_t \, n_0 ), & \\
+& \mathrm{NLO}: & &\alpha_s^2 y_t^2  ( \textcolor{teal}{\boldsymbol{a_1 l_\mu}} + \textcolor{blue}{\boldsymbol{c_1}} + m_t \, n_1  ), & \\
+& \mathrm{NNLO}: & &\alpha_s^3 y_t^2  ( \textcolor{teal}{\boldsymbol{a_2 l_\mu^2}} + \textcolor{orange}{\boldsymbol{b_2} \boldsymbol{l_m}} + \textcolor{blue}{\boldsymbol{c_2}} + m_t \, n_2 ), & \\
+& \mathrm{N}^3\mathrm{LO}: & &\alpha_s^4 y_t^2 ( \textcolor{teal}{\boldsymbol{a_3 l_\mu^3}} + \textcolor{orange}{\boldsymbol{b_3} \boldsymbol{l_m^2}} + \textcolor{purple}{\boldsymbol{d_3 l_m}} + \textcolor{blue}{\boldsymbol{c_3}} + m_t \, n_3 ), & \\
+%& & & \qquad \qquad \qquad \qquad \ldots & \nonumber \\
+& \mathrm{N}^i\mathrm{LO}: &
+&\alpha_s^{i-1} y_t^2 ( \textcolor{teal}{\boldsymbol{a_i l_\mu^i}} + \textcolor{orange}{\boldsymbol{b_i} \boldsymbol{l_m^{i-1}}}
++   \textcolor{purple}{\boldsymbol{
+ d_i l_m^{i-2}}} + \ldots + \textcolor{blue}{\boldsymbol{c_i}} + m_t n_i ),&\label{eq:schem-nklo}
+\end{align}
+where $l_\mu = \ln(\mu_t^2/s)$ and $l_m$ contains both $\ln(\mu_t^2/s)$ and $\ln(m_t^2/s)$ logarithms. 
+The $\textcolor{teal}{\boldsymbol{a_i l_\mu^i}}$ terms are the leading-power LLs, and they are known from the renormalization group running of the top quark mass.
+The $\textcolor{orange}{\boldsymbol{b_i} \boldsymbol{l_m^{i-1}}}$ terms are the leading-power NLLs. These terms receive a contribution from the running of the top quark mass and from IR matching (massification)~\cite{Penin:2005eh, Mitov:2006xs, Becher:2007cu, Liu:2017axv, Engel:2018fsb, Wang:2023qbf, Wang:2024pmv}. The leading-power LLs depend on $\mu_t$, which can be set to the order of $\sqrt{s}$. This renders the explicit logarithms $l_\mu$ small. The dependence on the
+large ratio of scales, $m_t^2/s$, is taken care of to all orders in the perturbative expansion implicitly through the running of the top quark mass. What drives the discrepancy discussed at NLO in Section~\ref{sec:NLO-uncertainties} is the fact that the conversion between the two schemes is truncated at NLO, so only the first logarithm in $m_t^2/s$ is captured in the OS scheme. In the study of Ref.~\cite{Jaskiewicz:2024xkd}, it was demonstrated that the origin of this
+tower of logarithms is in fact known, and can be reinstated in the OS result
+through
+\begin{align}
+A^{(j,\,{\text{LL}})}_{i,y_t^2}(m_t^\mathrm{OS}) = \left(\frac{m^{\text{LL}}(\mu_t)}{m_t^\mathrm{OS}} \right)^2 A^{(j)}_{i,y_t^2}(m_t^\mathrm{OS}), \label{eq:a_ll}
+\end{align}
+where
+\begin{align}\label{eq:schmeme-conv-all-order}
+    &m^{\text{LL}}(\mu) = M \exp \left[ a_{\gamma_m}^{\text{LL}}(\mu)\right]\, z_m(M),&
+    &a_{\gamma_m}^{\text{LL}}(\mu) = \frac{3 C_F}{2 \beta_0} \ln \left(1 - \frac{\alpha_s(\mu)}{2 \pi} \beta_0 \ln \left(\frac{\mu^2}{M^2} \right) \right).&
+\end{align}
+The effect of including this tower of leading-power leading logarithms in the OS
+result is demonstrated in Fig.~\ref{fig:all_sq_msbar_vs_osll}. As discussed above,
+this study provides the first step in taming the top quark mass scheme uncertainty.
+Thus far, the improvement can be seen at the level of the $gg\to hh$ amplitude in the
+high-energy limit. Future studies are needed to tackle this sizeable uncertainty
+in different regions of phase space and at the cross section level.
+
+
+
+In future studies, it will be important to extend this analysis
+from the amplitude level to physical observables, such as a
+cross section, and beyond the high-energy limit. In order to
+address the top quark mass scheme uncertainties at the total
+cross section level, it is important to develop an understanding
+of the uncertainty near the peak of the invariant mass distribution,
+i.e.\ the region $300 \mathrm{GeV} < \sqrt{s} < 800 \mathrm{GeV}$,
+which is a region that is not covered by the analysis carried out in
+\cite{Jaskiewicz:2024xkd}.
+One way of tackling this issue is to work out fully the subleading power
+contributions, extending the region of validity of the high-energy framework.
+For this, the basis has been developed in~\cite{Jaskiewicz:2024xkd}; however,
+the factorization structure at subleading powers is much richer than the leading-power
+counterpart, requiring, for example, the treatment of endpoint
+divergences~\cite{Beneke:2020ibj,Beneke:2022obx,Liu:2019oav,Bell:2022ott}. Hence, it will be
+interesting from both a theoretical and phenomenological point of view
+to work on extending the framework of~\cite{Jaskiewicz:2024xkd} to next-to-leading power.
+Alternatively, it can also be useful, if not necessary, to work on developing the all-order understanding of the structure of top quark mass corrections in a different expansion variable. For instance, it would be interesting to consider the HTL, the threshold expansion at $s \sim 4 m_t^2$, or the small-$p_T$ expansion.
+
+
+\begin{figure}%[htbp]
+     \centering
+     \begin{subfigure}[b]{0.48\textwidth}
+         \centering
+         \figureplaceholder
+         \caption{ }
+         \label{sfig:all_sq_msbar_vs_os}
+     \end{subfigure}
+     \hfill
+     \begin{subfigure}[b]{0.48\textwidth}
+         \centering
+         \figureplaceholder
+         \caption{}
+         \label{sfig:all_sq_msbar_vs_osll}
+     \end{subfigure}
+        \caption{Comparison of results for the sum of the squared form factors at one- and
+        two-loop order, where the top quark mass is renormalized in the $\overline{\mathrm{MS}}$
+        and ${\mathrm{OS}}$ (see panel (a)), and the same quantities with the ${\mathrm{OS}}$
+        result supplemented by the resummed tower of leading-power leading logarithms
+        (see panel (b)). 
+        A significant reduction in the size of the uncertainty due to the choice of the
+        top quark mass renormalization scheme is observed. Results shown are from Ref.~\cite{Jaskiewicz:2024xkd}.}
+        \label{fig:all_sq_msbar_vs_osll}
+\end{figure}
+% End inlined from mt_UN/mt_LP_LL/LP_LL.tex
+% End inlined from mt_UN/mt_main.tex
+
+
+
+
+
+% Begin inlined from NLO_EW_SM/EW_main.tex
+\section{Electroweak Corrections in the Standard Model}
+\label{sec:ew-sm}
+
+After the inclusion of the higher-order QCD corrections and top quark mass effects discussed above, electroweak effects become a relevant ingredient of a precision prediction for Higgs boson pair production. They probe parts of the Standard Model dynamics that are complementary to QCD, including the top Yukawa interaction, weak gauge-boson contributions, and light-quark initiated channels. In this section we summarize the recent computation of the complete NLO electroweak corrections to the gluon-fusion process, compare it with separately studied subsets of the two-loop contributions, and discuss the small but shape-dependent quark-antiquark channel in the LHC setup relevant for this report.
+
+
+
+
+% Begin inlined from NLO_EW_SM/EW_full/EW_full.tex
+\subsection{Full SM electroweak corrections}
+
+\label{EW:full}
+
+\textbf{Huan-Yu Bi, Li-Hong Huang, Rui-Jun Huang, Yan-Qing Ma, Huai-Min Yu~\cite{Bi:2023bnq}.}
+
+\noindent Ref.~\cite{Bi:2023bnq} identifies 116 integral families for the complete NLO EW corrections. The loop integrals in each family are reduced to master integrals using the {\tt Blade} package \cite{Blade}, employing {\tt FiniteFlow} \cite{Peraro:2019svx} to solve integration-by-parts (IBP) relations \cite{Chetyrkin:1981qh}, and incorporating a block-triangular form \cite{Liu:2018dmc,Guan:2019bcx} to enhance computational efficiency. Dimensional regularization is realized by choosing $\epsilon=\pm1/1000$, where $D=4-2\epsilon$. This eliminates the need for Laurent expansions in $\epsilon$ for computing the cross sections and thus reduces resource demands \cite{Liu:2022chg,Liu:2022mfb}. Master integrals are evaluated by numerically solving systems of differential equations \cite{Kotikov:1990kg,Remiddi:1997ny,Caffo:2008aw,Czakon:2008zk,Lee:2014ioa,Moriello:2019yhu,Hidding:2020ytt,Armadillo:2022ugh} in $\hat{s}$ and $\hat{t}$,  with boundary conditions computed using the {\tt AMFlow} package \cite{Liu:2022chg} implementing the auxiliary mass flow method \cite{Liu:2022mfb,Liu:2021wks,Liu:2017jxz}. The analytic continuation is performed by introducing an infinitesimal positive imaginary part to $\hat{s}$ to cross physical singularities arising in the master integrals, located at $\sqrt{\hat{s}}=2m_h$, $m_W+m_t$, $2m_t$, $2m_t+m_Z$, and $2m_t+m_h$, corresponding to intermediate particles going on-shell. The on-shell scheme for masses and fields is employed for the renormalization of the bare amplitudes, while the electromagnetic coupling $\alpha$ is renormalized in the $G_{\mu}$ scheme \cite{Denner:2019vbn}.
+
+The cross section is obtained by integrating over the phase space,
+\begin{align}\label{eq:Xsection}
+\sigma^{\rm LO(NLO)} &= \frac{1}{512\pi}\int_0^1 \mathrm{d}x_{1}\int_0^1 \mathrm{d}x_{2} \int^{\hat{t}_{+}}_{\hat{t}_{-}}\mathrm{d}\hat{t} \,\times \nonumber \\
+& \times \frac{1}{\hat{s}^{2}}f_{g/p}(x_{1},\mu)f_{g/p}(x_{2},\mu) M^{\rm LO(NLO)},
+\end{align}
+where $f_{g/p}(x,\mu)$ denotes the gluon distribution function of the proton, $\mu$ represents the factorization scale, $\hat{t}^{\pm}=m^{2}_{H}-\frac{\hat{s}}{2}(1\mp\sqrt{1-{4m^{2}_{H}}/{\hat{s}}})$, and $M^{\rm LO(NLO)}$ are given by
+\begin{align}
+M^{\rm LO}&=|F_{1}^{(0)}|^2+|F_{2}^{(0)}|^2 \;,\\
+M^{\rm NLO}&=|F_{1}^{(0)}+F_{1}^{(1)}|^2-|F_{1}^{(1)}|^2\nonumber\\
+&+|F_{2}^{(0)}+F_{2}^{(1)}|^2  -|F_{2}^{(1)}|^2,
+\end{align}
+where $F_i^{(0)}$ and $F_i^{(1)}$ correspond to the lowest order and the next-order terms in the $\alpha$ expansion of the form factors. The phase-space integration is carried out by optimized sampling techniques implemented through the {\tt Parni} package \cite{vanHameren:2007pt}.
+
+The masses of the particles are set to
+\begin{eqnarray}
+\frac{m_h^2}{m_t^2}=\frac{12}{23}
+\,,\qquad
+\frac{m_Z^2}{m_t^2}=\frac{23}{83}
+\,\qquad
+\frac{m_W^2}{m_t^2}=\frac{14}{65}
+\,,
+\end{eqnarray}
+with $m_t=172.69\,\textup{GeV}$ \cite{ParticleDataGroup:2022pth}. The electromagnetic coupling $\alpha=1/133.12=7.512\times 10^{-3}$ is derived from the Fermi constant $G_F=1.166378\times 10^{-5}\,\textup{GeV}^{-2}$ via
+\begin{eqnarray}
+\alpha=\frac{\sqrt{2}}{\pi}G_F m_W^2 \left(1-\frac{m_W^2}{m_Z^2}\right)
+.
+ \end{eqnarray}
+The Cabibbo--Kobayashi--Maskawa (CKM) mixing matrix is set to be the unit matrix. The default PDF set for both LO and NLO calculations is NNPDF3.1 \cite{NNPDF:2017mvq}, in particular \texttt{NNPDF31\ttus nlo\ttus as\ttus 0118}. The running of the strong coupling $\alpha_s$ is taken with two-loop accuracy as provided by the {\tt LHAPDF6} library \cite{Buckley:2014ana}, including five active flavours. The default renormalization and factorization scales are $\mu=m_{hh}/2$, where $m_{hh}$ is the invariant mass of the produced Higgs boson pair.
+
+We generate $1.8\times 10^4$ events at LO and then these events are reweighted to NLO. This enables us to calculate the $\cal{K}$ factors for the total and differential cross sections. We compute an additional 400 reweighted events per bin to reduce the statistical uncertainties for the $m_{hh}$ and $p_T$ distributions.
+
+\begin{table}
+\begin{center}
+\begin{tabular}{ccccccc}
+\toprule
+$\mu$  & $m_{hh}/2$  & $\sqrt{p_{T}^2+m_h^2}$ & $m_h$ \\
+\midrule
+LO   & $19.96(6)$   & $21.11(7)$  & $25.09(8)$ \\
+NLO  & $19.12(6)$   & $20.21(6)$  & $23.94(8)$ \\
+${\cal K}$-factor  & $0.958(1)$   &     $0.957(1)$   &   $0.954(1)$     \\
+\bottomrule
+\end{tabular}
+\caption{LO and NLO ${\rm EW}$-corrected integrated cross sections (in $\textup{fb}$) with $\sqrt{s}=14\,\textup{TeV}$ based on $1.8\times 10^4$ reweighted events. The uncertainties arise from statistical errors in phase space integration.}
+\label{total-cs}
+\end{center}
+\end{table}
+
+Table~\ref{total-cs} shows LO and NLO EW-corrected total cross sections at $\sqrt{s}=14\,\textup{TeV}$ for varying $\mu$. A difference of about $20\%$ arises for both LO and NLO cross sections from $\alpha_s$ and PDF sensitivity, which can be mitigated by higher-order QCD corrections \cite{Jones:2023uzh}. In contrast, the $\cal{K}$ factor ranges from 0.954 to 0.958 and remains stable, indicating that the EW corrections approximately factorize from the QCD corrections.
+
+To assess the EW uncertainties, we investigate the EW corrections in the $G_{\mu}$, $\alpha_0$, and $\alpha_{m_Z}$ renormalization schemes for the electromagnetic coupling \cite{Denner:2019vbn,Sang:2024vqk}. Table~\ref{total-cs2} presents the results based on these three different schemes. We find that the scale uncertainties (or scheme uncertainties) quantified by
+\begin{eqnarray}
+\frac{{\rm max}(\sigma_{G_{\mu}},\sigma_{\alpha_0},\sigma_{\alpha_{m_Z}})-
+      {\rm min}(\sigma_{G_{\mu}},\sigma_{\alpha_0},\sigma_{\alpha_{m_Z}})}
+     {{\rm min}(\sigma_{G_{\mu}},\sigma_{\alpha_0},\sigma_{\alpha_{m_Z}})},
+\end{eqnarray}
+amount to $13.0\%$ at LO and are further reduced to $0.8\%$ once the EW corrections are included. These results indicate that the dominant scale uncertainties are effectively absorbed at NLO EW.
+
+\begin{table}
+\begin{center}
+
+\begin{tabular}{ccccccc}
+\toprule
+ schemes  & $G_{\mu}$  & $\alpha_0$ & $\alpha_{m_Z}$ \\
+\midrule
+LO   & $19.96$   & $18.84$  & $21.28$ \\
+NLO  & $19.12$   & $19.19$  & $19.03$ \\
+${\cal K}$-factor  & $0.958$   &     $1.019$   &   $0.894$     \\
+\bottomrule
+\end{tabular}
+\caption{LO and NLO ${\rm EW}$-corrected integrated cross sections (in $\textup{fb}$) with $\sqrt{s}=14\,\textup{TeV}$ and $\mu=m_{hh}/2$ in the $G_{\mu}$, $\alpha_0$, and $\alpha_{m_Z}$ schemes. The electromagnetic couplings are taken as $\alpha_{G_{\mu}}=1/133.12$, $\alpha_{0}=1/137.035999$, and $\alpha_{m_Z}=1/128.932$, respectively.}
+\label{total-cs2}
+\end{center}
+\end{table}
+
+
+\begin{figure}
+\centering
+    \subfloat[]{{\figureplaceholder}\label{mhh}}
+    \subfloat[]{{\figureplaceholder}\label{pth}}
+	\\
+    \subfloat[]{{\figureplaceholder}\label{yh}}
+		\caption{Invariant mass distribution of the Higgs boson pair (a), transverse momentum distribution of one of the two Higgs bosons (b), and rapidity distribution of one of the two Higgs bosons (c), all at $\sqrt{s}=14\,\textup{TeV}$. In each panel, the upper plot shows absolute predictions and the lower panel displays the differential ${\cal K}$-factor with error bars representing statistical errors. Results shown are from Ref.~\cite{Bi:2023bnq}.}
+    \label{fullEWobs}
+\end{figure}
+
+
+The invariant mass distribution of the Higgs boson pair $m_{hh}$ is shown in Fig.~\ref{mhh}. A significant positive correction, of approximately $+15\%$, is observed in the first bin. In fact, we find that the EW correction for phase space points near the $hh$ production threshold can exceed $+70\%$. As $m_{hh}$ increases, the $\mathcal{K}$ factor initially decreases dramatically and then becomes milder farther from the threshold. A similar pattern occurs for the $p_{T}$ distribution in Fig.~\ref{pth}, where the correction is initially positive before turning negative around $100\,\textup{GeV}$. For regions of large $m_{hh}$ or large $p_{T}$, the NLO EW correction is approximately $-10\%$. Note that, while the corrections can reach $-30\%$ for the squared matrix element at $\sqrt{\hat{s}} \approx 14\,\textup{TeV}$, the extreme suppression of the gluon luminosity at high energy makes this impact insignificant.
+
+In Fig.~\ref{yh}, we display the rapidity distribution of one Higgs boson. The $\mathcal{K}$ factor is nearly flat, approximately $0.96$, matching that of the total cross section.
+% End inlined from NLO_EW_SM/EW_full/EW_full.tex
+
+
+
+
+% Begin inlined from NLO_EW_SM/EW_breakdown/EW_breakdown.tex
+\FloatBarrier
+\subsection{Breakdown of individual contributions}
+
+\label{EW:breakdown}
+
+Individual parts of the complete EW corrections to double Higgs boson production in gluon fusion have been computed separately, using a number of different methods.
+Fig.~\ref{fig:bd} and Table~\ref{tab:bd} summarize the different contributions.
+
+
+%\begin{figure}
+%\centering
+%    \subfloat[]{{\figureplaceholder}}
+%    \subfloat[]{{\figureplaceholder}}
+%    \subfloat[]{{\figureplaceholder}}
+%    \\[2em]
+%    \subfloat[]{{\figureplaceholder}}
+%    \subfloat[]{{\figureplaceholder}}
+%    \subfloat[]{{\figureplaceholder}}
+%    \\[2em]
+%    \subfloat[]{{\figureplaceholder}}
+%    \subfloat[]{{\figureplaceholder}}
+%    \subfloat[]{{\figureplaceholder}}
+%\end{figure}
+
+
+\begin{figure}
+\centering
+    \figureplaceholder
+	\caption{Example diagrams for different contributions. Blue set (a, b, c): top Yukawa-induced electroweak corrections; orange set (a, b, c, d, e, f, g, h): top quark contributions; red set (b, e, f): factorizable contributions; green set (a, b, d, e, g): top Yukawa and Higgs boson self-coupling corrections; olive set (i): light-quark contributions. The results of Section~\ref{EW:full} comprise all the displayed contributions. See Table~\ref{tab:bd}.}
+    \label{fig:bd}
+\end{figure}
+
+
+\begin{table}
+\begingroup
+\small
+\setlength{\tabcolsep}{2pt}
+\begin{center}
+\begin{tabularx}{\textwidth}{@{}
+  >{\raggedright\arraybackslash}p{0.60\textwidth}
+  c
+  >{\raggedright\arraybackslash}X
+@{}}
+\toprule
+Section & \mbox{Diagram sets} & \mbox{Key references} \\
+\midrule
+$\imineq{NLO_EW_SM/EW_breakdown/Images/BLUE}{1}$~Top Yukawa-induced electroweak corrections
+  & (a), (b), (c)
+  & \cite{Muhlleitner:2022ijf,Bhattacharya_TBA} \\
+
+$\imineq{NLO_EW_SM/EW_breakdown/Images/ORANGE}{1}$~Top quark contributions
+  & (a) to (h)
+  & \cite{Davies:2023npk,Davies:2026wbx} \\
+
+$\imineq{NLO_EW_SM/EW_breakdown/Images/RED}{1}$~Factorizable contributions
+  & (b), (e), (f)
+  & \cite{Muhlleitner:2022ijf,Zhang:2024rix} \\
+
+$\imineq{NLO_EW_SM/EW_breakdown/Images/GREEN}{1}$~Top Yukawa and Higgs boson self-coupling corrections
+  & (a), (b), (d), (e), (g)
+  & \cite{Davies:2022ram,Davies:2025wke,Heinrich:2024dnz} \\
+
+$\imineq{NLO_EW_SM/EW_breakdown/Images/OLIVE}{1}$~Light-quark contributions
+  & (i)
+  & \cite{Bonetti:2025vfd,Bhattacharya_TBA} \\
+\bottomrule
+\end{tabularx}
+\caption{Breakdown of the individual EW contributions to $gg \to hh$ at two loops; see Fig.~\ref{fig:bd}. The results of Section~\ref{EW:full} correspond to the sum of all terms from (a) to (g).}
+\label{tab:bd}
+\end{center}
+\endgroup
+\end{table}
+
+
+% Begin inlined from NLO_EW_SM/EW_top-Higgs_sector/EW_top-Higgs_sector.tex
+\subsubsection{Top Yukawa-induced electroweak corrections}
+
+\label{EW:Top-Higgs_sector}
+
+%\paragraph{Authors:}
+%\begin{itemize}
+%    \item Margarete Mühlleitner, Johannes Schlenk, Michael Spira~\cite{Muhlleitner:2022ijf};
+%    \item Arunima Bhattacharya, Francisco Campanario, Sauro Carlotti, Jamie Chang, Javier Mazzitelli, Margarete Mühlleitner, Jonathan Ronca, Michael Spira ~\cite{Bhattacharya_TBA}.
+%\end{itemize}
+
+\noindent \textbf{Milada Margarete Mühlleitner, Johannes Schlenk, Michael Spira~\cite{Muhlleitner:2022ijf}.}
+
+\noindent The first calculation of partial electroweak corrections to Higgs boson pair production via the dominant gluon-fusion process has been performed by investigating the corrections induced by the top Yukawa coupling \cite{Muhlleitner:2022ijf}. In order to set up a complete and consistent framework, these corrections have been obtained in the gaugeless limit, where all electroweak gauge couplings are set to zero, but the (massless) Goldstone contributions are taken into account, see Fig.~\ref{fig:bd}. This approach ensures the preservation of the $SU(2)$ symmetry of the scalar Higgs doublet. While the top-induced corrections to the trilinear Higgs boson self-coupling vertex are treated with the full top quark mass dependence, the triangle and box diagrams involving couplings of one or two Higgs bosons to gluons are treated in the HTL. The corresponding diagrams are displayed in Fig.~\ref{fg:dia_htl}, where the first two represent those that are treated in the HTL. For these two diagrams, we have used the effective Lagrangian \cite{Djouadi:1994ge,Muhlleitner:2022ijf}
+\begin{equation}
+{\cal L}_{eff} = \frac{\alpha_s}{12\pi} G^{a\mu\nu} G^a_{\mu\nu} \left\{
+(1+\delta_1) \frac{H}{v} + ( 1 + \eta_1) \frac{H^2}{2v^2} + {\cal
+O}(H^3) \right\}
+\label{eq:leff}
+\end{equation}
+where
+\begin{eqnarray}
+\delta_1 & = & \frac{x_t}{2} + {\cal O}(x_t^2) \,, \qquad\qquad
+\eta_1   = 4 x_t + {\cal O}(x_t^2) \,,
+\label{eq:leff_coeff}
+\end{eqnarray}
+Here $x_t = G_F m_t^2/(8\sqrt{2}\pi^2)$, $G_F$ denotes the Fermi constant, $v$ is the vacuum expectation value (vev) of the Higgs field, and $m_t$ is the top quark mass. This effective Lagrangian describes the electroweak corrections induced by $x_t$ to the $hgg$ and $hhgg$ vertices in the HTL. We would like to point out explicitly that the square root of the wave-function counterterm of the external Higgs boson(s) is already taken into account in this effective Lagrangian.
+\begin{figure}[!hbtp]
+\centering
+%\vspace*{-1.6cm}
+\figureplaceholder
+%\vspace*{-8.3cm}
+\caption{\label{fg:dia_htl}Generic diagrams contributing to the top Yukawa-induced electroweak corrections to the $gg\to hh$ process. The first two diagrams have been treated in the HTL. Diagrams adapted from Ref.~\cite{Muhlleitner:2022ijf}.}
+\end{figure}
+In Fig.~\ref{fg:dia_htl} the tadpole diagrams are displayed explicitly. We have used both the Fleischer--Jegerlehner scheme and the conventional scheme, in which the tadpole diagrams are omitted but retained in the corresponding counterterm of the trilinear Higgs boson self-coupling. We have obtained identical results in the final sum of the radiative corrections, once the vev $v$ is expressed in terms of the Fermi constant $G_F$.
+
+Because the full top quark mass dependence of the one-loop times one-loop diagrams describing the radiatively corrected trilinear Higgs boson self-coupling vertex (all diagrams of Fig.~\ref{fg:dia_htl} except the first two) has been kept, the use of the effective trilinear Higgs boson self-coupling (derived from the effective Coleman--Weinberg potential \cite{Coleman:1973jx,Weinberg:1973ua,Jackiw:1974cv})
+\begin{equation}
+\lambda_{hhh} = 3 \frac{m_h^2}{v} \, , \qquad\qquad \lambda_{hhh}^{\rm eff} = \lambda_{hhh} - \frac{3 m_t^4}{\pi^2 v^3} \approx 0.91 \times \lambda_{hhh}
+\end{equation}
+to accommodate the dominant part of the radiative corrections can be tested. The result is that process-dependent, finite-momentum-dependent corrections are of the same size as the corrections above, growing with $m_t^4$,
+\begin{eqnarray}
+\sigma & = & K_{elw} \times \sigma_{LO} \nonumber \\
+K_{elw} & \approx & 1.002 \hspace*{1.0cm} \mbox{($\lambda_{hhh}$)} \nonumber \\
+K^{eff}_{elw} & \approx & 0.938 \hspace*{1cm} \mbox{($\lambda^{\rm eff}_{hhh}$)}.
+\end{eqnarray}
+Since the effective trilinear Higgs boson self-coupling generates about $6\%$ electroweak corrections to the total cross section artificially and larger corrections to the distributions, using the LO-like trilinear Higgs boson self-coupling $\lambda_{hhh}$ is favoured \cite{Muhlleitner:2022ijf}. The top Yukawa-induced electroweak corrections are small except in the region close to the production threshold due to the complete cancellation of the leading top quark mass terms in the LO matrix element, to which the corrections are normalized.
+
+~
+
+\noindent \textbf{Arunima Bhattacharya, Francisco Campanario, Sauro Carlotti, Jamie Chang, Javier Mazzitelli, Milada Margarete Mühlleitner, Jonathan Ronca, Michael Spira ~\cite{Bhattacharya_TBA}.}
+
+\noindent The analysis of the top Yukawa-induced electroweak corrections discussed above has been extended to include the full top quark mass dependence. Specifically, the first two diagrams of Fig.~\ref{fg:dia_htl}, previously evaluated in the HTL, have been resolved into the corresponding two-loop diagrams involving top, bottom, Higgs, and Goldstone propagators. To preserve the SU(2) symmetry of the Higgs sector, this work has been performed in the gaugeless limit, enabling a gauge-invariant definition of the contributions associated with the top Yukawa coupling. In this limit, the Goldstone bosons are massless but do not generate infrared singularities. The method used for this calculation involves applying the projectors to the two form factors (in $D=4-2\epsilon$ dimensions), followed by a diagram-by-diagram Feynman parametrization. Since no tensor reduction has been used, the resulting Feynman integrands remain quite compact. The singularities were extracted by appropriate end-point subtractions. Moreover, this allowed us to keep, alongside the top quark mass, the bottom and the Higgs masses as free symbolic parameters. The virtual thresholds have been treated by introducing complex masses of the virtual propagators,
+\begin{equation}
+m_{t/b}^2 \to m_{t/b}^2 (1-i\bar\epsilon) \, , \qquad m_h^2 \to m_h^2 (1-i\bar\epsilon)
+\end{equation}
+with the regulator $\bar\epsilon$ to be sent to 0. The latter was achieved by applying a Richardson extrapolation \cite{Richardson} to a series of different values of $\bar\epsilon$. The minimal value of $\bar\epsilon$ used for numerical integrations varied between $10^{-8}$ and 0.1 depending on the diagram and the value of the invariant Higgs boson pair mass $Q=m_{hh}$. The top quark mass has been renormalized on-shell, and the vev has been renormalized according to the proper definition of the Fermi constant in muon decay.
+\begin{figure}[!hbtp]
+    \centering
+    %\vspace*{-1.5cm}
+    \figureplaceholder
+    %\vspace*{-13.9cm}
+    \caption{\label{fg:dia_top}Sample two-loop triangle and box diagrams of the top Yukawa-induced electroweak corrections to Higgs boson pair production involving Higgs $h$ and Goldstone $G^0,G^\pm$ exchanges. The bottom propagators only contribute to the diagrams with charged Goldstone exchange. Diagrams from Ref.~\cite{Bhattacharya_TBA}.}
+\end{figure}
+\begin{figure}[!hbtp]
+    \centering
+    %\vspace*{-7cm}
+    \figureplaceholder
+    %\vspace*{-4.7cm}
+    \caption{\label{fg:delta_1}The full top quark mass dependence of the coefficient $\delta_1$ of Eq.~\eqref{eq:leff_coeff} as a function of the invariant Higgs boson pair mass. The dotted line shows the purely real HTL result. The sizeable imaginary part arises from the diagrams with charged Goldstone exchange that include diagrams with $b\bar b$ thresholds. The points on the curve indicate the $m_{hh}$ values for which $\delta_1$ has been computed. The numerical errors are negligible and thus not shown. Results shown are from Ref.~\cite{Bhattacharya_TBA}.}
+\end{figure}
+
+The result of the two-loop triangle diagrams, see Fig.~\ref{fg:dia_top}, which can be directly compared to the coefficient $\delta_1$ in Eq.~\eqref{eq:leff_coeff}, is shown in Fig.~\ref{fg:delta_1}. As a cross-check, the HTL result of Eq.~\eqref{eq:leff_coeff} has been reproduced within uncertainties by artificially increasing the value of the top quark mass. The results indicate differences between the HTL and the full result at the (sub)percent level for the distribution in the Higgs boson pair mass.
+
+The calculation of the two-loop box diagrams, see Fig.~\ref{fg:dia_top}, is more involved, since the additional phase space dependence does not allow for an immediate comparison with the HTL. Applying the same method as for the two-loop triangle diagrams and including the phase space integration in the numerical analysis, the result of the two-loop renormalized box diagrams plus the two-loop triangle diagrams and the previous one-loop times one-loop diagrams related to the radiative corrections to the trilinear Higgs boson self-coupling vertex is shown in Fig.~\ref{fg:del_top}, where the relative corrections are defined as
+\begin{equation}
+\sigma (gg\to hh) = \sigma_{LO} (gg\to hh)~( 1 + \delta_{\text{top Yukawa}} + \delta_{\text{light quarks}} )
+\end{equation}
+with the light-quark contributions $\delta_{\text{light quarks}}$ discussed in Section~\ref{EW:light-quark}. The total corrections are about $-5\%$ for intermediate values of $m_{hh}$ and are smaller for large values, while they are large close to the production threshold due to the large cancellation in the LO matrix element, to which the corrections are normalized. At large values of $m_{hh}$, the corrections develop a visible slope. The right panel of Fig.~\ref{fg:del_top} shows details of the $t\bar t$ threshold, which develops a sign-changing interference behaviour with the LO matrix element, with a maximum below the $t\bar t$ threshold.
+\begin{figure}[!hbtp]
+    \centering
+    %\vspace*{-3.5cm}
+%    \subfloat[]{{
+\figureplaceholder
+%}}
+    %\vspace*{-10cm}
+    %\%hspace*{-1.0cm}
+%    \subfloat[]{{
+\figureplaceholder
+%}}
+    %\vspace*{6.0cm}
+    \caption{The full relative top Yukawa-induced electroweak corrections to the $gg \to hh$ process. The points on the curve indicate the $m_{hh}$ values for which the corrections have been computed. The right panel shows a magnified view of the structure of the $t\bar t$ threshold. Numerical error bars are shown for each point. The vertical line indicates the position of the $t\bar t$ threshold. Results shown are from Ref.~\cite{Bhattacharya_TBA}.}
+    \label{fg:del_top}
+\end{figure}
+% End inlined from NLO_EW_SM/EW_top-Higgs_sector/EW_top-Higgs_sector.tex
+
+
+
+% Begin inlined from NLO_EW_SM/EW_top/EW_top.tex
+\subsubsection{Top quark contributions}
+
+\label{EW:top}
+
+\noindent \textbf{Joshua Davies, Kay Schönwald, Matthias Steinhauser, Hantian Zhang~\cite{Davies:2023npk,Davies:2026wbx}.}
+
+\noindent The full top quark contributions, including all sectors of the SM, have been computed analytically in
+Refs.~\cite{Davies:2023npk,Davies:2026wbx} in the inverse top quark mass expansion and the high-energy expansion.
+
+In the large-$m_t$ limit~\cite{Davies:2023npk}, expansions up to order $1/m_t^{10}$ have been computed in the Feynman gauge in the limit
+\begin{align}
+m_t^2 \, \gg \, s, \, |t|, \, m_h^2, \, m_W^2 , \, m_Z^2 \,,
+\end{align}
+where no additional hierarchy is assumed among the scales on the right-hand side.
+%
+The calculation has been analytically validated in the general $R_\xi$-gauge by assuming the hierarchy
+\begin{align}
+    m_t^2 \, \gg \, \xi_W \, m_W^2, \, \xi_Z \, m_Z^2  \, \gg \, s, \, |t|, \, m_h^2, \, m_W^2 , \, m_Z^2 \,,
+\end{align}
+where $\xi_W, \xi_Z$ are gauge parameters for the $W$ and $Z$ bosons.
+%
+These parameters appear in combination with gauge boson masses in the gauge boson and Goldstone propagators.
+%
+It is a valuable and non-trivial analytic validation that $\xi_W$ and $\xi_Z$ drop out in the renormalized amplitudes. 
+%
+Note that the gauge parameter for the photon, $\xi_\gamma$, drops out after summing all bare two-loop diagrams.
+%
+
+
+In the high-energy limit~\cite{Davies:2026wbx},
+the electroweak calculation is much more challenging compared to the QCD case and the large-$m_t$ EW case. In this limit, we perform nested expansions in several small parameters in the following hierarchies in the Feynman gauge:
+\begin{align}
+    s, \, |t| \,  \gg \, m_t^2, \, m_W^2, \, m_Z^2 \,, (m_h^{\rm int})^2 \, \gg \,  (m_h^{\rm ext})^2\,,
+\end{align}
+where $m_h^{\rm int}$ denotes the mass of Higgs propagators inside the loop and $m_h^{\rm ext}$ is the mass of the final-state Higgs boson.
+%
+By identifying these hierarchies, we can first perform an external Higgs mass expansion, followed by expansions in the mass differences among several internal mass parameters as $\delta_X = 1 - m_X/ m_t $ for $ X=W,Z,H$.
+Finally and most importantly, we perform a deep high-energy expansion with more than 100 expansion terms around the small-$m_t$ limit.
+%
+Schematically, the generic structure of the high-energy expansion of the form factors can be written as
+\begin{align}
+  F &= \sum_{n=-4}^{108} \sum_{i=0}^{2} \sum_{k_W=0}^{{4}}\sum_{k_Z=0}^{{4}}\sum_{k_H=0}^{{4}} 
+        c_{ni}^{k_W k_Z k_H}  \: m_t^{n} \:
+        (m^{\rm ext}_H)^{2i} \:
+        \delta_W^{k_W} \: \delta_Z^{k_Z} \: \delta_H^{k_H} 
+        \,,
+\end{align}
+where $c_{ni}^{k_W k_Z k_H}$ are coefficient functions of $s,t$ and $\log(m_t^2)$, featuring polylogarithmic and elliptic structures.
+%
+These analytic expressions are numerically evaluated through a Pad\'{e} procedure to increase the radius of convergence of the high-energy expansion across a larger phase space region.
+%
+The high-energy computation is technically challenging at both the form factor and Feynman integral level, due to drastically increased complexity when the full electroweak sector is taken into account.
+%
+We have successfully tackled both complexities and achieved a deep high-energy expansion up to the orders $m_t^{108}$, $(m_{H}^{\rm ext})^4$ and $\delta_X^4$. 
+We have systematically analysed the convergence properties of our expansion, and we estimate the truncation uncertainty, dominated by the mass-difference expansion, to be about $\pm 1\%$ of the two-loop corrections.
+%
+For technical details of master integral calculations for the electroweak topologies, we refer to Refs.~\cite{Davies:2025wke,Davies:2022ram,Zhang:2024fcu}.
+
+
+
+%%%
+The electroweak renormalization follows the standard procedure as outlined in Refs.~\cite{Denner:1991kt,Denner:2019vbn}. 
+%
+The one-loop form factors are expressed in terms of parameters $\{e,m_W,m_Z,m_t,m_h\}$, and the parameter renormalization is performed with corresponding renormalization constants in the on-shell scheme.
+%
+The wave functions of the external Higgs bosons are also renormalized in the on-shell scheme.
+%
+Throughout the entire calculation, all tadpole contributions are consistently included such that all parameter renormalization constants are gauge-parameter independent, while the gauge-parameter dependence only appears in the wave function renormalization constant for the external Higgs boson.
+%
+This prescription is equivalent to the so-called \textit{Fleischer--Jegerlehner tadpole scheme}~\cite{Fleischer:1980ub}.
+%
+
+%%%%
+The large-$m_t$ result~\cite{Davies:2023npk} supports the findings of Ref.~\cite{Muhlleitner:2022ijf},
+where the top Yukawa-induced effects have been studied, namely that the electroweak corrections near the Higgs boson pair production threshold can lead to a few tens of percent effects with respect to the leading order contribution.
+%
+This interesting phenomenon is due to the fact that the electroweak corrections lift the destructive interference near the production threshold, where the matrix element is suppressed by the cancellation between triangle and box form factors at leading order.
+Similarly, large top Yukawa-induced corrections near the production threshold have been found in Ref.~\cite{Heinrich:2024dnz}.
+%
+Although the radius of convergence is
+limited, this result also serves as an important benchmark for other calculations. 
+For example, it has been compared with Ref.~\cite{Bi:2023bnq} in a large-$m_t$ limit and good agreement was observed.
+
+%
+The high-energy result~\cite{Davies:2026wbx} has several interesting features.
+In the limiting case of $m_h = 0$ and $m_t \to 0$, the leading high-energy expansion starts at $(m_t^2/s)^0$ at two loops, while it only starts at $(m_t^2/s)^1$ at one loop.
+%
+At NLO EW in this limit, we observe a quadratic and cubic logarithm ($\alpha \log^2(m_t^2/s)$ and $\alpha \log^3(m_t^2/s)$) as the leading logarithmic contribution for the box contributions in form factors $F_1$ and $F_2$, respectively. Note that the triangle contributions are suppressed at high energies due to the $s$-channel Higgs propagator.
+%
+In Fig.~\ref{fig::rEW_HE}, we present our result in terms of a ``partonic $K$-factor'' $r_{EW} = \frac{\alpha}{\pi} \big( \, \mathcal{U}^{(0,1)} / \mathcal{U}^{(0)} \big)$ up to $\sqrt{s} = 10$~TeV, where we assume the perturbative NLO QCD and EW expansion as $|\mathcal{M}|^2 = \bar{X}_0 \big( \, \mathcal{U}^{(0)} + \frac{\alpha_s}{\pi}\, \mathcal{U}^{(1,0)} + \frac{\alpha}{\pi} \, \mathcal{U}^{(0,1)} \big)$ with an overall prefactor $\bar{X}_0$.
+\begin{figure}[t]
+\centering
+    \figureplaceholder
+  \caption{\label{fig::rEW_HE}
+   $r_{\rm EW}$ for various values of $p_T$ as a function of $\sqrt{s}$.
+   The plots show the same data for different ranges of $\sqrt{s}$ on the $x$ axis. The uncertainty band (only visible for $p_T = 300$~GeV) is obtained from the Pad\'{e} approximation, and the truncation uncertainty in the $\delta_X$ and $m_h^{\rm ext}$ expansions is not shown but is estimated to be $\pm1\%$.
+   Results shown are from Ref.~\cite{Davies:2026wbx}.
+   }
+\end{figure}
+Our result covers a large phase space ranging from the high-energy limit to fairly low values of Higgs transverse momentum $p_T \gtrsim 350$~GeV.
+It shows that these electroweak corrections lead to an effect of order $-10\%$, supporting the observation from Ref.~\cite{Bi:2023bnq} for the hadronic invariant mass or $p_T$ distribution.
+% End inlined from NLO_EW_SM/EW_top/EW_top.tex
+
+
+
+% Begin inlined from NLO_EW_SM/EW_1loopX1loop/EW_1loopX1loop.tex
+\subsubsection{Factorizable contributions}
+
+\label{EW:1loopX1loop}
+
+%\paragraph{Authors:}
+%\begin{itemize}
+%    \item Margarete Mühlleitner, Johannes Schlenk, Michael Spira~\cite{Muhlleitner:2022ijf};
+%    \item Joshua Davies, Kay Schönwald, Matthias Steinhauser, Hantian Zhang~\cite{Zhang:2024rix}.
+%\end{itemize}
+
+
+Factorizable contributions consist of diagrams containing two separated one-loop corrections, see Fig.~\ref{fig:bd}, cases (b), (e), and (f).
+
+
+\noindent \textbf{Milada Margarete Mühlleitner, Johannes Schlenk, Michael Spira~\cite{Muhlleitner:2022ijf}.}
+
+\noindent The subset of factorizable contributions containing Yukawa interactions between the Higgs and the top quark (case (b)) has been evaluated analytically retaining full dependence on masses and kinematics. Analytical results have been presented in Ref.~\cite{Muhlleitner:2022ijf}.
+
+
+\noindent \textbf{Joshua Davies, Kay Schönwald, Matthias Steinhauser, Hantian Zhang~\cite{Zhang:2024rix}.}
+
+\noindent Exact analytic results for the complete set of factorizable contributions in the SM have been obtained (cases (b), (e), and (f)). No approximation has been applied. Computer-readable results for the form factors are provided, expressed in terms of standard $B_0$ and $C_0$ functions.
+% End inlined from NLO_EW_SM/EW_1loopX1loop/EW_1loopX1loop.tex
+
+
+
+% Begin inlined from NLO_EW_SM/EW_top-Higgs_self/EW_top-Higgs_self.tex
+\subsubsection{Top Yukawa and Higgs boson self-coupling corrections}
+
+\label{EW:Top-Higgs_self}
+
+%\paragraph{Authors:}
+%\begin{itemize}
+%    \item Joshua Davies, Kay Schönwald, Matthias Steinhauser, Hantian Zhang~\cite{Davies:2022ram,Davies:2025wke};
+%    \item Gudrun Heinrich, Stephen Jones, Matthias Kerner, Thomas Stone, Augustin Vestner~\cite{Heinrich:2024dnz}.
+%\end{itemize}
+
+
+\noindent \textbf{Joshua Davies, Kay Schönwald, Matthias Steinhauser, Hantian Zhang~\cite{Davies:2022ram,Davies:2025wke}.}
+
+\noindent Analytic high-energy results for the subset of Feynman diagrams involving top Yukawa and Higgs boson self-energy couplings have been computed in Refs.~\cite{Davies:2022ram,Davies:2025wke}.  Such diagrams involve as dimensionful quantities the Mandelstam variables $s$ and $t$, the top quark mass and the Higgs boson mass.  In the calculation the final-state Higgs mass and the one in the propagators inside the loop diagrams are treated separately. This allows us to perform as a first step an expansion in the final-state mass and subsequently an expansion in $\delta = 1-m_h^{\rm int}/m_t$ with $m_h^{\rm int}$ being the internal propagator mass. Both expansions are simple Taylor expansions.
+Afterwards, we realize the high-energy limit through an expansion for small $m_t$ which requires the application of a nontrivial asymptotic expansion.
+%
+Technical details of the master integral calculations in the high-energy limit are given in Refs.~\cite{Zhang:2024fcu,Davies:2022ram,Davies:2025wke}, together with a publicly available tool \texttt{AsyInt}~\cite{Zhang:2024fcu}.
+%
+We typically compute about $100$ expansion terms in $m_t$ and subsequently apply a Pad\'e procedure that provides, for each phase-space point, a central value and an uncertainty. It has been shown in Refs.~\cite{Davies:2022ram, Davies:2023vmj} that this approach leads to precise results down to fairly low values of the Higgs transverse momentum $p_T$ in the case of QCD and leading Yukawa corrections.
+
+As an illustration we show in Fig.~\ref{fig::diff_to_SD_yt3lam1} the comparison of the real part of the box contribution to form factor $F_1$ originating from diagrams with three top quark Yukawa couplings and one trilinear Higgs boson self-coupling (see Fig.~\ref{fig::diags} for sample diagrams) to the numerical results from Ref.~\cite{Heinrich:2024dnz}. After including expansion terms up to order $m_h^4\delta^3$ one observes agreement at the percent level.
+
+Note that the analytic results provide full flexibility concerning the change of renormalization schemes and the variation of input parameters.
+
+\begin{figure}
+\centering
+    \subfloat[]{{\figureplaceholder}}
+	\\
+    \subfloat[]{{\figureplaceholder}}
+	\quad
+    \subfloat[]{{\figureplaceholder}}
+	\caption{Real part of the form factor (a) from Feynman diagrams like those shown in Fig.~\ref{fig::diags}. (b) and (c) show the absolute and relative difference compared to Ref.~\cite{Heinrich:2024dnz}. Analytic results shown are from Ref.~\cite{Davies:2025wke}.}
+    \label{fig::diff_to_SD_yt3lam1}
+\end{figure}
+
+
+\begin{figure}
+\centering
+    \subfloat[]{{\figureplaceholder}}
+	\quad
+    \subfloat[]{{\figureplaceholder}}
+	\caption{Sample Feynman diagrams. Solid, dashed and curly lines represent top quarks, Higgs bosons and gluons, respectively. Diagrams from Ref.~\cite{Davies:2025wke}.}
+    \label{fig::diags}
+\end{figure}
+
+
+~
+
+\noindent \textbf{Gudrun Heinrich, Stephen Jones, Matthias Kerner, Thomas Stone, Augustin Vestner~\cite{Heinrich:2024dnz}.}
+
+\noindent In Ref.~\cite{Heinrich:2024dnz}, fully differential results for the Yukawa- and Higgs boson self-coupling-type electroweak corrections to Higgs boson pair production in gluon fusion are presented.
+The results retain the full dependence on the mass of the top quark and the Higgs boson.
+At the amplitude level, the results are further separated into the individual coupling structures, allowing for the bare amplitude to be computed with arbitrary top Yukawa coupling, trilinear Higgs boson self-coupling, and quartic Higgs boson self-coupling.
+
+The precise class of corrections which are computed is defined via a Yukawa model with only an up-type quark (the top quark) and a scalar field (the Higgs boson). Example Feynman diagrams are shown in Fig.~\ref{fig:240704653_examplediags}.
+This model selects a well-defined subset of diagrams which can be obtained from considering the SM in the unitary gauge and then setting $(g, g^\prime) \rightarrow (0,0)$, which removes the electroweak gauge bosons (and their associated ghost fields).
+The electroweak input-parameter scheme $\left\{ M_Z=0, M_W=0, G_F\right\}$ + $\left\{m_t,m_h\right\}$ is used, where all masses are specified in the on-shell scheme.
+Results are presented with the Higgs vev fixed in the $G_\mu$ scheme (with $M_Z=0$, $M_W=0$). However, the intermediate results are sufficiently general to allow another renormalization scheme to be adopted.
+Tadpole contributions are treated within the Fleischer--Jegerlehner tadpole scheme (FJTS)~\cite{Fleischer:1980ub}.
+
+
+\begin{figure}
+\centering
+    \subfloat[]{{\figureplaceholder}}
+	\qquad
+    \subfloat[]{{\figureplaceholder}}
+	\qquad
+    \subfloat[]{{\figureplaceholder}}
+		\caption{Example diagrams contributing to the different coupling structures into which the bare two-loop amplitude is separated. Diagrams from Ref.~\cite{Heinrich:2024dnz}.}
+    \label{fig:240704653_examplediags}
+\end{figure}
+
+
+The calculation is performed by projecting the bare amplitude onto the two form factors described above in $D=4-2\epsilon$ dimensions.
+The unreduced amplitude is obtained using two separate calculations based on either \texttt{alibrary}~\cite{alibrary}, a \texttt{Mathematica} and \texttt{Form}~\cite{Kuipers:2013pba} package for computing multi-loop amplitudes, or \texttt{Reduze 2}~\cite{vonManteuffel:2012np}, allowing for a detailed cross-check.
+The form factors are then reduced fully symbolically, retaining the dependence on the Mandelstam invariants ($s$, $t$), the masses ($m_h$, $m_t$) and the space-time dimension $D$, to a basis of 494 finite master integrals using the public programs \texttt{Kira}~\cite{Klappert:2020nbg}, \texttt{Ratracer}~\cite{Magerya:2022hvj}, and \texttt{Firefly}~\cite{Klappert:2019emp,Klappert:2020aqs}.
+The master integrals appearing in the reduced form factors are then evaluated numerically for each phase-space point using \texttt{pySecDec}~\cite{Borowka:2017idc,Borowka:2018goh,Heinrich:2021dbf,Heinrich:2023til}. The evaluation of the master integrals is additionally cross-checked at several physical points using \texttt{DiffExp}~\cite{Hidding:2020ytt,Moriello:2019yhu}.
+
+
+\begin{figure}
+\centering
+    \subfloat[]{{\figureplaceholder}}
+	\quad
+    \subfloat[]{{\figureplaceholder}}
+    \caption{Invariant mass (a) and transverse momentum (b) distributions for Higgs boson pair production at LO and $\mathrm{NLO}^\mathrm{EW}$ including only the Yukawa and Higgs boson self-coupling-type corrections. Results shown are from Ref.~\cite{Heinrich:2024dnz}.}
+    \label{fig:240704653_dists}
+\end{figure}
+
+
+In Fig.~\ref{fig:240704653_dists}, results for the Higgs boson pair invariant mass and $p_{T,H}$~distribution are shown.
+The results presented here are obtained using the \texttt{PDF4LHC21\_40}~\cite{PDF4LHCWorkingGroup:2022cjn} parton distribution functions interfaced via \texttt{LHAPDF}~\cite{Buckley:2014ana} and setting the factorization and renormalization scale to $\mu_r = \mu_f = m_{hh}/2$. The masses of the Higgs boson and top quark are set to $m_h = 125~\mathrm{GeV}$, $m_t = \sqrt{23/12}\,m_h = 173.055$ GeV, respectively, and $G_F = 1.1663787 \cdot 10^{-5}\,\textup{GeV}^{-2}$, corresponding to $v=246.22~\mathrm{GeV}$.
+For the subset of the electroweak correction considered, very large shape distortions (around $30\%$ for the binning selected) are observed close to threshold for the invariant mass distribution, with much smaller corrections above $400\,\textup{GeV}$ (up to $1\,\textup{TeV}$).
+The corrections in the $p_{T,H}$ distribution are less localized, with distortions of up to $5\%$ present across the spectrum.
+Overall, the top Yukawa and Higgs boson self-coupling corrections amount to a $1\%$ enhancement of the total cross section.
+
+An important observation concerns the renormalizability of models in which the top Yukawa coupling, the trilinear Higgs boson self-coupling, and the quartic Higgs boson self-coupling are varied from their SM values.
+In particular, it is observed that the $1/\epsilon$ pole structure of the vev counterterm obtained by demanding the finiteness of the Yukawa or Higgs boson self-coupling vertices differs unless they are each set to their SM value.
+This implies that the $\kappa$-framework used to extract the trilinear Higgs boson self-coupling modifier, $\kappa_\lambda \equiv \lambda_{hhh}/\lambda_{hhh}^{\rm SM}$, cannot directly be used when including the electroweak corrections to this process.
+Furthermore, even though the quartic Higgs boson self-coupling first enters at $\mathrm{NLO}_\mathrm{EW}$, the subset of diagrams in which it appears is divergent prior to UV renormalization, implying that the $\kappa_4$ coupling also cannot naively be varied.
+% End inlined from NLO_EW_SM/EW_top-Higgs_self/EW_top-Higgs_self.tex
+
+
+
+% Begin inlined from NLO_EW_SM/EW_light_quarks/EW_light_quarks.tex
+\subsubsection{Light-quark contributions}
+
+\label{EW:light-quark}
+
+%\paragraph{Authors:}
+%\begin{itemize}
+%    \item Marco Bonetti, Philipp Rendler, William J. Torres Bobadilla~\cite{Bonetti:2025vfd,BoHeReToBa_TBA};
+%    \item Arunima Bhattacharya, Francisco Campanario, Sauro Carlotti, Jamie Chang, Javier Mazzitelli, Margarete Mühlleitner, Jonathan Ronca, Michael Spira ~\cite{Bhattacharya_TBA}.
+%\end{itemize}
+
+
+\begin{figure}
+\centering
+    \subfloat[$VVh$]{{\figureplaceholder}\label{fig:VVHV}}
+	\qquad\qquad
+    \subfloat[$VVhh$]{{\figureplaceholder}\label{fig:HHVV}}
+	\qquad\qquad
+    \subfloat[$VVV$]{{\figureplaceholder}\label{fig:VVV}}
+	\caption{Representative diagrams for the light-quark contributions from Ref.~\cite{Bonetti:2025vfd}.}
+    \label{fig:amplgg}
+\end{figure}
+
+
+Double Higgs boson production in gluon fusion mediated by light quarks appears for the first time at two loops: the gluons couple to a light-quark box, to which either two $W$ or two $Z$ bosons are attached, subsequently generating the Higgs boson(s). Three blocks of contributions can be identified: one-particle reducible diagrams containing one vector-vector-Higgs vertex and one trilinear Higgs boson self-coupling vertex (dubbed $VVH$, see Fig.~\ref{fig:VVHV}); diagrams containing a vector-vector-Higgs-Higgs vertex ($VVHH$, Fig.~\ref{fig:HHVV}); and diagrams containing two vector-vector-Higgs vertices ($VVV$, Fig.~\ref{fig:VVV}).\footnote{The $VVV$ type of diagrams may also contain a Goldstone boson connecting the two Higgs bosons.} Each one of these blocks is further divided into diagrams containing either $W$ or $Z$ bosons only. Each one of the aforementioned terms is explicitly gauge-invariant and UV- and IR-finite. Four light flavours are considered in diagrams containing $W$ bosons, while five light flavours have been taken into account in diagrams containing $Z$ bosons.
+
+~
+
+\noindent \textbf{Marco Bonetti, Philipp Rendler, William Torres Bobadilla~\cite{Bonetti:2025vfd}.}
+
+\noindent In Ref.~\cite{Bonetti:2025vfd} fully symbolic expressions for each of the blocks described above have been calculated. The amplitude has been decomposed as a linear combination of the standard tensors $T_1^{\mu\nu}$ and $T_2^{\mu\nu}$ of Section~\ref{intro_ampli}.\footnote{No axial terms are generated by the fermion loop thanks to charge-parity conservation.}
+
+The two form factors are extracted, and the set of scalar two-loop Feynman integrals appearing there is reduced to master integrals. Differential equations are derived for specific linear combinations of the master integrals with respect to the Mandelstam variables and the masses, such that their solution can be written in terms of iterated integrals over logarithmic kernels. This choice of basis is further improved by applying a series of rotations to eliminate redundant integration kernels. Integration constants are fixed by matching the expressions of the master integrals to their large-$m_{W,Z}$ expansion.
+
+The results are employed to obtain analytic expressions for the form factors, further identifying independent functions therein for which dedicated differential equations are built for optimized numerical evaluation in terms of generalized series expansions evolved from the large-mass limit to arbitrary points in the physical region of the phase space. A code implementation for the numerical evaluation of the functions is provided, based on the \texttt{Mathematica} package \texttt{DiffExp}~\cite{Hidding:2020ytt}. Grids for the light-quark amplitude, as well as for its interference with the LO amplitude, have been implemented in the POWHEG-BOX framework or are available upon request. The interference between the LO amplitude and the first form factor of the light-quark amplitude represents the main source of contributions except for the high-energy tail, where the second form factor becomes relevant, although very small overall. Large cancellations occur when considering the interference between LO triangle and box diagrams with each of the $VVh$, $VVhh$, and $VVV$ blocks, suggesting that the light-quark terms are highly sensitive to variations of the trilinear Higgs boson self-coupling.
+
+
+\begin{figure}
+\centering
+    \subfloat[]{{\figureplaceholder}\label{fig:lq_mHH}}
+	\quad
+    \subfloat[]{{\figureplaceholder}\label{fig:lq_pTH}}
+	\caption{Light-quark and Yukawa contributions to the Higgs boson pair invariant mass (a) and Higgs transverse momentum distributions (b).}
+    \label{fig:lq_obs}
+\end{figure}
+
+
+The impact of the light-quark corrections to the Higgs boson pair invariant mass distribution and the transverse momentum distribution is depicted in Figs.~\ref{fig:lq_mHH} and~\ref{fig:lq_pTH}, respectively. The light-quark corrections suppress both the invariant mass and the transverse momentum distribution at all centre-of-mass energies, with particular relevance for the region of the phase space close to the production threshold, where they have a negative effect of more than $-15\%$ on the $m_{hh}$ distribution and around $-4\%$ on the $p_{T,h}$ distribution. In both cases, the corrections quickly approach zero as the centre-of-mass energy grows.
+
+~
+
+\noindent \textbf{Arunima Bhattacharya, Francisco Campanario, Sauro Carlotti, Jamie Chang, Javier Mazzitelli, Milada Margarete Mühlleitner, Jonathan Ronca, Michael Spira ~\cite{Bhattacharya_TBA}.}
+
+\noindent Ref.~\cite{Bhattacharya_TBA} provides an independent evaluation of the light-quark contributions to $gg \to hh$. The bottleneck of this calculation is the evaluation of the genuine two-loop box diagrams $VVV$ (see Fig.~\ref{fig:VVV}). The numerical stability of these diagrams is quite demanding, since strong cancellations emerge between all diagrams, which require the form factors of the individual diagrams to be numerically determined with very significant precision. The numerical method applied to these diagrams is the same as in Section~\ref{EW:Top-Higgs_sector}, i.e.\ projection on the two form factors of Eq.~\eqref{eq:FFdeco} in $D=4-2\epsilon$ dimensions, no tensor reduction, Feynman parametrization and analytical continuation of all propagator masses including the $W$ and $Z$ boson masses, $M_{W/Z}^2 \to M_{W/Z}^2 (1-i\bar\epsilon)$. To isolate the singularities, multiple end-point subtractions need to be performed. In order to reach the narrow-width limit $\bar\epsilon\to 0$, a Richardson extrapolation was performed with a minimal regulator down to $\bar\epsilon = 0.025$ depending on $m_{hh}$.
+
+The two-loop triangle diagrams $VVh$ (see Fig.~\ref{fig:VVHV}) can be adopted from the single-Higgs calculation \cite{Aglietti:2004nj,Aglietti:2006yd} and translated to the two-loop box diagrams with a 4-point vertex $VVhh$ (see Fig.~\ref{fig:HHVV}).
+
+
+\begin{figure}[!hbtp]
+    \centering
+   % \vspace*{-3.2cm}
+\figureplaceholder
+ %   \vspace*{-3.2cm}
+\caption{\label{fg:delta_lq}The full relative light-quark loop-induced electroweak corrections to the $gg \to hh$ process. The points on the curve together with their numerical error bars indicate the $m_{hh}$ values for which the corrections have been computed. Results shown are from Ref.~\cite{Bhattacharya_TBA}.}
+\end{figure}
+
+
+The total sum of all light-quark loop diagrams is finite, and no renormalization is required. The result is a small correction at the sub-percent level for large values of $m_{hh}$, see Fig.~\ref{fg:delta_lq}, while the corrections are larger close to the production threshold due to the cancellation of the leading top quark mass terms of the LO matrix element, to which the results are normalized. In total, the light-quark loops do not play a dominant role in Higgs boson pair production via gluon fusion in contrast to single-Higgs production \cite{Actis:2008ts,Actis:2008ug}.
+
+~
+
+\paragraph{Comparison.}
+
+The two independent evaluations of the light-quark contributions mentioned above have been found to agree within the numerical uncertainties.
+% End inlined from NLO_EW_SM/EW_light_quarks/EW_light_quarks.tex
+% End inlined from NLO_EW_SM/EW_breakdown/EW_breakdown.tex
+
+
+
+
+% Begin inlined from NLO_EW_SM/EW_qqbar_initiated/EW_qqbar_initiated.tex
+\subsection{Quark-antiquark-initiated contributions}
+
+\label{EW:qqbar}
+
+A Higgs boson pair can also be produced in the quark-antiquark channel. The Higgs bosons can be generated either through direct Yukawa couplings to massive bottom quarks or through intermediate EW vector bosons. Direct Yukawa production already occurs at tree level but is suppressed by the small Yukawa couplings, while EW-boson-mediated production is loop-induced.
+
+
+
+\noindent \textbf{Marco Bonetti, Gudrun Heinrich, Philipp Rendler, William  Torres~Bobadilla~\cite{Bonetti:2026cih}.}
+
+
+\begin{figure}
+\centering
+    \subfloat[LO.]{{\figureplaceholder}\label{fig:qqbarLO}}
+	\qquad\qquad
+    \subfloat[NLO virtual.]{{\figureplaceholder}\label{fig:qqbarV}}
+	\qquad\qquad
+    \subfloat[NLO real.]{{\figureplaceholder}\label{fig:qqbarR}}
+	\qquad\quad
+
+	\caption{Representative diagrams for light-quark-antiquark-initiated contributions from Ref.~\cite{Bonetti:2026cih}.}
+    \label{fig:amplqqbar}
+\end{figure}
+
+\noindent The process $q\overline{q} \to hh$, mediated by weak bosons in the loop, has been calculated in Ref.~\cite{Bonetti:2026cih}, including NLO QCD corrections and considering only light quarks. Fig.~\ref{fig:amplqqbar} shows illustrative diagrams at LO and at NLO QCD. Only the first two generations of quarks are considered as initial states.
+
+The $q\overline{q}hh$ two-loop diagrams and the $q\overline{q}hhg$ real emission diagrams contributing at NLO can be decomposed into subsets according to the number of $VVH$ or $VVhh$ vertices and vector boson propagators they contain, analogous to the light-quark contributions to $gg \to hh$ described in Section~\ref{EW:light-quark} and calculated in Ref.~\cite{Bonetti:2025vfd}.
+
+For the two-loop virtual diagrams, only the $VVV$ subset (exemplified in Fig.~\ref{fig:amplqqbar}b) is non-zero, due to angular momentum conservation. Consequently, real emissions belonging to the $VVh$ and $VVhh$ blocks do not develop IR poles when integrating over the phase space of the unresolved extra gluon.
+
+The one-loop amplitudes have been evaluated via the computer code \texttt{GoSam-3.0}~\cite{Braun:2025afl}, while the two-loop virtual contributions have been calculated analytically, retaining full dependence on the Mandelstam invariants and masses. The two-loop Feynman integrals have been reduced to master integrals, which have been expressed in terms of Chen iterated integrals over logarithmic kernels. Differential equations tailored to the independent transcendental functions at the level of the form factors have been constructed to produce precise numerical evaluations through the \texttt{Mathematica} package \texttt{DiffExp}~\cite{Hidding:2020ytt}.
+
+The full set of NLO amplitudes has been implemented in the form of numerical grids in the {\tt POWHEG-BOX-V2} framework. NLO QCD corrections increase the total cross section with respect to LO $q\overline{q} \to hh$ by about $+60\%$.
+
+On the one hand, the contribution to the total cross section coming from the quark-antiquark channel is negligible when compared to the gluon channel, amounting to about $+0.35\%$. On the other hand, the NLO QCD corrections to $q\overline{q} \to hh$ have a large shape-distorting effect at low energies in the $m_{hh}$ differential distribution, increasing the leftmost bin by about $10\%$ (cf.\ Fig.~\ref{fig:invariantMass}).\footnote{Bins with a $20\,\textup{GeV}$ width are considered.} As the low $m_{hh}$ region is also very sensitive to deviations of the trilinear Higgs boson self-coupling from the SM value, these contributions should not be neglected in high-precision predictions for Higgs boson pair production.
+
+
+\begin{figure}
+\centering
+\figureplaceholder
+\figureplaceholder
+\caption{Invariant mass distribution of the Higgs boson pair (left) and transverse momentum distribution (right) of a single Higgs boson at a proton-proton centre-of-mass energy of $\sqrt{s} = 13.6\,\textup{TeV}$. The error bands represent the scale uncertainties of the quark-antiquark channel and the error bars indicate the statistical uncertainties from the Monte Carlo integration. Figures from Ref.~\cite{Bonetti:2026cih}.
+}
+\label{fig:invariantMass}
+\end{figure}
+% End inlined from NLO_EW_SM/EW_qqbar_initiated/EW_qqbar_initiated.tex
+% End inlined from NLO_EW_SM/EW_main.tex
+
+
+
+
+
+% Begin inlined from Recommendations/rec.tex
+\section{Cross Section Recommendations}\label{sec:recs}
+
+The previous sections summarize the perturbative ingredients entering the current state-of-the-art prediction for Higgs boson pair production via gluon fusion. In this section we combine these results into the recommended reference cross sections, uncertainties, and invariant-mass distribution. Unless a dedicated alternative setup is required, the numbers reported here should be used for phenomenological studies and experimental interpretations.
+
+\subsection[\texorpdfstring{NNLO$_{\textup{FTapprox}}$}{NNLO FTapprox}]{\texorpdfstring{\boldmath$\textup{NNLO}_{\textup{FTapprox}}$}{NNLO FTapprox}}
+
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{lccc}
+\toprule
+$\sqrt{s}$ [TeV] & \textbf{13} & \textbf{13.6} & \textbf{14} \\
+\midrule
+$\sigma$ [fb] & 30.75 & 34.01 & 36.27 \\\hline
+$\pm$ PDF unc. [\%] & 1.96 & 1.92 & 1.89 \\
+$\pm \alpha_s$ unc. [\%] & 1.51 & 1.49 & 1.47 \\
+{\bfseries\boldmath $\pm$ PDF $+$ $\alpha_s$ unc. [\%]} & \textbf{2.47} & \textbf{2.43} & \textbf{2.39} \\\hline
+QCD scale unc. [\%] & $^{+2.11}_{-4.98}$ & $^{+2.07}_{-4.85}$ & $^{+2.01}_{-4.78}$ \\
+$\pm$ THU [\%] & 0.14 & 0.19 & 0.21 \\
+\bottomrule
+\end{tabular}
+\caption{Total cross sections in $\textup{NNLO}_{\textup{FTapprox}}$~\cite{Grazzini:2018bsd}, at $13$, $13.6$ and $14\,\textup{TeV}$ proton centre-of-mass energies, with the Higgs boson mass set to $m_h = 125\,\textup{GeV}$. The central renormalization and factorization scale is taken to be $\mu_0  = m_{hh}/2$, and the scale uncertainties were obtained through a 7-point variation around $\mu_0$. The top quark mass was set to $m_t=173.0$~GeV and the bottom quark mass was set to zero, employing a 5-flavour scheme. The ``theory uncertainty'' (THU) only contains integration errors combined with $r_\mathrm{cut}\rightarrow 0$ extrapolation uncertainties. The PDF set \texttt{PDF4LHC21\ttus 40} was used. The PDF $+$ $\alpha_s$ uncertainty is obtained by adding the two contributions in quadrature.}
+\label{tab:nnlo_ftapprox_xs_125}
+\end{center}
+\end{table}
+
+The total cross sections in the $\textup{NNLO}_{\textup{FTapprox}}$ approximation~\cite{Grazzini:2018bsd} are shown in Table~\ref{tab:nnlo_ftapprox_xs_125} for proton centre-of-mass energies of 13, 13.6 and 14~TeV, with the Higgs boson mass set to $m_h = 125$~GeV. The central renormalization and factorization scale is taken to be $\mu_0  = m_{hh}/2$, and the scale uncertainties were obtained through a 7-point variation around $\mu_0$.
+%The top mass was set to $m_t=173.0$~GeV. 
+The top quark mass was set to $m_t=173.0$~GeV and the bottom quark mass was set to zero, employing a five-flavour scheme (5FS). The ``theory uncertainty'' (THU) contains integration errors combined with $r_\mathrm{cut}\rightarrow 0$ extrapolation uncertainties. The \texttt{PDF4LHC21\ttus 40} PDF set was used.
+
+\subsection[\texorpdfstring{$\textup{N}^3\textup{LO}+\textup{N}^3\textup{LL}$ $K$-factors}{N3LO+N3LL K-factors}]{\texorpdfstring{\boldmath$\textup{N}^3\textup{LO}+\textup{N}^3\textup{LL}$ $K$-factors}{N3LO+N3LL K-factors}}
+
+The N$^3$LO+N$^3$LL QCD $K$-factor~\cite{Chen:2019lzz,Ajjath:2022kpv} is defined as
+\begin{equation}\label{eq:n3lokfac}
+K_3 = \left(\frac{\mathrm{N^3LO+N^3LL~HTL} }{\mathrm{NNLO~HTL}}\right)\;.
+\end{equation}
+
+\begin{sloppypar}
+The vacuum expectation value was set to $v=246.2197$~GeV. The corresponding Fermi constant was $G_F = 1.166378 \times 10^{-5}$~GeV$^{-2}$. The top quark mass was set to $m_t=173.0$~GeV. The central renormalization and factorization scale was taken to be $\mu_0  = m_{hh}/2$.
+\end{sloppypar}
+
+The uncertainty due to the use of an NNLO PDF instead of an N$^3$LO PDF is estimated via: 
+\begin{equation}
+ \Delta ^{\mathrm{MHOU}}_\mathrm{NNLO} =  \left| \frac { \sigma^{\mathrm{N}^3\mathrm{LO}}_{\mathrm{N}^3\mathrm{LO-PDF}} - \sigma^{\mathrm{N}^3\mathrm{LO}}_{\mathrm{NNLO-PDF}} } { \sigma^{\mathrm{N}^3\mathrm{LO}}_{\mathrm{N}^3\mathrm{LO-PDF}}  }  \right|\;,
+ \label{eq:deltan3lopdf}
+\end{equation}
+where the N$^3$LO and NNLO PDFs used were the (approximate) \texttt{MSHT20xNNPDF40\ttus aN3LO\ttus qed} and \texttt{MSHT20xNNPDF40\ttus NNLO\ttus qed}, respectively.
+
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{lccc}
+\toprule
+$\sqrt{s}$ [TeV] & \textbf{13} & \textbf{13.6} & \textbf{14} \\
+\midrule
+$K_3$ & 1.030913 & 1.030812 & 1.030736 \\
+$\Delta K_{3\rm down}/K_3$ [\%] & 9.3460 & 9.2396 & 9.1721 \\
+$\Delta K_{3\rm up}/K_3$ [\%] & 4.9088 & 4.8756 & 4.8537 \\
+$\Delta^{\mathrm{MHOU}}_{\mathrm{NNLO}}$ [\%] & 2.1207 & 2.1700 & 2.1799 \\
+\bottomrule
+\end{tabular}
+\caption{$K$-factors $\mathrm{N^3LO{+}N^3LL}/\mathrm{NNLO}$ for the total cross section (relative uncertainties).}
+\label{tab:kfactor_n3lo_n3ll_over_nnlo}
+\end{center}
+\end{table}
+
+The total cross section results are shown in Table~\ref{tab:kfactor_n3lo_n3ll_over_nnlo}, including the upper and lower variations. The last row estimates the effect of missing higher-order corrections associated with using NNLO PDFs in the N$^3$LO calculation. This uncertainty is quoted for completeness, but is not combined in the final recommendation; the corresponding final uncertainty is inherited from the $\textup{NNLO}_{\textup{FTapprox}}$ calculation.
+
+
+\subsection[\texorpdfstring{NLO Electroweak $K$-factors}{NLO Electroweak K-factors}]{\texorpdfstring{NLO Electroweak \boldmath$K$-factors}{NLO Electroweak K-factors}}
+
+The $K$-factor due to NLO electroweak corrections is defined as
+\begin{equation}\label{eq:NLOEWkfac}
+K_\mathrm{EW} = \frac{\sigma_\mathrm{NLO~EW}}{\sigma_\mathrm{LO}} \;. 
+\end{equation}
+
+The input parameters were taken to be as in Ref.~\cite{Bi:2023bnq}:
+\begin{itemize}
+\item $m_t = 172.69$ GeV,
+\item $m_h^2 / m_t^2 = 12 / 23 \Rightarrow m_h = 124.74$~GeV,
+\item $m_Z^2 / m_t^2 = 23 / 83 \Rightarrow m_Z = 90.91$~GeV,
+\item $m_W^2 / m_t^2 = 14 / 65 \Rightarrow m_W = 80.14$~GeV,
+\item $G_F = 1.166378 \times 10^{-5}$~GeV$^{-2}$.
+\end{itemize}
+We note that the top and Higgs boson masses differ from those used in the $\textup{NNLO}_{\textup{FTapprox}}$ and N$^3$LO calculations. However, the $K$-factors are not particularly sensitive to these.
+
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{lccc}
+\toprule
+$\sqrt{s}$ [TeV] & \textbf{13} & \textbf{13.6} & \textbf{14} \\
+\midrule
+$K_\mathrm{EW}$ & 0.959 & 0.959 & 0.958 \\
+\bottomrule
+\end{tabular}
+\caption{NLO electroweak $K$-factors for the total cross section, defined in Eq.~\eqref{eq:NLOEWkfac}, at $13$, $13.6$ and $14\,\textup{TeV}$.}
+\label{tab:nlo_ew_kfac}
+\end{center}
+\end{table}
+
+The NLO electroweak $K$-factors for the total cross section at 13, 13.6 and 14~TeV are shown in Table~\ref{tab:nlo_ew_kfac}. The scale variation uncertainties on these values are at the per-mille level or better, and therefore we do not include them here. We also note that at present, no electroweak effects are included in the PDF sets employed. 
+
+\subsection{Combination}\label{subsec:combination}
+
+The final recommended cross section is obtained by multiplying the $\textup{NNLO}_{\textup{FTapprox}}$ prediction by the N$^3$LO+N$^3$LL QCD $K$-factor and the NLO electroweak $K$-factor,
+\begin{equation}\label{eq:xs_reco}
+\sigma_\mathrm{rec.}(\sqrt{s}) \;=\; \sigma_{\textup{NNLO}_{\textup{FTapprox}}}(\sqrt{s}) \times K_3(\sqrt{s}) \times K_\mathrm{EW}(\sqrt{s}) \;,
+\end{equation}
+where $K_3$ and $K_\mathrm{EW}$ are given in Eqs.~\eqref{eq:n3lokfac} and~\eqref{eq:NLOEWkfac}, respectively. The central values are computed using the
+central entries of Tables~\ref{tab:nnlo_ftapprox_xs_125},~\ref{tab:kfactor_n3lo_n3ll_over_nnlo} and~\ref{tab:nlo_ew_kfac}.
+
+\paragraph{Scale and THU uncertainties.}
+The final prediction combines information from the $\textup{NNLO}_{\textup{FTapprox}}$ calculation and from the N$^3$LO+N$^3$LL QCD $K$-factor. The scale variations of these two ingredients should therefore not be interpreted as independent uncertainties and combined again. For the final recommendation, we take the QCD scale uncertainty directly from the $\textup{NNLO}_{\textup{FTapprox}}$ prediction,
+\begin{equation}
+\delta_\mathrm{scale}^\mathrm{final}(\sqrt{s}) \;=\; \delta_{\mathrm{scale},\,\textup{NNLO}_{\textup{FTapprox}}}(\sqrt{s}) \;,
+\end{equation}
+as quoted in Table~\ref{tab:nnlo_ftapprox_xs_125}. The scale variation of the N$^3$LO+N$^3$LL $K$-factor is shown separately in Table~\ref{tab:kfactor_n3lo_n3ll_over_nnlo} and is not combined with the scale uncertainty of the final recommendation. No additional scale uncertainty is assigned to $K_\mathrm{EW}$ in this prescription. The THU assigned to the final recommendation, which accounts for the integration errors and $r_\mathrm{cut}\to0$ extrapolation uncertainties in the $\textup{NNLO}_{\textup{FTapprox}}$ calculation, is likewise taken from Table~\ref{tab:nnlo_ftapprox_xs_125}.
+
+\paragraph{PDF and $\alpha_s$ uncertainties.}
+The quantity $\Delta^{\mathrm{MHOU}}_\mathrm{NNLO}$ in Eq.~\eqref{eq:deltan3lopdf} estimates the possible effect of using NNLO PDFs in the N$^3$LO component, rather than a fully consistent N$^3$LO PDF set. We use this comparison only to assess the possible size of the PDF-order effect and do not add it to the final uncertainty budget. The quoted PDF and $\alpha_s$ uncertainties of the final recommendation are therefore inherited from the $\textup{NNLO}_{\textup{FTapprox}}$ calculation, as given in Table~\ref{tab:nnlo_ftapprox_xs_125}. Their combined contribution is obtained by adding the PDF and $\alpha_s$ uncertainties in quadrature.
+
+\paragraph{Top quark mass scheme uncertainty.}
+An additional uncertainty is assigned to the definition of the virtual top quark mass entering the top Yukawa coupling and the propagators, following the prescription of Ref.~\cite{Baglio:2020wgt} and the discussion in Section~\ref{sec:scheme-scale-uncertainties}. In this approach the NLO prediction obtained with the top quark pole mass is compared with predictions in the $\overline{\mathrm{MS}}$ scheme.
+%, using the N$^3$LO relation between the pole and $\overline{\mathrm{MS}}$ masses and N$^3$LL evolution of $\overline{m}_t(\mu_t)$.
+
+We obtain the corresponding NLO predictions with \texttt{ggxy}~\cite{Davies:2025qjr}, which provides the required total cross sections and differential distributions for the different top quark mass schemes. Specifically, we consider four predictions: with the top quark pole mass $m_t$, and with $\overline{\mathrm{MS}}$ mass $\overline{m}_t(\mu_t)$ with $\mu_t = \overline{m}_t$, $\mu_t = m_{hh}$, and $\mu_t = m_{hh}/4$ (i.e.~the latter two being a factor of two around the central renormalization and factorization scale $\mu_R=\mu_F=m_{hh}/2$). In \texttt{ggxy} we run at the highest available order, i.e.~at five-loop for the strong coupling $\alpha_s$ and the $\overline{\mathrm{MS}}$ mass, and four-loop for the conversion between the pole mass and the $\overline{\mathrm{MS}}$ mass. We then construct, in the $m_{hh}$ distribution, the bin-by-bin maximum and minimum across the four top quark mass schemes; the corresponding inclusive uncertainty is obtained by integrating the bin-wise extrema. We investigated several methods for the numerical integration: similarly to~Ref.~\cite{Baglio:2020ini}, with piecewise integration (Boole's rule~\cite{boole1880,Abramowitz1964} for $m_{hh} < 300$ GeV and the trapezoidal method for $m_{hh}>300$ GeV), as well as the trapezoidal method with finer bins and a continuous fit. The final uncertainties change by about 1\% depending on the method and binning used.
+
+% The scale $\mu_t$ associated with the running mass is treated as an additional unphysical scale: in addition to the fixed choice $\mu_t=m_t$, it is varied in the range $m_{hh}/4 \leq \mu_t \leq m_{hh}$, i.e.\ by a factor of two around the central renormalization and factorization scale $\mu_R=\mu_F=m_{hh}/2$.
+
+% For differential predictions the envelope is constructed bin by bin in $m_{hh}$, taking in each bin the maximum and minimum of the pole-mass and $\overline{\mathrm{MS}}$ predictions over the allowed $\mu_t$ choices; the corresponding inclusive variation is then obtained by integrating the bin-wise extrema. Since this uncertainty was found in Ref.~\cite{Baglio:2020wgt} to be approximately independent of the usual $\mu_R,\mu_F$ scale variation, we include it separately in the final uncertainty table.
+
+\paragraph{Final recommendations.}
+The resulting central values and uncertainties are summarized in Table~\ref{tab:final_xs_reco_125} for $\sqrt{s}=13, 13.6, 14$~TeV, including the top quark mass scheme uncertainty and its linear combination with the scale and THU uncertainties. For the additional choices of the Higgs boson mass shown in Table~\ref{tab:final_xs_reco_125_mh}, we use \texttt{ggxy}~\cite{Davies:2025qjr} to compute the NLO cross section at the target value of $m_h$ and at $m_h=125$~GeV with the same setup. We then form the ratio $\sigma_{\mathrm{NLO}}(m_h)/\sigma_{\mathrm{NLO}}(125~\mathrm{GeV})$ at each centre-of-mass energy and multiply the corresponding $m_h=125$~GeV final recommendation by this factor.
+
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular}{lccc}
+\toprule
+$\sqrt{s}$ [TeV] & \textbf{13} & \textbf{13.6} & \textbf{14} \\
+\midrule
+$\sigma_\mathrm{rec.}$ [fb] & 30.40 & 33.62 & 35.81 \\\hline
+$\pm$ PDF unc. [\%] & 1.96 & 1.92 & 1.89 \\
+$\pm \alpha_s$ unc. [\%] & 1.51 & 1.49 & 1.47 \\
+{\bfseries\boldmath $\pm$ PDF $+$ $\alpha_s$ unc. [\%]} & \textbf{2.47} & \textbf{2.43} & \textbf{2.39} \\\hline
+QCD scale unc. [\%] & $^{+2.11}_{-4.98}$ & $^{+2.07}_{-4.85}$ & $^{+2.01}_{-4.78}$ \\
+$m_t$ scheme unc. [\%] & $^{+5}_{-16}$ & $^{+5}_{-16}$ & $^{+5}_{-16}$ \\
+$\pm$ THU [\%] & 0.14 & 0.19 & 0.21 \\
+{\bfseries\boldmath Scale $+$ THU $+$ $m_t$ scheme unc. [\%]} & {\bfseries\boldmath $^{+7.25}_{-21.12}$} & {\bfseries\boldmath $^{+7.26}_{-21.04}$} & {\bfseries\boldmath $^{+7.22}_{-20.99}$} \\
+\bottomrule
+\end{tabular}
+\caption{Final recommended inclusive total cross sections for Higgs boson pair production via gluon fusion obtained using Eq.~\eqref{eq:xs_reco}.
+The QCD scale and THU uncertainties, as well as the $\alpha_s$ and PDF uncertainties, are taken directly from the $\textup{NNLO}_{\textup{FTapprox}}$ prediction (Table~\ref{tab:nnlo_ftapprox_xs_125}). The PDF $+$ $\alpha_s$ uncertainty is obtained by adding the two contributions \textit{in quadrature}. The final combined scale, THU and $m_t$ scheme uncertainty is obtained by adding the corresponding components \textit{linearly}.}
+\label{tab:final_xs_reco_125}
+\end{center}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{@{}lccc@{}}
+\toprule
+& \multicolumn{3}{c}{$\sigma_{\mathrm{rec.}}$ [fb]} \\
+\cmidrule(lr){2-4}
+$m_h$ [GeV] & $\sqrt{s}=13$~TeV
+& $\sqrt{s}=13.6$~TeV
+& $\sqrt{s}=14$~TeV \\
+\midrule
+124.8 & 30.48 & 33.68 & 35.90 \\
+125 & 30.40 & 33.62 & 35.81 \\
+125.2 & 30.29 & 33.54 & 35.68 \\
+\bottomrule
+\end{tabular}
+\caption{Inclusive cross sections for Higgs boson pair production via gluon fusion
+at different values of $m_h$, obtained from those at $m_h = 125$~GeV after rescaling
+with the ratio $\sigma_{\mathrm{NLO}}(m_h)/\sigma_{\mathrm{NLO}}(125~\mathrm{GeV})$
+for centre-of-mass energies of 13, 13.6, and 14~TeV.}
+\label{tab:final_xs_reco_125_mh}
+\end{table}
+
+
+\subsection{Higgs Boson Pair Invariant-Mass Distribution}\label{subsec:mhh_distribution}
+The recommended differential distribution in the Higgs boson pair invariant mass, $m_{hh}$, is constructed bin by bin following the multiplicative prescription of Eq.~\eqref{eq:xs_reco}. The $\textup{NNLO}_{\textup{FTapprox}}$ spectrum is multiplied by the differential QCD factor $K_3$ and the electroweak factor $K_\mathrm{EW}$, while the uncertainty band is inherited from the $7$-point scale variation of the $\textup{NNLO}_{\textup{FTapprox}}$ calculation. The top quark mass scheme uncertainty quoted in Table~\ref{tab:final_xs_reco_125} is not included in this differential uncertainty band.
+
+The ratio inset in Fig.~\ref{fig:xs_vs_mhh_combination_14} shows $K_3$, $K_\mathrm{EW}$ and their product, making explicit the bin-wise rescaling applied to the $\textup{NNLO}_{\textup{FTapprox}}$ spectrum.
+
+The shape of the recommended spectrum and of the correction factors changes only mildly between the 13, 13.6 and 14~TeV centre-of-mass energies considered here. We therefore show the 14~TeV result as a representative case in Fig.~\ref{fig:xs_vs_mhh_combination_14}. The corresponding binned data files and the 13 and 13.6~TeV distributions are available from the LHC Higgs WG4 wiki~\cite{wg4wiki}.
+
+%\begin{figure*}[htbp]
+%\centering
+%\figureplaceholder
+%\\
+%\caption{Invariant-mass distributions for Higgs boson pair production at $\sqrt{s}=13$ TeV, including the N$^3$LO+NLL/NNLO and NLO EW $K$-factors (solid red). The unrescaled NNLO FTapprox is represented by the red-dashed line. The red error bands stem from $7$-point scale variations of the NNLO FTapprox calculation. The lower panel shows the $K$-factors N$^3$LO+NLL/NNLO and NLO EW $K$-factors, as well as their product.}
+%\label{fig:xs_vs_mhh_combination_13}
+%\end{figure*}
+
+\begin{figure*}[htbp]
+\centering
+\figureplaceholder
+\\
+\caption{Recommended Higgs boson pair invariant-mass distribution at $\sqrt{s}=14$~TeV. The solid red curve in the main panel is the final spectrum obtained by multiplying the $\textup{NNLO}_{\textup{FTapprox}}$ distribution by the differential N$^3$LO+N$^3$LL/NNLO QCD and NLO EW $K$-factors. The dashed red curve shows the unrescaled $\textup{NNLO}_{\textup{FTapprox}}$ input, and the red band gives the inherited $7$-point scale variation of the $\textup{NNLO}_{\textup{FTapprox}}$ calculation. The ratio inset shows the QCD factor $K_3=\textup{N}^3\textup{LO}+\textup{N}^3\textup{LL}/\textup{NNLO}$, the electroweak factor $K_\mathrm{EW}$, and their product.}
+\label{fig:xs_vs_mhh_combination_14}
+\end{figure*}
+
+%\begin{figure*}[htbp]
+%\centering
+%\figureplaceholder
+%\\
+%\caption{Invariant-mass distributions for Higgs boson pair production at $\sqrt{s}=14$ TeV, including the N$^3$LO+NLL/NNLO and NLO EW $K$-factors (solid red). The unrescaled NNLO FTapprox is represented by the red-dashed line. The red error bands stem from $7$-point scale variations of the NNLO FTapprox calculation. The lower panel shows the $K$-factors N$^3$LO+NLL/NNLO and NLO EW $K$-factors, as well as their product.}
+%\label{fig:xs_vs_mhh_combination_14}
+%\end{figure*}
+% End inlined from Recommendations/rec.tex
+
+
+
+
+
+% Begin inlined from conclusions.tex
+\FloatBarrier
+
+\section{Conclusions}
+\label{sec:conclusions}
+
+This report has summarized the current status of precision predictions for
+Standard Model Higgs boson pair production via gluon fusion. The discussion
+brings together NLO QCD calculations with full top quark mass dependence,
+approximate NNLO QCD predictions, N$^3$LO QCD corrections and soft-gluon
+resummation, NLO electroweak corrections, and the main sources of theoretical
+uncertainty entering the inclusive rate and the $m_{hh}$ spectrum.
+
+The final recommendations provide reference predictions for phenomenological
+studies and LHC analyses. They collect the combined inclusive cross sections,
+including the dominant uncertainty associated with the top quark mass scheme,
+given in Table~\ref{tab:final_xs_reco_125},
+the dependence on the Higgs-boson mass, given in
+Table~\ref{tab:final_xs_reco_125_mh},
+and the recommended differential distributions in $m_{hh}$, given in
+Section~\ref{subsec:mhh_distribution}.
+These numbers should be used as the definitive
+predictions of this report, superseding the intermediate results shown in the
+preceding sections where different input parameters or PDF choices are used.
+While the new recommendation does not reduce the overall
+uncertainty with respect to the YR4 result, its central prediction includes N$^3$LO+N$^3$LL QCD corrections in the HTL, NLO
+electroweak effects and updated PDF sets, and should therefore provide a more
+accurate reference value.
+
+Further improvements will come from reducing uncertainties associated with finite top quark mass effects and
+mass-scheme choices, extending fully differential predictions with
+consistently combined higher-order QCD and electroweak effects, and updating the
+recommendations as parton distributions and input parameters evolve.
+% End inlined from conclusions.tex
+
 
 
 
