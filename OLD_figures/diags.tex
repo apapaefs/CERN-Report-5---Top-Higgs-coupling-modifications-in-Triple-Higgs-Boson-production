@@ -1,0 +1,49 @@
+%\newcommand{\routinginfo}[1]{#1}
+\newcommand{\extroutinginfo}[1]{#1}
+\newcommand{\routinginfo}[1]{}
+\newcommand{\secondroutinginfo}[1]{}
+\newcommand\diagextP[4]{
+    \draw[#1,dashed,line width=0.5mm] (-2,-2) \extroutinginfo{ node[left ] {\scriptsize $q_1$}}-- (-1,-1) ;
+    \draw[#2,dashed,line width=0.5mm] (-2, 2) \extroutinginfo{ node[left ] {\scriptsize $q_2$}}-- (-1, 1) ;
+    \draw[#3,dashed,line width=0.5mm] ( 2,-2) \extroutinginfo{ node[right] {\scriptsize $q_3$}}-- ( 1,-1) ;
+    \draw[#4,dashed,line width=0.5mm] ( 2, 2) \extroutinginfo{ node[right] {\scriptsize $q_4$}}-- ( 1, 1) ;
+}
+\newcommand\diagextNP[4]{
+    \draw[#1,dashed,line width=0.5mm] (-2,-2) \extroutinginfo{ node[left ] {\scriptsize $q_1$}}-- (-1,-1) ;
+    \draw[#2,dashed,line width=0.5mm] (-2, 2) \extroutinginfo{ node[left ] {\scriptsize $q_2$}}-- (-1, 1) ;
+    \draw[#3,dashed,line width=0.5mm] ( 2,-2) \extroutinginfo{ node[right] {\scriptsize $q_4$}}-- ( 1,-1) ;
+    \draw[#4,dashed,line width=0.5mm] ( 2, 2) \extroutinginfo{ node[right] {\scriptsize $q_3$}}-- ( 1, 1) ;
+}
+\newcommand\diagP[7]{
+    \draw[#1,line width=0.5mm] (-1, 1) -- ( 0, 1) \routinginfo{node [midway] {\scriptsize $\ell_1+q_2           $}};
+    \draw[#2,line width=0.5mm] (-1,-1) -- (-1,+1) \routinginfo{node [midway] {\scriptsize $\ell_1               $}};
+    \draw[#3,line width=0.5mm] ( 0,-1) -- (-1,-1) \routinginfo{node [midway] {\scriptsize $\ell_1-q_1           $}};
+    \draw[#4,line width=0.5mm] ( 1,-1) -- ( 0,-1) \routinginfo{node [midway] {\scriptsize $\ell_1+\ell_2-q_1    $}};
+    \draw[#5,line width=0.5mm] ( 1, 1) -- ( 1,-1) \routinginfo{node [midway] {\scriptsize $\ell_1+\ell_2+q_2+q_4$}};
+    \draw[#6,line width=0.5mm] ( 0, 1) -- ( 1, 1) \routinginfo{node [midway] {\scriptsize $\ell_1+\ell_2+q_2    $}};
+    \draw[#7,line width=0.5mm] ( 0,-1) -- (0,1)   \routinginfo{node [midway] {\scriptsize $\ell_2               $}};
+
+   \secondroutinginfo{
+        \draw [->] (-1.2,-0.5) -- (-1.2,+0.5) node [midway,anchor=east] {\tiny$\ell_1$};
+        \draw [->] (-0.2,-0.5) -- (-0.2,+0.5) node [midway,anchor=east] {\tiny$\ell_2$};
+   }
+}
+\newcommand\diagN[7]{
+    \draw[#1,line width=0.5mm] ( 0, 1) -- (-1,-1) \routinginfo{node [near start, anchor=west] {\scriptsize $\ell_1                    $}  };
+    \draw[#2,line width=0.5mm] (-1,-1) -- ( 0,-1) \routinginfo{node [midway, anchor=north] {\scriptsize $\ell_1+q_1                $}  };
+    \draw[#3,line width=0.5mm] ( 0,-1) -- ( 1,-1) \routinginfo{node [midway, anchor=north] {\scriptsize $\ell_2                    $}  };
+    \draw[#4,line width=0.5mm] ( 1,-1) -- ( 1, 1) \routinginfo{node [midway, anchor=west ] {\scriptsize $\ell_2+q_4                $}  };
+    \draw[#5,line width=0.5mm] ( 1, 1) -- ( 0, 1) \routinginfo{node [midway, anchor=south] {\scriptsize $\ell_2+q_3+q_4            $}  };
+    \draw[#6,line width=0.5mm] ( 0, 1) -- (-1, 1) \routinginfo{node [midway, anchor=south] {\scriptsize $\ell_2-\ell_1+q_3+q_4    $}  };
+    \draw[#7,line width=0.5mm] (-1, 1) -- ( 0,-1) \routinginfo{node [near start, anchor=east] {\scriptsize $-\ell_1+\ell_2-q_1$}  };
+
+   \secondroutinginfo{
+        \draw [->] (-0.5,0) ++ ({90+atan(2)}:0.2) --+ ({atan(2)}:0.5) --+ ({180+atan(2)}:0.5) node [midway,anchor=east] {\tiny$\ell_1$};
+        \draw [->] ( .25,-1.2) -- ( .75,-1.2) node [midway,anchor=north] {\tiny$\ell_2$};
+   }
+}
+
+\newcommand\diagPT[7]{\diagP{#1}{#2}{#3}{#4}{#5}{#6}{#7,dashed}\diagextP}
+\newcommand\diagPG[7]{\diagP{#1,dashed}{#2,dashed}{#3,dashed}{#4}{#5}{#6}{#7}\diagextP}
+\newcommand\diagNT[7]{\diagN{#1,dashed}{#2,dashed}{#3}{#4}{#5}{#6}{#7}\diagextNP}
+\newcommand\diagNG[7]{\diagN{#1}{#2}{#3,dashed}{#4,dashed}{#5,dashed}{#6}{#7}\diagextNP}

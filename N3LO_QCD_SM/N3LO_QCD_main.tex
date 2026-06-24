@@ -1,0 +1,34 @@
+\section[\texorpdfstring{$\textup{N}^3\textup{LO}$ QCD corrections and resummation}{N3LO QCD corrections and resummation}]{\texorpdfstring{\boldmath$\textup{N}^3\textup{LO}$ QCD corrections and resummation}{N3LO QCD corrections and resummation}}
+\label{sec:n3lo-qcd}
+
+This section combines results from several publications. In the HTL, the N$^3$LO QCD corrections to the inclusive total cross section and the Higgs boson pair invariant-mass ($m_{hh}$) distribution were first reported in Refs.~\cite{Chen:2019lzz, Chen:2019fhs}. The N$^3$LL soft-gluon threshold resummation for the same observables was presented in Ref.~\cite{Ajjath:2022kpv}. More recently, fully differential N$^3$LO QCD calculations were presented in Ref.~\cite{Chen:2026zmi}.
+
+In the HTL, the effective Lagrangian for the
+coupling of the Higgs field to two gluon field strength tensors
+can be written as
+\begin{align}\label{eq:effL}
+ \mathcal{L}_{\rm eff}= -\frac{1}{4}  G_{\mu\nu}^a G^{a~\mu\nu}
+ \left(
+  C_{h} \frac{h}{v} - C_{hh} \frac{h^2}{2v^2}
+ \right)\,,
+\end{align}
+where $v$ is the Higgs vacuum expectation value and
+$C_h$, $C_{hh}$ are the Wilson coefficients obtained by matching the full Standard Model (SM) onto the effective theory, in which the top quark degree of freedom has been integrated out.
+The Wilson coefficients start at $\mathcal{O}(\alpha_s)$ and are known up to $\mathcal{O}(\alpha_s^4)$~\cite{Inami:1982xt, Chetyrkin:1997iv, Chetyrkin:1997un, Schroder:2005hy, Chetyrkin:2005ia, Kniehl:2006bg,Baikov:2016tgj,Spira:2016zna,Gerlach:2018hen}.
+
+In this section, we present our theoretical predictions using the following setup~\cite{Chen:2019lzz,Chen:2019fhs,Ajjath:2022kpv,Chen:2026zmi}. We take the Higgs-boson mass $m_h=125$ GeV, the top quark pole mass $m_t=173$ GeV, and the Higgs vacuum expectation value $v=246.2$ GeV. We employ either the \texttt{PDF4LHC15\ttus nnlo\ttus 30}~\cite{Butterworth:2015oua,Dulat:2015mca,Harland-Lang:2014zoa,NNPDF:2014otw} or the \texttt{PDF4LHC21\ttus 40}~\cite{PDF4LHCWorkingGroup:2022cjn}
+(\texttt{NNPDF40\ttus an3lo\ttus as\ttus 01180}~\cite{NNPDF:2024nan}) parton distribution function (PDF) sets for observables without and with fiducial cuts, respectively, together with the corresponding $\alpha_s$ running provided by {\tt LHAPDF6}~\cite{Buckley:2014ana}.\footnote{We note here that the N$^3$LO $k$-factors in the final recommendations of Section~\ref{sec:recs} were produced using the \texttt{PDF4LHC21\ttus 40} set.}
+The central renormalization and factorization scales are chosen as $\mu_0 = m_{hh}/2$. Scale uncertainties, which estimate missing higher-order corrections, are obtained from the envelope of the $7$-point variations of
+$\mu_F$ and $\mu_R$, defined as $\mu_{R/F} = \xi_{R/F} \mu_0$ with $\xi_{R/F}\in \left\{0.5,1,2\right\}$, excluding the two extreme combinations $(\xi_R, \xi_F)=(0.5, 2)$ and $(2, 0.5)$. We quote only the scale uncertainty, since other parametric uncertainties are largely independent of the perturbative order.
+For the fully differential results, we impose the following fiducial cuts~\cite{Chen:2026zmi}:
+\begin{equation}
+\label{eq:fiducialcuts}
+p_{T, h_{1}}>30~\mathrm{GeV}\,, \quad p_{T, h_{2}}>20~\mathrm{GeV}\,, \quad |y_{h}|<2.4\,,
+\end{equation}
+where $h_1$ and $h_2$ denote the leading and subleading Higgs bosons, ordered by their transverse momenta $p_{T,h_i}$.
+
+\input{N3LO_QCD_SM/N3LO_htl/htl}
+
+\input{N3LO_QCD_SM/N3LO_N3LL/n3lon3ll}
+
+\input{N3LO_QCD_SM/N3LO_mt/mt}

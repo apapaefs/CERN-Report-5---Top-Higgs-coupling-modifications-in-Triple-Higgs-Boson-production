@@ -1,0 +1,27 @@
+\begin{tikzpicture}
+	\begin{pgfonlayer}{nodelayer}
+		\node [style=dot] (0) at (-2, 1) {};
+		\node [style=dot] (3) at (-2, -1) {};
+		\node [style=dot] (4) at (0, 1) {};
+		\node [style=none] (6) at (4, 1) {};
+		\node [style=none] (7) at (4, -1) {};
+		\node [style=none] (8) at (-4, -1) {};
+		\node [style=none] (9) at (-4, 1) {};
+		\node [style=dot] (10) at (0, -1) {};
+		\node [style=dot] (11) at (2, 1) {};
+		\node [style=dot] (12) at (2, -1) {};
+	\end{pgfonlayer}
+	\begin{pgfonlayer}{edgelayer}
+		\draw [style=fermionarrow] (3) to (0);
+		\draw [style=gluoncoil] (8.center) to (3);
+		\draw [style=fermionarrow] (10) to (3);
+		\draw [style=fermionarrow] (0) to (4);
+		\draw [style=scalar] (4) to (10);
+		\draw [style=fermionarrow] (4) to (11);
+		\draw [style=scalar] (11) to (6.center);
+		\draw [style=fermionarrow] (11) to (12);
+		\draw [style=scalar] (7.center) to (12);
+		\draw [style=fermionarrow] (12) to (10);
+		\draw [style=gluoncoil] (9.center) to (0);
+	\end{pgfonlayer}
+\end{tikzpicture}

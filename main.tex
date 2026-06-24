@@ -1,0 +1,461 @@
+% https://twiki.cern.ch/twiki/bin/view/LHCPhysics/LHCHWGLibrary
+% https://twiki.cern.ch/twiki/bin/view/LHCPhysics/LHCHWGCDSGuide#LaTeX_Style
+
+% Useful classes for LHC higgs documents from LHCHXSWG-2017-001
+% https://gitlab.cern.ch/LHCHIGGSXS/Notes/LHCHXSWG-2017-001/-/tree/master 
+\RequirePackage{heppennames2}
+\RequirePackage{lhchiggs}
+
+% ==============================================
+% Template for LHCHWG Public Notes Front Page
+% 	- Please modify the corresponding information	
+%
+% 2021.01.15: adapted to name change LHCHXSWG -> LHCHWG (by R. Harlander)
+% 2015.04.29: 1st version, R.T.
+% ==============================================
+%\documentclass[11pt]{article}
+\documentclass{SciPost}
+% Prevent all line breaks in inline equations.
+\binoppenalty=10000
+\relpenalty=10000
+
+% draft line numbers
+\linenumbers
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
+
+\usepackage[bitstream-charter]{mathdesign}
+\urlstyle{same}
+
+% Fix \cal and \mathcal characters look (so it's not the same as \mathscr)
+\DeclareSymbolFont{usualmathcal}{OMS}{cmsy}{m}{n}
+\DeclareSymbolFontAlphabet{\mathcal}{usualmathcal}
+
+\fancypagestyle{SPstyle}{
+\fancyhf{}
+\lhead{\colorbox{scipostblue}{\bf \color{white} ~SciPost Physics Community Reports }}
+\rhead{{\bf \color{scipostdeepblue} ~Submission }}
+\renewcommand{\headrulewidth}{1pt}
+\fancyfoot[C]{\textbf{\thepage}}
+}
+
+
+
+%\setlength{\textwidth}{17cm}
+%\setlength{\textheight}{25cm}
+%\setlength{\hoffset}{-2.1cm}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{subcaption}
+\usepackage{multirow}
+\usepackage{graphbox}
+\usepackage{amsmath}
+% mathdesign already provides AMS symbols; loading amssymb separately clashes
+% with its definition of \circledS.
+% Hyperlink
+\usepackage{hyperref}
+\DeclareRobustCommand{\ttus}{\_\allowbreak{}}
+\usepackage{color}
+\usepackage{cite}
+\usepackage{todonotes}
+\usepackage{float}
+\captionsetup[table]{position=bottom}
+\usepackage{booktabs}%for top, middle, and bottomrule
+\usepackage{multirow}%for multiple rows
+%%%added by BONETTI
+\usepackage{authblk}%for automatic linebreak in author list
+\usepackage[section]{placeins}
+%images in equations
+\newcommand{\imineq}[2]{\vcenter{\hbox{\includegraphics[height=#2ex]{#1}}}}
+\newcommand{\imineqw}[2]{\vcenter{\hbox{\includegraphics[width=#2ex]{#1}}}}
+%%%end of commands added by BONETTI
+
+
+%xspace
+\usepackage{xspace}
+
+\newcommand{\APtodo}[1]{\todo[inline, color=red!20]{AP: #1}}
+\newcommand{\APnote}[1]{\textcolor{orange}{\textbf{[AP: #1]}}}% etc
+
+%\usepackage[hidelinks]{hyperref}
+% Remove boarder color
+%\hypersetup{pdfborder = {0 0 0}}
+%\hypersetup{colorlinks=false,pdfborder={0 0 0},}
+%\hypersetup{colorlinks=true,linkcolor=black,citecolor=black,filecolor=black,urlcolor=black}
+%\usepackage{xcolor}
+%\hypersetup{colorlinks,linkcolor={red!50!black},citecolor={blue!50!black},urlcolor={blue!80!black}}
+%
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\renewcommand*{\thefootnote}{\fnsymbol{footnote}}
+\setlength{\emergencystretch}{2em}
+
+
+%sebastian
+\usepackage{tikz}
+\usepackage{array}
+\usepackage{slashed,mathtools}
+\usepackage{psfrag,epsf,color}
+\usepackage{xcolor}
+\definecolor{cb}{HTML}{648FFF}
+\definecolor{cc}{HTML}{FE6100}
+\definecolor{s}{HTML}{DC267F}
+\definecolor{c}{HTML}{FE6100}
+\definecolor{hc}{HTML}{A2E03A}
+\definecolor{sc}{HTML}{FFCF00}
+\newcommand{\T}{{\bf T}}
+
+%stephen
+%\usepackage[compat=1.1.0]{tikz-feynman}
+%\usetikzlibrary{arrows.meta}
+%\usetikzlibrary{decorations.markings}
+%\usetikzlibrary{decorations.pathmorphing}
+%\usetikzlibrary{shapes.geometric}
+%\pgfdeclarelayer{nodelayer}
+%\pgfdeclarelayer{edgelayer}
+%\pgfsetlayers{main,edgelayer,nodelayer}
+%\tikzstyle{none}=[]
+%\input{figures/figs_240704653/all.tikzstyles}
+\newcommand*{\fig}[1]{\raisebox{0.5ex}{\scalebox{0.75}{\input{#1.tikz}}}}
+\newcommand*{\sfig}[1]{\raisebox{0.5ex}{\scalebox{0.3}{\input{#1.tikz}}}}
+\newcommand{\pysecdec}{py{\textsc{SecDec}}}
+
+\input{usefulcommands.tex}
+
+\newcommand{\preprintnumbers}{%
+  \begin{flushright}
+    \small
+    LHCHWG-2026-XXX, CERN-TH-2026-XXX
+  \end{flushright}
+  \vspace{1em}
+}
+%\author{Ajjath A H$^{6}$, Emanuele Bagnaschi$^1$, Julien Baglio$^{26}$, Arunima Bhattacharya$^{17}$, \\ Huan-Yu Bi$^{20}$, Roberto Bonciani$^{24}$,
+%Francisco Campanario$^{17}$, 
+%Sauro Carlotti$^{9}$, Jamie Chang$^{4,18}$, \\ Long-Bin Chen$^{11}$, Giuseppe Degrassi$^2$, Pier Paolo Giardino$^{25}$,
+%Massimiliano Grazzini$^{10}$, \\ Gudrun Heinrich$^9$, Li-Hong Huang$^{21}$, Rui-Jun Huang$^{21}$,
+%Ramona Gr\"ober$^3$, Seraina Glaus$^9$, \\
+%Matthias Kerner$^{9}$, 
+%Jonas M. Lindert$^{23}$, Javier Mazzitelli$^4$, 
+%Margarete M\"uhlleitner$^9$, \\ Jonathan Ronca$^3$, Johannes Schlenk$^{19}$, Michael Spira$^4$, J. Streicher$^9$,
+%Sebastian Jaskiewicz$^5$, \\ Stephen Jones$^6$, Hai Tao Li$^{12}$, Yan-Qing Ma$^{21}$, Hua-Sheng Shao$^{13}$, 
+%\\Thomas Stone$^6$, Robert Szafron$^7$, Yannick Ulrich$^8$, Augustin Vestner$^9$, Jian Wang$^{12}$, \\
+%Kay Sch\"onwald$^{10}$, Joshua Davies$^{8}$,Alioli Simone$^{14}$,
+%Marinelli Giulia$^{15}$, Napoletano Davide$^{14}$, \\ Huai-Min Yu$^{22}$, Hantian Zhang$^{16}$,
+%Marco Bonetti$^{9,29,27}$,
+%Philipp Rendler$^{9}$, 
+%William J. Torres~Bobadilla$^{8}$,\\
+%Daniel Sthttps://outlook.cloud.microsoft/mail/remmer$^{28}$
+%}
+
+
+
+
+%\date{\today}
+
+\begin{document}
+
+
+\pagestyle{SPstyle}
+
+\preprintnumbers
+
+\begin{center}{\Large \textbf{\color{scipostdeepblue}{
+ Higgs Boson Pair Production via Gluon Fusion: Higher-Order Corrections and Theoretical Uncertainties\\
+}}}\end{center}
+
+
+
+\begin{center}\textbf{
+Ajjath A~H\textsuperscript{1,2},
+Simone Alioli\textsuperscript{3},
+Emanuele Bagnaschi\textsuperscript{4},
+Arunima Bhattacharya\textsuperscript{5},
+Huan-Yu Bi\textsuperscript{6},
+Roberto Bonciani\textsuperscript{7},
+Marco Bonetti\textsuperscript{8,9},
+Francisco Campanario\textsuperscript{5},
+Sauro Carlotti\textsuperscript{9},
+Jamie Chang\textsuperscript{10,11},
+Long-Bin Chen\textsuperscript{12},
+Xuan Chen\textsuperscript{13},
+Yuesheng Dai\textsuperscript{13},
+Joshua Davies\textsuperscript{14},
+Giuseppe Degrassi\textsuperscript{15},
+Pier~Paolo Giardino\textsuperscript{16},
+Massimiliano Grazzini\textsuperscript{17},
+Ramona Gr\"ober\textsuperscript{18},
+Gudrun Heinrich\textsuperscript{9},
+Li-Hong Huang\textsuperscript{19},
+Rui-Jun Huang\textsuperscript{19},
+Sebastian Jaskiewicz\textsuperscript{20},
+Stephen Jones\textsuperscript{1},
+Stefan Kallweit\textsuperscript{17},
+Matthias Kerner\textsuperscript{9},
+Hai~Tao Li\textsuperscript{13},
+Shi-Yuan Li\textsuperscript{13},
+Jonas~M. Lindert\textsuperscript{21},
+Yan-Qing Ma\textsuperscript{19},
+Giulia Marinelli\textsuperscript{22},
+Javier Mazzitelli\textsuperscript{10},
+Margarete M\"uhlleitner\textsuperscript{9},
+Davide Napoletano\textsuperscript{3},
+Philipp Rendler\textsuperscript{9},
+Jonathan Ronca\textsuperscript{18},
+Johannes Schlenk\textsuperscript{23},
+Kay Sch\"onwald\textsuperscript{17,28},
+Hua-Sheng Shao\textsuperscript{24},
+Michael Spira\textsuperscript{10},
+Thomas Stone\textsuperscript{1,25},
+Daniel Stremmer\textsuperscript{26},
+Robert Szafron\textsuperscript{27},
+William~J. Torres~Bobadilla\textsuperscript{14},
+Yannick Ulrich\textsuperscript{14},
+Augustin Vestner\textsuperscript{9},
+Marco Vitti\textsuperscript{26},
+Jian Wang\textsuperscript{13},
+Huai-Min Yu\textsuperscript{3} and
+\mbox{Hantian Zhang}\textsuperscript{28}
+}\end{center}
+{\textit{Editors: Fabio Monti\textsuperscript{29}, Arantxa Ruiz Martínez\textsuperscript{30}, Angela Taliercio\textsuperscript{31}, Andreas Papaefstathiou\textsuperscript{32} and Ludovic Scyboz\textsuperscript{33}}}
+
+\begin{center}
+{\bf 1} Institute for Particle Physics Phenomenology, Durham University, Durham, United Kingdom
+\\
+{\bf 2} Centre for High Energy Physics, Indian Institute of Science, C. V. Raman Avenue, Bengaluru-560012, India
+\\
+{\bf 3} Universit\`a degli Studi di Milano-Bicocca and INFN Sezione di Milano-Bicocca, Milano, Italy
+\\
+{\bf 4} INFN, Laboratori Nazionali di Frascati, Frascati, Italy
+\\
+{\bf 5} Theory Division, IFIC, University of Valencia-CSIC, Paterna, Valencia, Spain
+\\
+{\bf 6} School of Physics and Optoelectronic Engineering, Hainan University, Haikou, China
+\\
+{\bf 7} Dipartimento di Fisica e Astronomia, Universit\`a di Firenze, Sesto Fiorentino, Italy
+\\
+{\bf 8} Institute for Theoretical Physics, University of T\"ubingen, T\"ubingen, Germany, and Institute for Astroparticle Physics, Karlsruhe Institute of Technology, Eggenstein-Leopoldshafen, Germany
+\\
+{\bf 9} Institute for Theoretical Physics, Karlsruhe Institute of Technology, Karlsruhe, Germany
+\\
+{\bf 10} PSI Center for Neutron and Muon Sciences, Villigen PSI, Switzerland
+\\
+{\bf 11} Institute for Theoretical Physics, ETH Z\"urich, Z\"urich, Switzerland
+\\
+{\bf 12} School of Physics and Electronic Engineering, Guangzhou University, Guangzhou, China
+\\
+{\bf 13} School of Physics, Shandong University, Jinan, China
+\\
+{\bf 14} Department of Mathematical Sciences, University of Liverpool, Liverpool, United Kingdom
+\\
+{\bf 15} Dipartimento di Matematica e Fisica, Universit\`a di Roma Tre, and INFN Sezione di Roma Tre, Rome, Italy
+\\
+{\bf 16} Departamento de F\'isica Te\'orica and Instituto de F\'isica Te\'orica UAM/CSIC, Universidad Aut\'onoma de Madrid, Madrid, Spain
+\\
+{\bf 17} Department of Physics, University of Zurich, Zurich, Switzerland
+\\
+{\bf 18} Dipartimento di Fisica e Astronomia ``G.~Galilei'', Universit\`a di Padova, and INFN Sezione di Padova, Padova, Italy
+\\
+{\bf 19} School of Physics, Peking University, Beijing, China
+\\
+{\bf 20} Albert Einstein Center for Fundamental Physics, Institut f\"ur Theoretische Physik, Universit\"at Bern, Bern, Switzerland
+\\
+{\bf 21} Department of Physics and Astronomy, University of Sussex, Brighton, United Kingdom
+\\
+{\bf 22} Deutsches Elektronen-Synchrotron DESY, Hamburg, Germany
+\\
+{\bf 23} Department of Astrophysics, University of Zurich, Zurich, Switzerland
+\\
+{\bf 24} Laboratoire de Physique Th\'eorique et Hautes Energies (LPTHE), Sorbonne Universit\'e and CNRS, Paris, France
+\\
+{\bf 25} Physik Department T35, Technische Universit\"at M\"unchen, Garching, Germany
+\\
+{\bf 26} Institute for Theoretical Particle Physics, Karlsruhe Institute of Technology, Karlsruhe, Germany
+\\
+{\bf 27} Department of Physics, Brookhaven National Laboratory, Upton, New York, U.S.A.
+\\
+{\bf 28} Theoretical Physics Department, CERN, European Organization for Nuclear Research, Geneva, Switzerland
+\\
+{\bf 29} Experimental Physics Department, CERN, European Organization for Nuclear Research, Geneva, Switzerland
+\\
+{\bf 30} Instituto de Física Corpuscular (IFIC), Centro Mixto Universidad de Valencia - CSIC, Valencia, Spain
+\\
+{\bf 31} Northwestern University, Evanston, Illinois, USA
+\\
+{\bf 32} Kennesaw State University, Marietta, Georgia, USA
+\\
+{\bf 33} School of Physics and Astronomy, Monash University, Clayton, Australia
+
+%%%%%%%%%% TODO: EMAIL
+% Add corresponding author email address(es) here if needed
+%%%%%%%%%% END TODO: EMAIL
+\end{center}
+
+
+%\noindent
+%{\it
+%$^1$ INFN, Laboratori Nazionali di Frascati, Via E. Fermi 40, 00044 Frascati (RM), Italy \\
+%$^2$ Dipartimento di Matematica e Fisica, Universit\`a di Roma Tre,and INFN, Sezione di Roma Tre, I-00146 Rome, Italy\\
+%$^3$ Dipartimento di Fisica e Astronomia 'G.Galilei', Universit\`a di Padova and INFN, Sezione di Padova, Via F. Marzolo, I-35131 Padova, Italy \\
+%$^4$ PSI Center for Neutron and Muon Sciences, 5232 Villigen PSI, Switzerland \\
+%$^5$ Albert Einstein Center for Fundamental Physics,
+%Institut f\"ur Theoretische Physik, Universit\"at Bern, Sidlerstrasse 5, CH-3012 Bern, Switzerland\\
+%$^6$ Institute for Particle Physics Phenomenology, Durham University,South Road, Durham, DH1 3LE, United Kingdom \\
+%$^7$ Department of Physics, Brookhaven National Laboratory, Upton, New  York, 11973, U.S.A.\\
+%$^8$ Department of Mathematical Sciences, University of Liverpool,  Liverpool, L69 3BX, United Kingdom\\
+%$^9$ Institute for Theoretical Physics, Karlsruhe Institute of Technology, 76131 Karlsruhe, Germany\\
+%$^{10}$ Institute for Physics, University of Zurich, 8057 Zurich, Switzerland\\
+%$^{11}$ School of Physics and Electronic Engineering, Guangzhou University, Guangzhou 510006, China\\
+%$^{12}$ School of Physics, Shandong University, Jinan, Shandong 250100, China\\
+%$^{13}$ Laboratoire de Physique Th\'eorique et Hautes Energies (LPTHE), UMR 7589, Sorbonne Universit\'e et CNRS, 4 place Jussieu, 75252 Paris Cedex 05, France\\
+%$^{14}$ Universit\`{a} degli Studi di Milano-Bicocca \& INFN, Piazza della Scienza 3, Milano 20126, Italy\\
+%$^{15}$ Deutsches Elektronen-Synchrotron DESY, Notkestr. 85, 22607 Hamburg, Germany \\
+%$^{16}$ Theoretical Physics Department, CERN, 1211 Geneva 23, Switzerland \\
+%$^{17}$ Theory Division, IFIC, University of Valencia-CSIC, E--46980 Paterna, Valencia, Spain \\
+%$^{18}$ Institute for Theoretical Physics, ETH Z\"urich, CH--8093 Z\"urich, Switzerland \\
+%$^{19}$ Department of Astrophysics, University of Zurich, 8057 Zurich, Switzerland\\
+%$^{20}$ School of Physics and Optoelectronic Engineering, Hainan University, Haikou, 570228, China\\
+%$^{21}$ School of Physics, Peking University, Beijing 100871, China\\
+%$^{22}$ Universit`a degli Studi di Milano-Bicocca \& INFN Sezione di Milano-Bicocca, \\Piazza della Scienza 3, Milano 20126, Italy\\
+%$^{23}$ Department of Physics and Astronomy, University of Sussex, Brighton BN1 9QH, UK\\
+%$^{24}$ Dipartimento di Fisica e Astronomia, Universit\`a di Firenze, I-50019 Sesto Fiorentino, Italy\\
+%$^{25}$ Departamento de F\'{i}sica Te\'{o}rica and Instituto de F\'{i}sica Te\'{o}rica UAM/CSIC, Universidad Aut\'{o}noma de Madrid, Cantoblanco, 28049, Madrid, Spain \\
+%$^{26}$ QuantumBasel, uptownBasel Infinity Corp., Schorenweg 44B, 4144 Arlesheim, Switzerland\\
+%$^{27}$ Institute for Theoretical Physics, University of Tübingen, Auf der Morgenstelle 14, 72076 Tübingen, Germany\\
+%$^{28}$ Institute for Theoretical Particle Physics, Karlsruhe Institute of Technology, 76131 Karlsruhe, Germany\\
+%$^{29}$ Institute for Astroparticle Physics, Karlsruhe Institute of Technology, D-76344 Eggenstein, Leopoldshafen, Germany
+%}
+ 
+\section*{\color{scipostdeepblue}{Abstract}}
+\textbf{\boldmath{%
+In this contribution, the higher-order QCD and electroweak corrections to Standard Model Higgs boson pair production via the gluon-fusion mechanism, $gg\to hh$, are summarized and the different sources of theoretical uncertainty are assessed. The discussion includes finite top quark mass effects, matching to parton showers, approximate NNLO and N$^3$LO QCD corrections, NLO electroweak effects, and uncertainties associated with the top quark mass scheme and perturbative scale choices. In addition, we provide an updated state-of-the-art recommendation for the inclusive gluon-fusion Higgs boson pair production cross section and the corresponding Higgs boson pair invariant-mass distribution.
+}}
+
+\vspace{\baselineskip}
+
+%%%%%%%%%% BLOCK: Copyright information
+% This block will be filled during the proof stage, and finilized just before publication.
+% It exists here only as a placeholder, and should not be modified by authors.
+\noindent\textcolor{white!90!black}{%
+\fbox{\parbox{\dimexpr\linewidth-2\fboxsep-2\fboxrule\relax}{%
+\textcolor{white!40!black}{\begin{tabularx}{\linewidth}{@{}X>{\raggedleft\arraybackslash}p{0.3\linewidth}@{}}%
+  {\small Copyright attribution to authors. \newline
+  This work is a submission to SciPost Phys. Comm. Rep. \newline
+  License information to appear upon publication. \newline
+  Publication information to appear upon publication.}
+  &
+  {\small Received Date \newline Accepted Date \newline Published Date}%
+\end{tabularx}}
+}}
+}
+%%%%%%%%%% BLOCK: Copyright information
+
+
+
+
+
+\tableofcontents
+
+%{\color{red}
+%\noindentfactors
+%\underline{\underline{structure}} \\
+
+%\noindent
+%\underline{methods:} \\
+%summarize the two numerical approaches \\
+%summarize the expansion/combination methods: large-mass expansion, HE expansion, %$p_T$ expansion (all combined with Pad\'e approximants, where appropriate) \\
+
+%\noindent
+%\underline{uncertainties:} \\
+%discuss the conventional renormalization/factorization scale uncertainties
+%($\alpha_s$, PDFs) \\
+%discuss the top mass scheme and scale dependencies \\ \\
+%Please, work on and complete the authors list and affiliations!!! \\
+%This will then be brought into alphabetic order. \\
+%}
+
+
+
+\input{Introduction/Intro}
+
+
+
+\input{NLO_QCD_SM/NLO_QCD_main}
+
+
+
+\input{NNLO_QCD_SM/NNLO_QCD_main}
+
+
+
+\input{N3LO_QCD_SM/N3LO_QCD_main}
+
+
+
+\input{mt_UN/mt_main}
+
+
+
+\input{NLO_EW_SM/EW_main}
+
+
+
+\input{Recommendations/rec}
+
+
+
+\input{conclusions}
+
+
+
+\section*{Acknowledgements}
+%         ===============
+
+\begin{sloppypar}
+Ajjath A H and S.~Jones acknowledge that this research was supported in part by the UK Science and Technology Facilities Council under contracts ST/X000745/1 and ST/X003167/1. S.~Jones and Ajjath A H are supported by a Royal Society University Research Fellowship (URF/R1/201268, URF/R/251034).
+
+A.~Bhattacharya and F.~Campanario are supported by the Generalitat Valenciana, the Spanish government, and ERDF funds from the European Commission ``NextGenerationEU/PRTR'' (CNS2022-136165, PID2023-151418NB-I00, MCIN/AEI/\allowbreak 10.13039/\allowbreak 501100011033). J.~Chang is supported by the Swiss National Science Foundation (SNSF). J.~Ronca acknowledges support from INFN. A.~Bhattacharya, F.~Campanario, S.~Carlotti, J.~Chang, J.~Mazzitelli, M.~M\"uhlleitner, J.~Ronca and M.~Spira acknowledge support from the state of Baden-W\"urttemberg through bwHPC and from the German Research Foundation (DFG) through grant no.\ INST~39/963-1~FUGG (bwForCluster NEMO).
+\end{sloppypar}
+
+M.~Bonetti, S.~Carlotti, G.~Heinrich, M.~M\"uhlleitner, P.~Rendler and A.~Vestner acknowledge support from the \textit{Deutsche Forschungsgemeinschaft} (DFG, German Research Foundation) under grant 396021762 -- TRR 257.
+
+L.-B.~Chen is supported by the National Natural Science Foundation of China (NSFC) under Grant No.~12175048.
+
+X.~Chen is supported by the National Science Foundation of China (NSFC) with grants No.~12475085 and No.~12321005.
+
+J.~Davies is supported by the STFC Consolidated Grant ST/X000699/1.
+
+\begin{sloppypar}
+P.~P.~Giardino is supported by the Ram\'on y Cajal grant RYC2022-038517-I funded by MCIN/AEI/\allowbreak 10.13039/\allowbreak 501100011033 and by FSE+, and by the Spanish Research Agency (Agencia Estatal de Investigaci\'on) through the grant IFT Centro de Excelencia Severo Ochoa No.~CEX2020-001007-S.
+\end{sloppypar}
+
+R.~Gr\"ober acknowledges support from a STARS@UniPD grant under the acronym HiggsPairs.
+
+S.~Jaskiewicz is supported by the Swiss National Science Foundation Ambizione grant PZ00P2\_223524.
+
+\begin{sloppypar}
+H.~T.~Li is supported by the National Science Foundation of China under Grant Nos.~12275156 and 12321005.
+\end{sloppypar}
+
+G.~Marinelli acknowledges funding from the European Research Council (ERC) under the European Union's Horizon 2020 research and innovation programme (Grant agreements Nos.~714788 REINVENT and 101002090 COLORFREE) and support from the Deutsche Forschungsgemeinschaft (DFG) under Germany's Excellence Strategy -- EXC 2121 ``Quantum Universe'' -- 390833306.
+
+A.~Papaefstathiou acknowledges support from the U.S. Department of Energy, Office of Science, Office of Nuclear Physics under Award Number DE-SC0025728 and by the U.S. National Science Foundation under Grant No.\ PHY 2210161.
+
+K.~Sch\"onwald and H.~Zhang are supported by the European Union under the Marie Sk{\l}odowska-Curie Actions (MSCA) Grants No.~101204018 and No.~101202083.
+
+L.~Scyboz is supported by the Australian Research Council through a
+Discovery Early Career Researcher Award (project number DE230100867).
+
+H.-S.~Shao acknowledges support by grants from the ERC (grant 101041109 ``BOSON'') and the French ANR (grant ANR-20-CE31-0015 ``PrecisOnium''). Views and opinions expressed are however those of the authors only and do not necessarily reflect those of the European Union or the European Research Council Executive Agency. Neither the European Union nor the granting authority can be held responsible for them.
+
+R.~Szafron is supported by the U.S. Department of Energy under Grant Contract DE-SC0012704.
+
+W.~J.~Torres Bobadilla is supported by the Leverhulme Trust, LIP-2021-014.
+
+J.~Wang is supported in part by the National Natural Science Foundation of China under Grant Nos.~12321005 and 12375076.
+
+\bibliography{HHCitations}
+
+\end{document}

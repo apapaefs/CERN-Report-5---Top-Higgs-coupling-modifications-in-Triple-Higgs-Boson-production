@@ -1,0 +1,25 @@
+%\subsection{Expansion methods}
+\subsection{Amplitude expansion around small transverse momentum and mass}
+\label{sec:expGPL}
+
+%\textit{Authors:} Roberto Bonciani, Giuseppe Degrassi, Pier Paolo Giardino, Ramona Gröber (1806.11564) + Emanuele Bagnaschi (2309.1052)
+
+\textbf{Emanuele Bagnaschi, Roberto Bonciani, Giuseppe Degrassi, Pier Paolo Giardino, Ramona Gröber~\cite{Bonciani:2018omm,Bagnaschi:2023rbx}.}
+
+%        =================
+\noindent An alternative approach to the fully numerical evaluation of the virtual corrections is provided by expansions. In particular, an expansion in small $p_T$ as originally proposed in \cite{Bonciani:2018omm} can cover more than 95\% of the relevant phase space for SM Higgs boson pair production. This expansion assumes that $p_T^2$ and $m_h^2$ are much smaller than $4 m_t^2$, allowing one to Taylor expand in these quantities while keeping the partonic centre-of-mass energy $\hat{s}$ arbitrary. Concretely, this means expanding in the forward region, $p_3\sim - p_1$ where $p_3$ is the incoming Higgs momentum and $p_1$ the momentum of a gluon. This expansion reduces the number of scales in the two-loop integrals to one, which allows for the analytical determination. In Ref.~\cite{Bonciani:2018omm} all the two-loop integrals were expressed analytically in terms of generalized harmonic polylogarithms, apart from two elliptic integrals that were determined in terms of series expansions around singular points \cite{Bonciani:2018uvv} following the approach of \cite{Pozzorini:2005ff, Aglietti:2007as}.
+
+In the high-energy limit, the described expansion is no longer valid, as large $p_T$ values can be achieved. It must therefore be combined with a complementary expansion as provided in Ref.~\cite{Davies:2018qvx}. This reference expands the amplitudes in the high-energy limit, namely for $\hat{s}, \hat{t}, \hat{u} \gg m_t^2$. The expansion allows all integrals to be expressed analytically in terms of harmonic polylogarithms \cite{Davies:2018ood}.
+
+The two expansions have been combined by means of Pad\'e approximations in Ref.~\cite{Bellafronte:2022jmo}, showing that a very reliable result, with a $< 1\%$ difference from the numerical grid of Ref.~\cite{Davies:2019dfy}, is obtained.
+
+This approach has been used for the POWHEG implementation of Higgs boson pair production at NLO QCD presented in Ref.~\cite{Bagnaschi:2023rbx}, for which the real corrections have been computed with \texttt{MadLoop} \cite{Hirschi:2011pa}. Due to the flexibility of the analytic approach, the top quark mass renormalization scheme uncertainty can be computed fully differentially, showing that, depending on the kinematic variable considered, it can be even larger in certain parts of the phase space than for the inclusive cross section. The code so far allows one to vary the top quark Yukawa coupling and the trilinear Higgs boson self-coupling, and further extensions to BSM scenarios can be achieved easily due to the flexibility of the approach.
+
+A similar approach has been followed for the public code \texttt{ggxy} \cite{Davies:2025qjr} relying on a deeper expansion in small Mandelstam $\hat{t}$ combined with a high-energy expansion \cite{Davies:2023vmj}, see next section.
+
+%. The two-loop integrals have been obtained semi-analytically in terms of series expansions in one variable \cite{Fael:2021kyg}. In this approach, also first partial results for the virtual corrections at NNLO QCD have been obtained in \cite{Davies:2023obx, Davies:2024znp, Davies:2025ghl}
+
+Other approaches, for instance, include a combination of large mass expansion with a threshold expansion combined via Pad\'e approximants \cite{Grober:2017uho}, or an expansion in the Higgs mass $m_h$ with numerical evaluation of the two-loop integrals \cite{Xu:2018eos}.
+%, see the next section.
+
+Finally, we want to emphasize that if one were to associate an uncertainty to the analytic approach with respect to the numeric one, it would be below 1\% and hence currently completely negligible with respect to other theory uncertainties.
